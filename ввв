@@ -1,0 +1,468 @@
+Building for debugging...
+[0/4] Write swift-version--1AB21518FC5DEDBE.txt
+error: emit-module command failed with exit code 1 (use -v to see invocation)
+[2/12] Compiling TelegramUIDScanner ConfigService.swift
+[3/12] Emitting module TelegramUIDScanner
+/Users/mk/TelegramUIDScanner/Sources/TelegramUIDScanner/Services/UIDProcessingManager.swift:9:26: [1;31merror: [1;39mcannot find 'BotResponseParser' in scope[0;0m
+  [0;36m7 |[0;0m     
+  [0;36m8 |[0;0m     private let telegramService = RealTelegramService()
+  [0;36m9 |[0;0m     private let parser = [4;39mBotResponseParser[0;0m()
+    [0;36m|[0;0m                          `- [1;31merror: [1;39mcannot find 'BotResponseParser' in scope[0;0m
+ [0;36m10 |[0;0m     private let disposeBag = DisposeBag()
+ [0;36m11 |[0;0m     private var processingTasks: [UUID: Task<Void, Never>] = [:]
+[4/12] Compiling TelegramUIDScanner TelegramUIDScanner.swift
+/Users/mk/TelegramUIDScanner/Sources/TelegramUIDScanner/Services/UIDProcessingManager.swift:9:26: [1;31merror: [1;39mcannot find 'BotResponseParser' in scope[0;0m
+  [0;36m7 |[0;0m     
+  [0;36m8 |[0;0m     private let telegramService = RealTelegramService()
+  [0;36m9 |[0;0m     private let parser = [4;39mBotResponseParser[0;0m()
+    [0;36m|[0;0m                          `- [1;31merror: [1;39mcannot find 'BotResponseParser' in scope[0;0m
+ [0;36m10 |[0;0m     private let disposeBag = DisposeBag()
+ [0;36m11 |[0;0m     private var processingTasks: [UUID: Task<Void, Never>] = [:]
+[5/12] Compiling TelegramUIDScanner UIDProcessingManager.swift
+/Users/mk/TelegramUIDScanner/Sources/TelegramUIDScanner/Services/UIDProcessingManager.swift:9:26: [1;31merror: [1;39mcannot find 'BotResponseParser' in scope[0;0m
+  [0;36m7 |[0;0m     
+  [0;36m8 |[0;0m     private let telegramService = RealTelegramService()
+  [0;36m9 |[0;0m     private let parser = [4;39mBotResponseParser[0;0m()
+    [0;36m|[0;0m                          `- [1;31merror: [1;39mcannot find 'BotResponseParser' in scope[0;0m
+ [0;36m10 |[0;0m     private let disposeBag = DisposeBag()
+ [0;36m11 |[0;0m     private var processingTasks: [UUID: Task<Void, Never>] = [:]
+
+/Users/mk/TelegramUIDScanner/Sources/TelegramUIDScanner/Services/UIDProcessingManager.swift:55:28: [1;31merror: [1;39mtype 'AppState' has no member 'shared'[0;0m
+ [0;36m53 |[0;0m         
+ [0;36m54 |[0;0m         Task {
+ [0;36m55 |[0;0m             await [4;39mAppState[0;0m.[4;39mshared[0;0m.addLog("Обработка остановлена пользователем", type: .warning)
+    [0;36m|[0;0m                            `- [1;31merror: [1;39mtype 'AppState' has no member 'shared'[0;0m
+ [0;36m56 |[0;0m         }
+ [0;36m57 |[0;0m     }
+
+/Users/mk/TelegramUIDScanner/Sources/TelegramUIDScanner/Services/UIDProcessingManager.swift:55:121: [1;31merror: [1;39mcannot infer contextual base in reference to member 'warning'[0;0m
+ [0;36m53 |[0;0m         
+ [0;36m54 |[0;0m         Task {
+ [0;36m55 |[0;0m             await AppState.shared.addLog("Обработка остановлена пользователем", type: [4;39m.warning[0;0m)
+    [0;36m|[0;0m                                                                                        `- [1;31merror: [1;39mcannot infer contextual base in reference to member 'warning'[0;0m
+ [0;36m56 |[0;0m         }
+ [0;36m57 |[0;0m     }
+
+/Users/mk/TelegramUIDScanner/Sources/TelegramUIDScanner/Services/UIDProcessingManager.swift:62:28: [1;31merror: [1;39mtype 'AppState' has no member 'shared'[0;0m
+ [0;36m60 |[0;0m         // Пауза через флаг в AppState
+ [0;36m61 |[0;0m         Task {
+ [0;36m62 |[0;0m             await [4;39mAppState[0;0m.[4;39mshared[0;0m.isPaused = true
+    [0;36m|[0;0m                            `- [1;31merror: [1;39mtype 'AppState' has no member 'shared'[0;0m
+ [0;36m63 |[0;0m             await AppState.shared.addLog("Обработка приостановлена", type: .warning)
+ [0;36m64 |[0;0m         }
+
+/Users/mk/TelegramUIDScanner/Sources/TelegramUIDScanner/Services/UIDProcessingManager.swift:69:28: [1;31merror: [1;39mtype 'AppState' has no member 'shared'[0;0m
+ [0;36m67 |[0;0m     func resumeProcessing() {
+ [0;36m68 |[0;0m         Task {
+ [0;36m69 |[0;0m             await [4;39mAppState[0;0m.[4;39mshared[0;0m.isPaused = false
+    [0;36m|[0;0m                            `- [1;31merror: [1;39mtype 'AppState' has no member 'shared'[0;0m
+ [0;36m70 |[0;0m             await AppState.shared.addLog("Обработка продолжена", type: .info)
+ [0;36m71 |[0;0m         }
+
+/Users/mk/TelegramUIDScanner/Sources/TelegramUIDScanner/Services/UIDProcessingManager.swift:86:32: [1;31merror: [1;39mtype 'AppState' has no member 'shared'[0;0m
+ [0;36m84 |[0;0m             guard isAuthorized else {
+ [0;36m85 |[0;0m                 await updateStatus(for: account.id, "Ошибка авторизации")
+ [0;36m86 |[0;0m                 await [4;39mAppState[0;0m.[4;39mshared[0;0m.addLog("Ошибка авторизации для \(account.name)", type: .error)
+    [0;36m|[0;0m                                `- [1;31merror: [1;39mtype 'AppState' has no member 'shared'[0;0m
+ [0;36m87 |[0;0m                 return
+ [0;36m88 |[0;0m             }
+
+/Users/mk/TelegramUIDScanner/Sources/TelegramUIDScanner/Services/UIDProcessingManager.swift:86:115: [1;31merror: [1;39mcannot infer contextual base in reference to member 'error'[0;0m
+ [0;36m84 |[0;0m             guard isAuthorized else {
+ [0;36m85 |[0;0m                 await updateStatus(for: account.id, "Ошибка авторизации")
+ [0;36m86 |[0;0m                 await AppState.shared.addLog("Ошибка авторизации для \(account.name)", type: [4;39m.error[0;0m)
+    [0;36m|[0;0m                                                                                               `- [1;31merror: [1;39mcannot infer contextual base in reference to member 'error'[0;0m
+ [0;36m87 |[0;0m                 return
+ [0;36m88 |[0;0m             }
+
+/Users/mk/TelegramUIDScanner/Sources/TelegramUIDScanner/Services/UIDProcessingManager.swift:91:28: [1;31merror: [1;39mtype 'AppState' has no member 'shared'[0;0m
+ [0;36m89 |[0;0m             
+ [0;36m90 |[0;0m             await updateStatus(for: account.id, "Обработка \(uids.count) UID")
+ [0;36m91 |[0;0m             await [4;39mAppState[0;0m.[4;39mshared[0;0m.addLog("Начата обработка \(uids.count) UID для \(account.name)", type: .info)
+    [0;36m|[0;0m                            `- [1;31merror: [1;39mtype 'AppState' has no member 'shared'[0;0m
+ [0;36m92 |[0;0m             
+ [0;36m93 |[0;0m             // Обрабатываем каждый UID
+
+/Users/mk/TelegramUIDScanner/Sources/TelegramUIDScanner/Services/UIDProcessingManager.swift:91:125: [1;31merror: [1;39mcannot infer contextual base in reference to member 'info'[0;0m
+ [0;36m89 |[0;0m             
+ [0;36m90 |[0;0m             await updateStatus(for: account.id, "Обработка \(uids.count) UID")
+ [0;36m91 |[0;0m             await AppState.shared.addLog("Начата обработка \(uids.count) UID для \(account.name)", type: [4;39m.info[0;0m)
+    [0;36m|[0;0m                                                                                                           `- [1;31merror: [1;39mcannot infer contextual base in reference to member 'info'[0;0m
+ [0;36m92 |[0;0m             
+ [0;36m93 |[0;0m             // Обрабатываем каждый UID
+
+/Users/mk/TelegramUIDScanner/Sources/TelegramUIDScanner/Services/UIDProcessingManager.swift:96:38: [1;31merror: [1;39mtype 'AppState' has no member 'shared'[0;0m
+ [0;36m94 |[0;0m             for (index, uid) in uids.enumerated() {
+ [0;36m95 |[0;0m                 // Проверяем флаги остановки/паузы
+ [0;36m96 |[0;0m                 guard await [4;39mAppState[0;0m.[4;39mshared[0;0m.isRunning else { break }
+    [0;36m|[0;0m                                      `- [1;31merror: [1;39mtype 'AppState' has no member 'shared'[0;0m
+ [0;36m97 |[0;0m                 
+ [0;36m98 |[0;0m                 while await AppState.shared.isPaused {
+
+/Users/mk/TelegramUIDScanner/Sources/TelegramUIDScanner/Services/UIDProcessingManager.swift:98:38: [1;31merror: [1;39mtype 'AppState' has no member 'shared'[0;0m
+ [0;36m96 |[0;0m                 guard await AppState.shared.isRunning else { break }
+ [0;36m97 |[0;0m                 
+ [0;36m98 |[0;0m                 while await [4;39mAppState[0;0m.[4;39mshared[0;0m.isPaused {
+    [0;36m|[0;0m                                      `- [1;31merror: [1;39mtype 'AppState' has no member 'shared'[0;0m
+ [0;36m99 |[0;0m                     try? await Task.sleep(nanoseconds: 1_000_000_000) // 1 сек
+[0;36m100 |[0;0m                 }
+
+/Users/mk/TelegramUIDScanner/Sources/TelegramUIDScanner/Services/UIDProcessingManager.swift:106:36: [1;31merror: [1;39mtype 'AppState' has no member 'shared'[0;0m
+[0;36m104 |[0;0m                 // Обрабатываем UID
+[0;36m105 |[0;0m                 if let result = await processUID(uid, for: account) {
+[0;36m106 |[0;0m                     await [4;39mAppState[0;0m.[4;39mshared[0;0m.addDeposit(result)
+    [0;36m|[0;0m                                    `- [1;31merror: [1;39mtype 'AppState' has no member 'shared'[0;0m
+[0;36m107 |[0;0m                 }
+[0;36m108 |[0;0m                 
+
+/Users/mk/TelegramUIDScanner/Sources/TelegramUIDScanner/Services/UIDProcessingManager.swift:110:44: [1;31merror: [1;39mtype 'AppState' has no member 'shared'[0;0m
+[0;36m108 |[0;0m                 
+[0;36m109 |[0;0m                 // Задержка между запросами
+[0;36m110 |[0;0m                 let delay = await [4;39mAppState[0;0m.[4;39mshared[0;0m.settings.delayBetweenRequests
+    [0;36m|[0;0m                                            `- [1;31merror: [1;39mtype 'AppState' has no member 'shared'[0;0m
+[0;36m111 |[0;0m                 try? await Task.sleep(nanoseconds: UInt64(delay * 1_000_000_000))
+[0;36m112 |[0;0m             }
+
+/Users/mk/TelegramUIDScanner/Sources/TelegramUIDScanner/Services/UIDProcessingManager.swift:115:28: [1;31merror: [1;39mtype 'AppState' has no member 'shared'[0;0m
+[0;36m113 |[0;0m             
+[0;36m114 |[0;0m             await updateStatus(for: account.id, "Завершено")
+[0;36m115 |[0;0m             await [4;39mAppState[0;0m.[4;39mshared[0;0m.addLog("Обработка завершена для \(account.name)", type: .success)
+    [0;36m|[0;0m                            `- [1;31merror: [1;39mtype 'AppState' has no member 'shared'[0;0m
+[0;36m116 |[0;0m             
+[0;36m117 |[0;0m             // Отключаем аккаунт
+
+/Users/mk/TelegramUIDScanner/Sources/TelegramUIDScanner/Services/UIDProcessingManager.swift:115:113: [1;31merror: [1;39mcannot infer contextual base in reference to member 'success'[0;0m
+[0;36m113 |[0;0m             
+[0;36m114 |[0;0m             await updateStatus(for: account.id, "Завершено")
+[0;36m115 |[0;0m             await AppState.shared.addLog("Обработка завершена для \(account.name)", type: [4;39m.success[0;0m)
+    [0;36m|[0;0m                                                                                            `- [1;31merror: [1;39mcannot infer contextual base in reference to member 'success'[0;0m
+[0;36m116 |[0;0m             
+[0;36m117 |[0;0m             // Отключаем аккаунт
+
+/Users/mk/TelegramUIDScanner/Sources/TelegramUIDScanner/Services/UIDProcessingManager.swift:122:28: [1;31merror: [1;39mtype 'AppState' has no member 'shared'[0;0m
+[0;36m120 |[0;0m         } catch {
+[0;36m121 |[0;0m             await updateStatus(for: account.id, "Ошибка: \(error.localizedDescription)")
+[0;36m122 |[0;0m             await [4;39mAppState[0;0m.[4;39mshared[0;0m.addLog("Ошибка обработки для \(account.name): \(error)", type: .error)
+    [0;36m|[0;0m                            `- [1;31merror: [1;39mtype 'AppState' has no member 'shared'[0;0m
+[0;36m123 |[0;0m         }
+[0;36m124 |[0;0m     }
+
+/Users/mk/TelegramUIDScanner/Sources/TelegramUIDScanner/Services/UIDProcessingManager.swift:122:117: [1;31merror: [1;39mcannot infer contextual base in reference to member 'error'[0;0m
+[0;36m120 |[0;0m         } catch {
+[0;36m121 |[0;0m             await updateStatus(for: account.id, "Ошибка: \(error.localizedDescription)")
+[0;36m122 |[0;0m             await AppState.shared.addLog("Ошибка обработки для \(account.name): \(error)", type: [4;39m.error[0;0m)
+    [0;36m|[0;0m                                                                                                   `- [1;31merror: [1;39mcannot infer contextual base in reference to member 'error'[0;0m
+[0;36m123 |[0;0m         }
+[0;36m124 |[0;0m     }
+
+/Users/mk/TelegramUIDScanner/Sources/TelegramUIDScanner/Services/UIDProcessingManager.swift:96:23: [1;33mwarning: [1;39mno 'async' operations occur within 'await' expression[0;0m
+ [0;36m94 |[0;0m             for (index, uid) in uids.enumerated() {
+ [0;36m95 |[0;0m                 // Проверяем флаги остановки/паузы
+ [0;36m96 |[0;0m                 guard await AppState.shared.isRunning else { break }
+    [0;36m|[0;0m                       `- [1;33mwarning: [1;39mno 'async' operations occur within 'await' expression[0;0m
+ [0;36m97 |[0;0m                 
+ [0;36m98 |[0;0m                 while await AppState.shared.isPaused {
+
+/Users/mk/TelegramUIDScanner/Sources/TelegramUIDScanner/Services/UIDProcessingManager.swift:98:23: [1;33mwarning: [1;39mno 'async' operations occur within 'await' expression[0;0m
+ [0;36m96 |[0;0m                 guard await AppState.shared.isRunning else { break }
+ [0;36m97 |[0;0m                 
+ [0;36m98 |[0;0m                 while await AppState.shared.isPaused {
+    [0;36m|[0;0m                       `- [1;33mwarning: [1;39mno 'async' operations occur within 'await' expression[0;0m
+ [0;36m99 |[0;0m                     try? await Task.sleep(nanoseconds: 1_000_000_000) // 1 сек
+[0;36m100 |[0;0m                 }
+
+/Users/mk/TelegramUIDScanner/Sources/TelegramUIDScanner/Services/UIDProcessingManager.swift:110:29: [1;33mwarning: [1;39mno 'async' operations occur within 'await' expression[0;0m
+[0;36m108 |[0;0m                 
+[0;36m109 |[0;0m                 // Задержка между запросами
+[0;36m110 |[0;0m                 let delay = await AppState.shared.settings.delayBetweenRequests
+    [0;36m|[0;0m                             `- [1;33mwarning: [1;39mno 'async' operations occur within 'await' expression[0;0m
+[0;36m111 |[0;0m                 try? await Task.sleep(nanoseconds: UInt64(delay * 1_000_000_000))
+[0;36m112 |[0;0m             }
+
+/Users/mk/TelegramUIDScanner/Sources/TelegramUIDScanner/Services/UIDProcessingManager.swift:127:41: [1;31merror: [1;39mtype 'AppState' has no member 'shared'[0;0m
+[0;36m125 |[0;0m     
+[0;36m126 |[0;0m     private func processUID(_ uid: String, for account: TelegramAccount) async -> UIDResult? {
+[0;36m127 |[0;0m         let maxRetries = await [4;39mAppState[0;0m.[4;39mshared[0;0m.settings.maxRetries
+    [0;36m|[0;0m                                         `- [1;31merror: [1;39mtype 'AppState' has no member 'shared'[0;0m
+[0;36m128 |[0;0m         let minAmount = await AppState.shared.settings.minDepositAmount
+[0;36m129 |[0;0m         
+
+/Users/mk/TelegramUIDScanner/Sources/TelegramUIDScanner/Services/UIDProcessingManager.swift:128:40: [1;31merror: [1;39mtype 'AppState' has no member 'shared'[0;0m
+[0;36m126 |[0;0m     private func processUID(_ uid: String, for account: TelegramAccount) async -> UIDResult? {
+[0;36m127 |[0;0m         let maxRetries = await AppState.shared.settings.maxRetries
+[0;36m128 |[0;0m         let minAmount = await [4;39mAppState[0;0m.[4;39mshared[0;0m.settings.minDepositAmount
+    [0;36m|[0;0m                                        `- [1;31merror: [1;39mtype 'AppState' has no member 'shared'[0;0m
+[0;36m129 |[0;0m         
+[0;36m130 |[0;0m         var retryCount = 0
+
+/Users/mk/TelegramUIDScanner/Sources/TelegramUIDScanner/Services/UIDProcessingManager.swift:142:33: [1;31merror: [1;39mcannot find 'BotResponseParser' in scope[0;0m
+[0;36m140 |[0;0m                 
+[0;36m141 |[0;0m                 // Парсим ответ
+[0;36m142 |[0;0m                 if let result = [4;39mBotResponseParser[0;0m.parseResponse(response, for: uid) {
+    [0;36m|[0;0m                                 `- [1;31merror: [1;39mcannot find 'BotResponseParser' in scope[0;0m
+[0;36m143 |[0;0m                     
+[0;36m144 |[0;0m                     // Проверяем порог
+
+/Users/mk/TelegramUIDScanner/Sources/TelegramUIDScanner/Services/UIDProcessingManager.swift:166:40: [1;31merror: [1;39mtype 'AppState' has no member 'shared'[0;0m
+[0;36m164 |[0;0m                         }
+[0;36m165 |[0;0m                         
+[0;36m166 |[0;0m                         await [4;39mAppState[0;0m.[4;39mshared[0;0m.addLog("Найден депозит: \(uid) - $\(result.depositAmount)", type: .success)
+    [0;36m|[0;0m                                        `- [1;31merror: [1;39mtype 'AppState' has no member 'shared'[0;0m
+[0;36m167 |[0;0m                         return fullResult
+[0;36m168 |[0;0m                         
+
+/Users/mk/TelegramUIDScanner/Sources/TelegramUIDScanner/Services/UIDProcessingManager.swift:166:127: [1;31merror: [1;39mcannot infer contextual base in reference to member 'success'[0;0m
+[0;36m164 |[0;0m                         }
+[0;36m165 |[0;0m                         
+[0;36m166 |[0;0m                         await AppState.shared.addLog("Найден депозит: \(uid) - $\(result.depositAmount)", type: [4;39m.success[0;0m)
+    [0;36m|[0;0m                                                                                                                  `- [1;31merror: [1;39mcannot infer contextual base in reference to member 'success'[0;0m
+[0;36m167 |[0;0m                         return fullResult
+[0;36m168 |[0;0m                         
+
+/Users/mk/TelegramUIDScanner/Sources/TelegramUIDScanner/Services/UIDProcessingManager.swift:170:40: [1;31merror: [1;39mtype 'AppState' has no member 'shared'[0;0m
+[0;36m168 |[0;0m                         
+[0;36m169 |[0;0m                     } else {
+[0;36m170 |[0;0m                         await [4;39mAppState[0;0m.[4;39mshared[0;0m.addLog("Пропуск: \(uid) - $\(result.depositAmount) < $\(minAmount)", type: .info)
+    [0;36m|[0;0m                                        `- [1;31merror: [1;39mtype 'AppState' has no member 'shared'[0;0m
+[0;36m171 |[0;0m                         return nil
+[0;36m172 |[0;0m                     }
+
+/Users/mk/TelegramUIDScanner/Sources/TelegramUIDScanner/Services/UIDProcessingManager.swift:170:130: [1;31merror: [1;39mcannot infer contextual base in reference to member 'info'[0;0m
+[0;36m168 |[0;0m                         
+[0;36m169 |[0;0m                     } else {
+[0;36m170 |[0;0m                         await AppState.shared.addLog("Пропуск: \(uid) - $\(result.depositAmount) < $\(minAmount)", type: [4;39m.info[0;0m)
+    [0;36m|[0;0m                                                                                                                           `- [1;31merror: [1;39mcannot infer contextual base in reference to member 'info'[0;0m
+[0;36m171 |[0;0m                         return nil
+[0;36m172 |[0;0m                     }
+
+/Users/mk/TelegramUIDScanner/Sources/TelegramUIDScanner/Services/UIDProcessingManager.swift:174:36: [1;31merror: [1;39mtype 'AppState' has no member 'shared'[0;0m
+[0;36m172 |[0;0m                     }
+[0;36m173 |[0;0m                 } else {
+[0;36m174 |[0;0m                     await [4;39mAppState[0;0m.[4;39mshared[0;0m.addLog("Не удалось распарсить ответ для \(uid)", type: .warning)
+    [0;36m|[0;0m                                    `- [1;31merror: [1;39mtype 'AppState' has no member 'shared'[0;0m
+[0;36m175 |[0;0m                     return nil
+[0;36m176 |[0;0m                 }
+
+/Users/mk/TelegramUIDScanner/Sources/TelegramUIDScanner/Services/UIDProcessingManager.swift:174:126: [1;31merror: [1;39mcannot infer contextual base in reference to member 'warning'[0;0m
+[0;36m172 |[0;0m                     }
+[0;36m173 |[0;0m                 } else {
+[0;36m174 |[0;0m                     await AppState.shared.addLog("Не удалось распарсить ответ для \(uid)", type: [4;39m.warning[0;0m)
+    [0;36m|[0;0m                                                                                                   `- [1;31merror: [1;39mcannot infer contextual base in reference to member 'warning'[0;0m
+[0;36m175 |[0;0m                     return nil
+[0;36m176 |[0;0m                 }
+
+/Users/mk/TelegramUIDScanner/Sources/TelegramUIDScanner/Services/UIDProcessingManager.swift:182:36: [1;31merror: [1;39mtype 'AppState' has no member 'shared'[0;0m
+[0;36m180 |[0;0m                 
+[0;36m181 |[0;0m                 if retryCount < maxRetries {
+[0;36m182 |[0;0m                     await [4;39mAppState[0;0m.[4;39mshared[0;0m.addLog("Повтор \(retryCount)/\(maxRetries) для \(uid)", type: .warning)
+    [0;36m|[0;0m                                    `- [1;31merror: [1;39mtype 'AppState' has no member 'shared'[0;0m
+[0;36m183 |[0;0m                     try? await Task.sleep(nanoseconds: 2_000_000_000) // 2 сек между повторами
+[0;36m184 |[0;0m                 } else {
+
+/Users/mk/TelegramUIDScanner/Sources/TelegramUIDScanner/Services/UIDProcessingManager.swift:182:115: [1;31merror: [1;39mcannot infer contextual base in reference to member 'warning'[0;0m
+[0;36m180 |[0;0m                 
+[0;36m181 |[0;0m                 if retryCount < maxRetries {
+[0;36m182 |[0;0m                     await AppState.shared.addLog("Повтор \(retryCount)/\(maxRetries) для \(uid)", type: [4;39m.warning[0;0m)
+    [0;36m|[0;0m                                                                                                          `- [1;31merror: [1;39mcannot infer contextual base in reference to member 'warning'[0;0m
+[0;36m183 |[0;0m                     try? await Task.sleep(nanoseconds: 2_000_000_000) // 2 сек между повторами
+[0;36m184 |[0;0m                 } else {
+
+/Users/mk/TelegramUIDScanner/Sources/TelegramUIDScanner/Services/UIDProcessingManager.swift:185:36: [1;31merror: [1;39mtype 'AppState' has no member 'shared'[0;0m
+[0;36m183 |[0;0m                     try? await Task.sleep(nanoseconds: 2_000_000_000) // 2 сек между повторами
+[0;36m184 |[0;0m                 } else {
+[0;36m185 |[0;0m                     await [4;39mAppState[0;0m.[4;39mshared[0;0m.addLog("Ошибка обработки \(uid): \(error)", type: .error)
+    [0;36m|[0;0m                                    `- [1;31merror: [1;39mtype 'AppState' has no member 'shared'[0;0m
+[0;36m186 |[0;0m                 }
+[0;36m187 |[0;0m             }
+
+/Users/mk/TelegramUIDScanner/Sources/TelegramUIDScanner/Services/UIDProcessingManager.swift:185:109: [1;31merror: [1;39mcannot infer contextual base in reference to member 'error'[0;0m
+[0;36m183 |[0;0m                     try? await Task.sleep(nanoseconds: 2_000_000_000) // 2 сек между повторами
+[0;36m184 |[0;0m                 } else {
+[0;36m185 |[0;0m                     await AppState.shared.addLog("Ошибка обработки \(uid): \(error)", type: [4;39m.error[0;0m)
+    [0;36m|[0;0m                                                                                              `- [1;31merror: [1;39mcannot infer contextual base in reference to member 'error'[0;0m
+[0;36m186 |[0;0m                 }
+[0;36m187 |[0;0m             }
+
+/Users/mk/TelegramUIDScanner/Sources/TelegramUIDScanner/Services/UIDProcessingManager.swift:127:26: [1;33mwarning: [1;39mno 'async' operations occur within 'await' expression[0;0m
+[0;36m125 |[0;0m     
+[0;36m126 |[0;0m     private func processUID(_ uid: String, for account: TelegramAccount) async -> UIDResult? {
+[0;36m127 |[0;0m         let maxRetries = await AppState.shared.settings.maxRetries
+    [0;36m|[0;0m                          `- [1;33mwarning: [1;39mno 'async' operations occur within 'await' expression[0;0m
+[0;36m128 |[0;0m         let minAmount = await AppState.shared.settings.minDepositAmount
+[0;36m129 |[0;0m         
+
+/Users/mk/TelegramUIDScanner/Sources/TelegramUIDScanner/Services/UIDProcessingManager.swift:128:25: [1;33mwarning: [1;39mno 'async' operations occur within 'await' expression[0;0m
+[0;36m126 |[0;0m     private func processUID(_ uid: String, for account: TelegramAccount) async -> UIDResult? {
+[0;36m127 |[0;0m         let maxRetries = await AppState.shared.settings.maxRetries
+[0;36m128 |[0;0m         let minAmount = await AppState.shared.settings.minDepositAmount
+    [0;36m|[0;0m                         `- [1;33mwarning: [1;39mno 'async' operations occur within 'await' expression[0;0m
+[0;36m129 |[0;0m         
+[0;36m130 |[0;0m         var retryCount = 0
+
+/Users/mk/TelegramUIDScanner/Sources/TelegramUIDScanner/Services/UIDProcessingManager.swift:197:39: [1;31merror: [1;39mtype 'AppState' has no member 'shared'[0;0m
+[0;36m195 |[0;0m         
+[0;36m196 |[0;0m         // Обновляем статус в AppState
+[0;36m197 |[0;0m         if let index = await [4;39mAppState[0;0m.[4;39mshared[0;0m.accounts.firstIndex(where: { $0.id == accountId }) {
+    [0;36m|[0;0m                                       `- [1;31merror: [1;39mtype 'AppState' has no member 'shared'[0;0m
+[0;36m198 |[0;0m             await AppState.shared.accounts[index].currentStatus = status
+[0;36m199 |[0;0m         }
+
+/Users/mk/TelegramUIDScanner/Sources/TelegramUIDScanner/Services/UIDProcessingManager.swift:198:28: [1;31merror: [1;39mtype 'AppState' has no member 'shared'[0;0m
+[0;36m196 |[0;0m         // Обновляем статус в AppState
+[0;36m197 |[0;0m         if let index = await AppState.shared.accounts.firstIndex(where: { $0.id == accountId }) {
+[0;36m198 |[0;0m             await [4;39mAppState[0;0m.[4;39mshared[0;0m.accounts[index].currentStatus = status
+    [0;36m|[0;0m                            `- [1;31merror: [1;39mtype 'AppState' has no member 'shared'[0;0m
+[0;36m199 |[0;0m         }
+[0;36m200 |[0;0m     }
+
+/Users/mk/TelegramUIDScanner/Sources/TelegramUIDScanner/Services/UIDProcessingManager.swift:198:13: [1;33mwarning: [1;39mno 'async' operations occur within 'await' expression[0;0m
+[0;36m196 |[0;0m         // Обновляем статус в AppState
+[0;36m197 |[0;0m         if let index = await AppState.shared.accounts.firstIndex(where: { $0.id == accountId }) {
+[0;36m198 |[0;0m             await AppState.shared.accounts[index].currentStatus = status
+    [0;36m|[0;0m             `- [1;33mwarning: [1;39mno 'async' operations occur within 'await' expression[0;0m
+[0;36m199 |[0;0m         }
+[0;36m200 |[0;0m     }
+[6/12] Compiling TelegramUIDScanner ContentView.swift
+/Users/mk/TelegramUIDScanner/Sources/TelegramUIDScanner/Services/UIDProcessingManager.swift:9:26: [1;31merror: [1;39mcannot find 'BotResponseParser' in scope[0;0m
+  [0;36m7 |[0;0m     
+  [0;36m8 |[0;0m     private let telegramService = RealTelegramService()
+  [0;36m9 |[0;0m     private let parser = [4;39mBotResponseParser[0;0m()
+    [0;36m|[0;0m                          `- [1;31merror: [1;39mcannot find 'BotResponseParser' in scope[0;0m
+ [0;36m10 |[0;0m     private let disposeBag = DisposeBag()
+ [0;36m11 |[0;0m     private var processingTasks: [UUID: Task<Void, Never>] = [:]
+
+/Users/mk/TelegramUIDScanner/Sources/TelegramUIDScanner/Views/ContentView.swift:11:13: [1;31merror: [1;39mcannot find 'MainContentView' in scope[0;0m
+  [0;36m9 |[0;0m             SidebarView()
+ [0;36m10 |[0;0m         } detail: {
+ [0;36m11 |[0;0m             [4;39mMainContentView[0;0m()
+    [0;36m|[0;0m             `- [1;31merror: [1;39mcannot find 'MainContentView' in scope[0;0m
+ [0;36m12 |[0;0m         }
+ [0;36m13 |[0;0m         .onDisappear {
+
+/Users/mk/TelegramUIDScanner/Sources/TelegramUIDScanner/Views/ContentView.swift:75:21: [1;31merror: [1;39mcannot find 'StatRow' in scope[0;0m
+ [0;36m73 |[0;0m             Section("Статистика") {
+ [0;36m74 |[0;0m                 VStack(alignment: .leading, spacing: 8) {
+ [0;36m75 |[0;0m                     [4;39mStatRow[0;0m(title: "Обработано", value: "\(appState.totalProcessed)")
+    [0;36m|[0;0m                     `- [1;31merror: [1;39mcannot find 'StatRow' in scope[0;0m
+ [0;36m76 |[0;0m                     StatRow(title: "Найдено", value: "\(appState.totalFound)")
+ [0;36m77 |[0;0m                     StatRow(title: "Активных", value: "\(appState.accounts.filter { $0.isActive }.count)")
+
+/Users/mk/TelegramUIDScanner/Sources/TelegramUIDScanner/Views/ContentView.swift:76:21: [1;31merror: [1;39mcannot find 'StatRow' in scope[0;0m
+ [0;36m74 |[0;0m                 VStack(alignment: .leading, spacing: 8) {
+ [0;36m75 |[0;0m                     StatRow(title: "Обработано", value: "\(appState.totalProcessed)")
+ [0;36m76 |[0;0m                     [4;39mStatRow[0;0m(title: "Найдено", value: "\(appState.totalFound)")
+    [0;36m|[0;0m                     `- [1;31merror: [1;39mcannot find 'StatRow' in scope[0;0m
+ [0;36m77 |[0;0m                     StatRow(title: "Активных", value: "\(appState.accounts.filter { $0.isActive }.count)")
+ [0;36m78 |[0;0m                     StatRow(title: "С файлами", value: "\(appState.accounts.filter { $0.uidsFileURL != nil }.count)")
+
+/Users/mk/TelegramUIDScanner/Sources/TelegramUIDScanner/Views/ContentView.swift:77:21: [1;31merror: [1;39mcannot find 'StatRow' in scope[0;0m
+ [0;36m75 |[0;0m                     StatRow(title: "Обработано", value: "\(appState.totalProcessed)")
+ [0;36m76 |[0;0m                     StatRow(title: "Найдено", value: "\(appState.totalFound)")
+ [0;36m77 |[0;0m                     [4;39mStatRow[0;0m(title: "Активных", value: "\(appState.accounts.filter { $0.isActive }.count)")
+    [0;36m|[0;0m                     `- [1;31merror: [1;39mcannot find 'StatRow' in scope[0;0m
+ [0;36m78 |[0;0m                     StatRow(title: "С файлами", value: "\(appState.accounts.filter { $0.uidsFileURL != nil }.count)")
+ [0;36m79 |[0;0m                 }
+
+/Users/mk/TelegramUIDScanner/Sources/TelegramUIDScanner/Views/ContentView.swift:78:21: [1;31merror: [1;39mcannot find 'StatRow' in scope[0;0m
+ [0;36m76 |[0;0m                     StatRow(title: "Найдено", value: "\(appState.totalFound)")
+ [0;36m77 |[0;0m                     StatRow(title: "Активных", value: "\(appState.accounts.filter { $0.isActive }.count)")
+ [0;36m78 |[0;0m                     [4;39mStatRow[0;0m(title: "С файлами", value: "\(appState.accounts.filter { $0.uidsFileURL != nil }.count)")
+    [0;36m|[0;0m                     `- [1;31merror: [1;39mcannot find 'StatRow' in scope[0;0m
+ [0;36m79 |[0;0m                 }
+ [0;36m80 |[0;0m                 .padding(.vertical, 4)
+[7/12] Compiling TelegramUIDScanner AppState.swift
+/Users/mk/TelegramUIDScanner/Sources/TelegramUIDScanner/Services/UIDProcessingManager.swift:9:26: [1;31merror: [1;39mcannot find 'BotResponseParser' in scope[0;0m
+  [0;36m7 |[0;0m     
+  [0;36m8 |[0;0m     private let telegramService = RealTelegramService()
+  [0;36m9 |[0;0m     private let parser = [4;39mBotResponseParser[0;0m()
+    [0;36m|[0;0m                          `- [1;31merror: [1;39mcannot find 'BotResponseParser' in scope[0;0m
+ [0;36m10 |[0;0m     private let disposeBag = DisposeBag()
+ [0;36m11 |[0;0m     private var processingTasks: [UUID: Task<Void, Never>] = [:]
+[8/12] Compiling TelegramUIDScanner RealTelegramService.swift
+/Users/mk/TelegramUIDScanner/Sources/TelegramUIDScanner/Services/RealTelegramService.swift:15:23: [1;31merror: [1;39minitializer 'init' is unavailable from asynchronous contexts; This initialiser cannot be used in async contexts, use Application.make(_:_:) instead[0;0m
+ [0;36m13 |[0;0m         do {
+ [0;36m14 |[0;0m             let eventLoopGroup = MultiThreadedEventLoopGroup(numberOfThreads: 1)
+ [0;36m15 |[0;0m             let app = Application(.development, .shared(eventLoopGroup))
+    [0;36m|[0;0m                       `- [1;31merror: [1;39minitializer 'init' is unavailable from asynchronous contexts; This initialiser cannot be used in async contexts, use Application.make(_:_:) instead[0;0m
+ [0;36m16 |[0;0m             self.app = app
+ [0;36m17 |[0;0m             
+
+/Users/mk/TelegramUIDScanner/Sources/TelegramUIDScanner/Services/RealTelegramService.swift:37:27: [1;31merror: [1;39mvalue of type 'TGBot' has no member 'connection'[0;0m
+ [0;36m35 |[0;0m             )
+ [0;36m36 |[0;0m             
+ [0;36m37 |[0;0m             try await [4;39mbot[0;0m.[4;39mconnection[0;0m.start(params: connection)
+    [0;36m|[0;0m                           `- [1;31merror: [1;39mvalue of type 'TGBot' has no member 'connection'[0;0m
+ [0;36m38 |[0;0m             
+ [0;36m39 |[0;0m             // Сохраняем клиент
+
+/Users/mk/TelegramUIDScanner/Sources/TelegramUIDScanner/Services/RealTelegramService.swift:61:17: [1;33mwarning: [1;39minitialization of immutable value 'message' was never used; consider replacing with assignment to '_' or removing it[0;0m [#no-usage]
+ [0;36m59 |[0;0m             let params = TGSendMessageParams(chatId: chatId, text: text)
+ [0;36m60 |[0;0m             
+ [0;36m61 |[0;0m             let message = try await bot.sendMessage(params: params)
+    [0;36m|[0;0m                 `- [1;33mwarning: [1;39minitialization of immutable value 'message' was never used; consider replacing with assignment to '_' or removing it[0;0m [#no-usage]
+ [0;36m62 |[0;0m             
+ [0;36m63 |[0;0m             // Ждем ответа от бота (таймаут 30 секунд)
+
+/Users/mk/TelegramUIDScanner/Sources/TelegramUIDScanner/Services/RealTelegramService.swift:80:25: [1;31merror: [1;39mvalue of type 'TGBot' has no member 'events'[0;0m
+ [0;36m78 |[0;0m             
+ [0;36m79 |[0;0m             // Подписываемся на обновления
+ [0;36m80 |[0;0m             let _ = [4;39mbot[0;0m.[4;39mevents[0;0m.newMessageSubscription.on { update in
+    [0;36m|[0;0m                         `- [1;31merror: [1;39mvalue of type 'TGBot' has no member 'events'[0;0m
+ [0;36m81 |[0;0m                 guard let message = update.message else { return }
+ [0;36m82 |[0;0m                 
+
+/Users/mk/TelegramUIDScanner/Sources/TelegramUIDScanner/Services/RealTelegramService.swift:101:44: [1;31merror: [1;39mtype 'AppState' has no member 'shared'[0;0m
+ [0;36m99 |[0;0m     
+[0;36m100 |[0;0m     func sendToSavedMessages(accountId: UUID, text: String) async throws {
+[0;36m101 |[0;0m         guard let account = await [4;39mAppState[0;0m.[4;39mshared[0;0m.accounts.first(where: { $0.id == accountId }),
+    [0;36m|[0;0m                                            `- [1;31merror: [1;39mtype 'AppState' has no member 'shared'[0;0m
+[0;36m102 |[0;0m               account.isEvelyn else {
+[0;36m103 |[0;0m             return // Отправляем только для Эвелин
+
+/Users/mk/TelegramUIDScanner/Sources/TelegramUIDScanner/Services/RealTelegramService.swift:113:26: [1;31merror: [1;39mtype 'TGChatId' has no member 'chatId'[0;0m
+[0;36m111 |[0;0m             // Отправляем себе (Saved Messages)
+[0;36m112 |[0;0m             let params = TGSendMessageParams(
+[0;36m113 |[0;0m                 chatId: [4;39m.chatId[0;0m(Int64(account.apiId)),
+    [0;36m|[0;0m                          `- [1;31merror: [1;39mtype 'TGChatId' has no member 'chatId'[0;0m
+[0;36m114 |[0;0m                 text: "💰 Найден депозит:\n\(text)"
+[0;36m115 |[0;0m             )
+
+/Users/mk/TelegramUIDScanner/Sources/TelegramUIDScanner/Services/RealTelegramService.swift:127:28: [1;31merror: [1;39mvalue of type 'TGBot' has no member 'connection'[0;0m
+[0;36m125 |[0;0m     func disconnectAccount(_ accountId: UUID) async {
+[0;36m126 |[0;0m         if let bot = botClients[accountId] {
+[0;36m127 |[0;0m             try? await [4;39mbot[0;0m.[4;39mconnection[0;0m.stop()
+    [0;36m|[0;0m                            `- [1;31merror: [1;39mvalue of type 'TGBot' has no member 'connection'[0;0m
+[0;36m128 |[0;0m             botClients[accountId] = nil
+[0;36m129 |[0;0m         }
+
+/Users/mk/TelegramUIDScanner/Sources/TelegramUIDScanner/Services/RealTelegramService.swift:135:32: [1;31merror: [1;39mvalue of type 'TGBot' has no member 'connection'[0;0m
+[0;36m133 |[0;0m         Task {
+[0;36m134 |[0;0m             for (_, bot) in botClients {
+[0;36m135 |[0;0m                 try? await [4;39mbot[0;0m.[4;39mconnection[0;0m.stop()
+    [0;36m|[0;0m                                `- [1;31merror: [1;39mvalue of type 'TGBot' has no member 'connection'[0;0m
+[0;36m136 |[0;0m             }
+[0;36m137 |[0;0m             try? await app?.shutdown()
+
+/Users/mk/TelegramUIDScanner/Sources/TelegramUIDScanner/Services/RealTelegramService.swift:174:36: [1;31merror: [1;39mcannot convert value of type 'String' to expected argument type 'Int32'[0;0m
+[0;36m172 |[0;0m extension TGBot {
+[0;36m173 |[0;0m     convenience init(app: Application, botId: Int32, botToken: String = "") {
+[0;36m174 |[0;0m         self.init(app: app, botId: "\(botId)", botToken: botToken)
+    [0;36m|[0;0m                                    `- [1;31merror: [1;39mcannot convert value of type 'String' to expected argument type 'Int32'[0;0m
+[0;36m175 |[0;0m     }
+[0;36m176 |[0;0m }
+[9/12] Compiling TelegramUIDScanner ControlPanel.swift
+/Users/mk/TelegramUIDScanner/Sources/TelegramUIDScanner/Services/UIDProcessingManager.swift:9:26: [1;31merror: [1;39mcannot find 'BotResponseParser' in scope[0;0m
+  [0;36m7 |[0;0m     
+  [0;36m8 |[0;0m     private let telegramService = RealTelegramService()
+  [0;36m9 |[0;0m     private let parser = [4;39mBotResponseParser[0;0m()
+    [0;36m|[0;0m                          `- [1;31merror: [1;39mcannot find 'BotResponseParser' in scope[0;0m
+ [0;36m10 |[0;0m     private let disposeBag = DisposeBag()
+ [0;36m11 |[0;0m     private var processingTasks: [UUID: Task<Void, Never>] = [:]
+[10/13] Compiling TelegramUIDScanner SettingsView.swift
+/Users/mk/TelegramUIDScanner/Sources/TelegramUIDScanner/Services/UIDProcessingManager.swift:9:26: [1;31merror: [1;39mcannot find 'BotResponseParser' in scope[0;0m
+  [0;36m7 |[0;0m     
+  [0;36m8 |[0;0m     private let telegramService = RealTelegramService()
+  [0;36m9 |[0;0m     private let parser = [4;39mBotResponseParser[0;0m()
+    [0;36m|[0;0m                          `- [1;31merror: [1;39mcannot find 'BotResponseParser' in scope[0;0m
+ [0;36m10 |[0;0m     private let disposeBag = DisposeBag()
+ [0;36m11 |[0;0m     private var processingTasks: [UUID: Task<Void, Never>] = [:]
