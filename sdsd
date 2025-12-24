@@ -1,877 +1,895 @@
 Building for debugging...
 [0/4] Write swift-version--1AB21518FC5DEDBE.txt
+[2/14] Compiling LiquidScanner PythonService.swift
+/Users/mk/LiquidScanner/liquidscanner_project/Sources/LiquidScanner/Services/PythonService.swift:313:50: error: cannot find 'datetime' in scope
+311 | @app.get("/health")
+312 | async def health_check():
+313 |     return {"status": "healthy", "timestamp": "\(datetime.now().isoformat())"}
+    |                                                  `- error: cannot find 'datetime' in scope
+314 | 
+315 | if __name__ == "__main__":
+
+/Users/mk/LiquidScanner/liquidscanner_project/Sources/LiquidScanner/Services/PythonService.swift:323:80: error: cannot infer contextual base in reference to member 'utf8'
+321 |         
+322 |         do {
+323 |             try serverScript.write(to: scriptURL, atomically: true, encoding: .utf8)
+    |                                                                                `- error: cannot infer contextual base in reference to member 'utf8'
+324 |             runScript(at: scriptURL.path)
+325 |         } catch {
+[3/15] Compiling LiquidScanner SettingsView.swift
+/Users/mk/LiquidScanner/liquidscanner_project/Sources/LiquidScanner/SettingsView.swift:349:8: error: invalid redeclaration of 'AddAccountView'
+347 | }
+348 | 
+349 | struct AddAccountView: View {
+    |        `- error: invalid redeclaration of 'AddAccountView'
+350 |     @Binding var isPresented: Bool
+351 |     @Binding var name: String
+
+/Users/mk/LiquidScanner/liquidscanner_project/Sources/LiquidScanner/SettingsView.swift:59:41: error: type 'NSVisualEffectView.Material' has no member 'ultraThinMaterial'
+ 57 |         }
+ 58 |         .background(
+ 59 |             VisualEffectView(material: .ultraThinMaterial, blendingMode: .behindWindow)
+    |                                         `- error: type 'NSVisualEffectView.Material' has no member 'ultraThinMaterial'
+ 60 |         )
+ 61 |         .frame(width: 600, height: 500)
+
+/Users/mk/LiquidScanner/liquidscanner_project/Sources/LiquidScanner/SettingsView.swift:79:18: error: value of type 'AppState' has no dynamic member 'settings' using key path from root type 'AppState'
+ 77 |     
+ 78 |     private func saveSettings() {
+ 79 |         appState.settings.notificationsEnabled = notificationsEnabled
+    |                  `- error: value of type 'AppState' has no dynamic member 'settings' using key path from root type 'AppState'
+ 80 |         appState.settings.soundEnabled = soundEnabled
+ 81 |         appState.settings.autoExportEnabled = autoExportEnabled
+
+/Users/mk/LiquidScanner/liquidscanner_project/Sources/LiquidScanner/SettingsView.swift:79:9: error: referencing subscript 'subscript(dynamicMember:)' requires wrapper 'EnvironmentObject<AppState>.Wrapper'
+ 77 |     
+ 78 |     private func saveSettings() {
+ 79 |         appState.settings.notificationsEnabled = notificationsEnabled
+    |         `- error: referencing subscript 'subscript(dynamicMember:)' requires wrapper 'EnvironmentObject<AppState>.Wrapper'
+ 80 |         appState.settings.soundEnabled = soundEnabled
+ 81 |         appState.settings.autoExportEnabled = autoExportEnabled
+
+/Users/mk/LiquidScanner/liquidscanner_project/Sources/LiquidScanner/SettingsView.swift:79:50: error: cannot assign value of type 'Bool' to type 'Binding<Subject>'
+ 77 |     
+ 78 |     private func saveSettings() {
+ 79 |         appState.settings.notificationsEnabled = notificationsEnabled
+    |                                                  `- error: cannot assign value of type 'Bool' to type 'Binding<Subject>'
+ 80 |         appState.settings.soundEnabled = soundEnabled
+ 81 |         appState.settings.autoExportEnabled = autoExportEnabled
+
+/Users/mk/LiquidScanner/liquidscanner_project/Sources/LiquidScanner/SettingsView.swift:80:18: error: value of type 'AppState' has no dynamic member 'settings' using key path from root type 'AppState'
+ 78 |     private func saveSettings() {
+ 79 |         appState.settings.notificationsEnabled = notificationsEnabled
+ 80 |         appState.settings.soundEnabled = soundEnabled
+    |                  `- error: value of type 'AppState' has no dynamic member 'settings' using key path from root type 'AppState'
+ 81 |         appState.settings.autoExportEnabled = autoExportEnabled
+ 82 |         appState.settings.scanIntervalMinutes = Int(scanInterval)
+
+/Users/mk/LiquidScanner/liquidscanner_project/Sources/LiquidScanner/SettingsView.swift:80:9: error: referencing subscript 'subscript(dynamicMember:)' requires wrapper 'EnvironmentObject<AppState>.Wrapper'
+ 78 |     private func saveSettings() {
+ 79 |         appState.settings.notificationsEnabled = notificationsEnabled
+ 80 |         appState.settings.soundEnabled = soundEnabled
+    |         `- error: referencing subscript 'subscript(dynamicMember:)' requires wrapper 'EnvironmentObject<AppState>.Wrapper'
+ 81 |         appState.settings.autoExportEnabled = autoExportEnabled
+ 82 |         appState.settings.scanIntervalMinutes = Int(scanInterval)
+
+/Users/mk/LiquidScanner/liquidscanner_project/Sources/LiquidScanner/SettingsView.swift:80:42: error: cannot assign value of type 'Bool' to type 'Binding<Subject>'
+ 78 |     private func saveSettings() {
+ 79 |         appState.settings.notificationsEnabled = notificationsEnabled
+ 80 |         appState.settings.soundEnabled = soundEnabled
+    |                                          `- error: cannot assign value of type 'Bool' to type 'Binding<Subject>'
+ 81 |         appState.settings.autoExportEnabled = autoExportEnabled
+ 82 |         appState.settings.scanIntervalMinutes = Int(scanInterval)
+
+/Users/mk/LiquidScanner/liquidscanner_project/Sources/LiquidScanner/SettingsView.swift:81:18: error: value of type 'AppState' has no dynamic member 'settings' using key path from root type 'AppState'
+ 79 |         appState.settings.notificationsEnabled = notificationsEnabled
+ 80 |         appState.settings.soundEnabled = soundEnabled
+ 81 |         appState.settings.autoExportEnabled = autoExportEnabled
+    |                  `- error: value of type 'AppState' has no dynamic member 'settings' using key path from root type 'AppState'
+ 82 |         appState.settings.scanIntervalMinutes = Int(scanInterval)
+ 83 |         appState.settings.minDepositAmount = minDepositAmount
+
+/Users/mk/LiquidScanner/liquidscanner_project/Sources/LiquidScanner/SettingsView.swift:81:9: error: referencing subscript 'subscript(dynamicMember:)' requires wrapper 'EnvironmentObject<AppState>.Wrapper'
+ 79 |         appState.settings.notificationsEnabled = notificationsEnabled
+ 80 |         appState.settings.soundEnabled = soundEnabled
+ 81 |         appState.settings.autoExportEnabled = autoExportEnabled
+    |         `- error: referencing subscript 'subscript(dynamicMember:)' requires wrapper 'EnvironmentObject<AppState>.Wrapper'
+ 82 |         appState.settings.scanIntervalMinutes = Int(scanInterval)
+ 83 |         appState.settings.minDepositAmount = minDepositAmount
+
+/Users/mk/LiquidScanner/liquidscanner_project/Sources/LiquidScanner/SettingsView.swift:81:47: error: cannot assign value of type 'Bool' to type 'Binding<Subject>'
+ 79 |         appState.settings.notificationsEnabled = notificationsEnabled
+ 80 |         appState.settings.soundEnabled = soundEnabled
+ 81 |         appState.settings.autoExportEnabled = autoExportEnabled
+    |                                               `- error: cannot assign value of type 'Bool' to type 'Binding<Subject>'
+ 82 |         appState.settings.scanIntervalMinutes = Int(scanInterval)
+ 83 |         appState.settings.minDepositAmount = minDepositAmount
+
+/Users/mk/LiquidScanner/liquidscanner_project/Sources/LiquidScanner/SettingsView.swift:82:18: error: value of type 'AppState' has no dynamic member 'settings' using key path from root type 'AppState'
+ 80 |         appState.settings.soundEnabled = soundEnabled
+ 81 |         appState.settings.autoExportEnabled = autoExportEnabled
+ 82 |         appState.settings.scanIntervalMinutes = Int(scanInterval)
+    |                  `- error: value of type 'AppState' has no dynamic member 'settings' using key path from root type 'AppState'
+ 83 |         appState.settings.minDepositAmount = minDepositAmount
+ 84 |         appState.settings.exportFormat = exportFormat.rawValue
+
+/Users/mk/LiquidScanner/liquidscanner_project/Sources/LiquidScanner/SettingsView.swift:82:9: error: referencing subscript 'subscript(dynamicMember:)' requires wrapper 'EnvironmentObject<AppState>.Wrapper'
+ 80 |         appState.settings.soundEnabled = soundEnabled
+ 81 |         appState.settings.autoExportEnabled = autoExportEnabled
+ 82 |         appState.settings.scanIntervalMinutes = Int(scanInterval)
+    |         `- error: referencing subscript 'subscript(dynamicMember:)' requires wrapper 'EnvironmentObject<AppState>.Wrapper'
+ 83 |         appState.settings.minDepositAmount = minDepositAmount
+ 84 |         appState.settings.exportFormat = exportFormat.rawValue
+
+/Users/mk/LiquidScanner/liquidscanner_project/Sources/LiquidScanner/SettingsView.swift:82:49: error: cannot assign value of type 'Int' to type 'Binding<Subject>'
+ 80 |         appState.settings.soundEnabled = soundEnabled
+ 81 |         appState.settings.autoExportEnabled = autoExportEnabled
+ 82 |         appState.settings.scanIntervalMinutes = Int(scanInterval)
+    |                                                 `- error: cannot assign value of type 'Int' to type 'Binding<Subject>'
+ 83 |         appState.settings.minDepositAmount = minDepositAmount
+ 84 |         appState.settings.exportFormat = exportFormat.rawValue
+
+/Users/mk/LiquidScanner/liquidscanner_project/Sources/LiquidScanner/SettingsView.swift:83:18: error: value of type 'AppState' has no dynamic member 'settings' using key path from root type 'AppState'
+ 81 |         appState.settings.autoExportEnabled = autoExportEnabled
+ 82 |         appState.settings.scanIntervalMinutes = Int(scanInterval)
+ 83 |         appState.settings.minDepositAmount = minDepositAmount
+    |                  `- error: value of type 'AppState' has no dynamic member 'settings' using key path from root type 'AppState'
+ 84 |         appState.settings.exportFormat = exportFormat.rawValue
+ 85 |         appState.settings.pythonPath = pythonPath
+
+/Users/mk/LiquidScanner/liquidscanner_project/Sources/LiquidScanner/SettingsView.swift:83:9: error: referencing subscript 'subscript(dynamicMember:)' requires wrapper 'EnvironmentObject<AppState>.Wrapper'
+ 81 |         appState.settings.autoExportEnabled = autoExportEnabled
+ 82 |         appState.settings.scanIntervalMinutes = Int(scanInterval)
+ 83 |         appState.settings.minDepositAmount = minDepositAmount
+    |         `- error: referencing subscript 'subscript(dynamicMember:)' requires wrapper 'EnvironmentObject<AppState>.Wrapper'
+ 84 |         appState.settings.exportFormat = exportFormat.rawValue
+ 85 |         appState.settings.pythonPath = pythonPath
+
+/Users/mk/LiquidScanner/liquidscanner_project/Sources/LiquidScanner/SettingsView.swift:83:46: error: cannot assign value of type 'Double' to type 'Binding<Subject>'
+ 81 |         appState.settings.autoExportEnabled = autoExportEnabled
+ 82 |         appState.settings.scanIntervalMinutes = Int(scanInterval)
+ 83 |         appState.settings.minDepositAmount = minDepositAmount
+    |                                              `- error: cannot assign value of type 'Double' to type 'Binding<Subject>'
+ 84 |         appState.settings.exportFormat = exportFormat.rawValue
+ 85 |         appState.settings.pythonPath = pythonPath
+
+/Users/mk/LiquidScanner/liquidscanner_project/Sources/LiquidScanner/SettingsView.swift:84:18: error: value of type 'AppState' has no dynamic member 'settings' using key path from root type 'AppState'
+ 82 |         appState.settings.scanIntervalMinutes = Int(scanInterval)
+ 83 |         appState.settings.minDepositAmount = minDepositAmount
+ 84 |         appState.settings.exportFormat = exportFormat.rawValue
+    |                  `- error: value of type 'AppState' has no dynamic member 'settings' using key path from root type 'AppState'
+ 85 |         appState.settings.pythonPath = pythonPath
+ 86 |         appState.settings.apiPort = apiPort
+
+/Users/mk/LiquidScanner/liquidscanner_project/Sources/LiquidScanner/SettingsView.swift:84:9: error: referencing subscript 'subscript(dynamicMember:)' requires wrapper 'EnvironmentObject<AppState>.Wrapper'
+ 82 |         appState.settings.scanIntervalMinutes = Int(scanInterval)
+ 83 |         appState.settings.minDepositAmount = minDepositAmount
+ 84 |         appState.settings.exportFormat = exportFormat.rawValue
+    |         `- error: referencing subscript 'subscript(dynamicMember:)' requires wrapper 'EnvironmentObject<AppState>.Wrapper'
+ 85 |         appState.settings.pythonPath = pythonPath
+ 86 |         appState.settings.apiPort = apiPort
+
+/Users/mk/LiquidScanner/liquidscanner_project/Sources/LiquidScanner/SettingsView.swift:84:55: error: cannot assign value of type 'String' to type 'Binding<Subject>'
+ 82 |         appState.settings.scanIntervalMinutes = Int(scanInterval)
+ 83 |         appState.settings.minDepositAmount = minDepositAmount
+ 84 |         appState.settings.exportFormat = exportFormat.rawValue
+    |                                                       `- error: cannot assign value of type 'String' to type 'Binding<Subject>'
+ 85 |         appState.settings.pythonPath = pythonPath
+ 86 |         appState.settings.apiPort = apiPort
+
+/Users/mk/LiquidScanner/liquidscanner_project/Sources/LiquidScanner/SettingsView.swift:85:18: error: value of type 'AppState' has no dynamic member 'settings' using key path from root type 'AppState'
+ 83 |         appState.settings.minDepositAmount = minDepositAmount
+ 84 |         appState.settings.exportFormat = exportFormat.rawValue
+ 85 |         appState.settings.pythonPath = pythonPath
+    |                  `- error: value of type 'AppState' has no dynamic member 'settings' using key path from root type 'AppState'
+ 86 |         appState.settings.apiPort = apiPort
+ 87 |         appState.settings.debugMode = debugModeEnabled
+
+/Users/mk/LiquidScanner/liquidscanner_project/Sources/LiquidScanner/SettingsView.swift:85:9: error: referencing subscript 'subscript(dynamicMember:)' requires wrapper 'EnvironmentObject<AppState>.Wrapper'
+ 83 |         appState.settings.minDepositAmount = minDepositAmount
+ 84 |         appState.settings.exportFormat = exportFormat.rawValue
+ 85 |         appState.settings.pythonPath = pythonPath
+    |         `- error: referencing subscript 'subscript(dynamicMember:)' requires wrapper 'EnvironmentObject<AppState>.Wrapper'
+ 86 |         appState.settings.apiPort = apiPort
+ 87 |         appState.settings.debugMode = debugModeEnabled
+
+/Users/mk/LiquidScanner/liquidscanner_project/Sources/LiquidScanner/SettingsView.swift:85:40: error: cannot assign value of type 'String' to type 'Binding<Subject>'
+ 83 |         appState.settings.minDepositAmount = minDepositAmount
+ 84 |         appState.settings.exportFormat = exportFormat.rawValue
+ 85 |         appState.settings.pythonPath = pythonPath
+    |                                        `- error: cannot assign value of type 'String' to type 'Binding<Subject>'
+ 86 |         appState.settings.apiPort = apiPort
+ 87 |         appState.settings.debugMode = debugModeEnabled
+
+/Users/mk/LiquidScanner/liquidscanner_project/Sources/LiquidScanner/SettingsView.swift:86:18: error: value of type 'AppState' has no dynamic member 'settings' using key path from root type 'AppState'
+ 84 |         appState.settings.exportFormat = exportFormat.rawValue
+ 85 |         appState.settings.pythonPath = pythonPath
+ 86 |         appState.settings.apiPort = apiPort
+    |                  `- error: value of type 'AppState' has no dynamic member 'settings' using key path from root type 'AppState'
+ 87 |         appState.settings.debugMode = debugModeEnabled
+ 88 |         
+
+/Users/mk/LiquidScanner/liquidscanner_project/Sources/LiquidScanner/SettingsView.swift:86:9: error: referencing subscript 'subscript(dynamicMember:)' requires wrapper 'EnvironmentObject<AppState>.Wrapper'
+ 84 |         appState.settings.exportFormat = exportFormat.rawValue
+ 85 |         appState.settings.pythonPath = pythonPath
+ 86 |         appState.settings.apiPort = apiPort
+    |         `- error: referencing subscript 'subscript(dynamicMember:)' requires wrapper 'EnvironmentObject<AppState>.Wrapper'
+ 87 |         appState.settings.debugMode = debugModeEnabled
+ 88 |         
+
+/Users/mk/LiquidScanner/liquidscanner_project/Sources/LiquidScanner/SettingsView.swift:86:37: error: cannot assign value of type 'Int' to type 'Binding<Subject>'
+ 84 |         appState.settings.exportFormat = exportFormat.rawValue
+ 85 |         appState.settings.pythonPath = pythonPath
+ 86 |         appState.settings.apiPort = apiPort
+    |                                     `- error: cannot assign value of type 'Int' to type 'Binding<Subject>'
+ 87 |         appState.settings.debugMode = debugModeEnabled
+ 88 |         
+
+/Users/mk/LiquidScanner/liquidscanner_project/Sources/LiquidScanner/SettingsView.swift:87:18: error: value of type 'AppState' has no dynamic member 'settings' using key path from root type 'AppState'
+ 85 |         appState.settings.pythonPath = pythonPath
+ 86 |         appState.settings.apiPort = apiPort
+ 87 |         appState.settings.debugMode = debugModeEnabled
+    |                  `- error: value of type 'AppState' has no dynamic member 'settings' using key path from root type 'AppState'
+ 88 |         
+ 89 |         appState.addPythonLog("Настройки сохранены", level: .success)
+
+/Users/mk/LiquidScanner/liquidscanner_project/Sources/LiquidScanner/SettingsView.swift:87:9: error: referencing subscript 'subscript(dynamicMember:)' requires wrapper 'EnvironmentObject<AppState>.Wrapper'
+ 85 |         appState.settings.pythonPath = pythonPath
+ 86 |         appState.settings.apiPort = apiPort
+ 87 |         appState.settings.debugMode = debugModeEnabled
+    |         `- error: referencing subscript 'subscript(dynamicMember:)' requires wrapper 'EnvironmentObject<AppState>.Wrapper'
+ 88 |         
+ 89 |         appState.addPythonLog("Настройки сохранены", level: .success)
+
+/Users/mk/LiquidScanner/liquidscanner_project/Sources/LiquidScanner/SettingsView.swift:87:39: error: cannot assign value of type 'Bool' to type 'Binding<Subject>'
+ 85 |         appState.settings.pythonPath = pythonPath
+ 86 |         appState.settings.apiPort = apiPort
+ 87 |         appState.settings.debugMode = debugModeEnabled
+    |                                       `- error: cannot assign value of type 'Bool' to type 'Binding<Subject>'
+ 88 |         
+ 89 |         appState.addPythonLog("Настройки сохранены", level: .success)
+
+/Users/mk/LiquidScanner/liquidscanner_project/Sources/LiquidScanner/AccountsView.swift:5:41: error: type annotation missing in pattern
+ 3 | struct AddAccountView: View {
+ 4 |     @ObservedObject var appState: AppState
+ 5 |     @Environment(\.dismiss) private var dismiss
+   |                                         `- error: type annotation missing in pattern
+ 6 |     
+ 7 |     @State private var name = ""
+
+/Users/mk/LiquidScanner/liquidscanner_project/Sources/LiquidScanner/SettingsView.swift:391:41: error: type 'NSVisualEffectView.Material' has no member 'ultraThinMaterial'
+389 |         .frame(width: 400)
+390 |         .background(
+391 |             VisualEffectView(material: .ultraThinMaterial, blendingMode: .behindWindow)
+    |                                         `- error: type 'NSVisualEffectView.Material' has no member 'ultraThinMaterial'
+392 |         )
+393 |     }
+[4/15] Compiling LiquidScanner Models.swift
 error: emit-module command failed with exit code 1 (use -v to see invocation)
-[2/13] Emitting module LiquidScanner
-/Users/mk/LiquidScanner/Sources/LiquidScanner/AccountsView.swift:5:41: [1;31merror: [1;39mtype annotation missing in pattern[0;0m
- [0;36m3 |[0;0m struct AddAccountView: View {
- [0;36m4 |[0;0m     @ObservedObject var appState: AppState
- [0;36m5 |[0;0m     @Environment(\.dismiss) private var dismiss
-   [0;36m|[0;0m                                         `- [1;31merror: [1;39mtype annotation missing in pattern[0;0m
- [0;36m6 |[0;0m     
- [0;36m7 |[0;0m     @State private var name = ""
-
-/Users/mk/LiquidScanner/Sources/LiquidScanner/AccountsView.swift:4:6: [1;31merror: [1;39munknown attribute 'ObservedObject'[0;0m
- [0;36m2 |[0;0m 
- [0;36m3 |[0;0m struct AddAccountView: View {
- [0;36m4 |[0;0m     @ObservedObject var appState: AppState
-   [0;36m|[0;0m      `- [1;31merror: [1;39munknown attribute 'ObservedObject'[0;0m
- [0;36m5 |[0;0m     @Environment(\.dismiss) private var dismiss
- [0;36m6 |[0;0m     
-
-/Users/mk/LiquidScanner/Sources/LiquidScanner/AccountsView.swift:5:6: [1;31merror: [1;39munknown attribute 'Environment'[0;0m
- [0;36m3 |[0;0m struct AddAccountView: View {
- [0;36m4 |[0;0m     @ObservedObject var appState: AppState
- [0;36m5 |[0;0m     @Environment(\.dismiss) private var dismiss
-   [0;36m|[0;0m      `- [1;31merror: [1;39munknown attribute 'Environment'[0;0m
- [0;36m6 |[0;0m     
- [0;36m7 |[0;0m     @State private var name = ""
-
-/Users/mk/LiquidScanner/Sources/LiquidScanner/AccountsView.swift:7:6: [1;31merror: [1;39munknown attribute 'State'[0;0m
- [0;36m5 |[0;0m     @Environment(\.dismiss) private var dismiss
- [0;36m6 |[0;0m     
- [0;36m7 |[0;0m     @State private var name = ""
-   [0;36m|[0;0m      `- [1;31merror: [1;39munknown attribute 'State'[0;0m
- [0;36m8 |[0;0m     @State private var phone = ""
- [0;36m9 |[0;0m     @State private var apiId = ""
-
-/Users/mk/LiquidScanner/Sources/LiquidScanner/AccountsView.swift:8:6: [1;31merror: [1;39munknown attribute 'State'[0;0m
- [0;36m6 |[0;0m     
- [0;36m7 |[0;0m     @State private var name = ""
- [0;36m8 |[0;0m     @State private var phone = ""
-   [0;36m|[0;0m      `- [1;31merror: [1;39munknown attribute 'State'[0;0m
- [0;36m9 |[0;0m     @State private var apiId = ""
-[0;36m10 |[0;0m     @State private var apiHash = ""
-
-/Users/mk/LiquidScanner/Sources/LiquidScanner/AccountsView.swift:9:6: [1;31merror: [1;39munknown attribute 'State'[0;0m
- [0;36m7 |[0;0m     @State private var name = ""
- [0;36m8 |[0;0m     @State private var phone = ""
- [0;36m9 |[0;0m     @State private var apiId = ""
-   [0;36m|[0;0m      `- [1;31merror: [1;39munknown attribute 'State'[0;0m
-[0;36m10 |[0;0m     @State private var apiHash = ""
-[0;36m11 |[0;0m     
-
-/Users/mk/LiquidScanner/Sources/LiquidScanner/AccountsView.swift:10:6: [1;31merror: [1;39munknown attribute 'State'[0;0m
- [0;36m8 |[0;0m     @State private var phone = ""
- [0;36m9 |[0;0m     @State private var apiId = ""
-[0;36m10 |[0;0m     @State private var apiHash = ""
-   [0;36m|[0;0m      `- [1;31merror: [1;39munknown attribute 'State'[0;0m
-[0;36m11 |[0;0m     
-[0;36m12 |[0;0m     var body: some View {
-
-/Users/mk/LiquidScanner/Sources/LiquidScanner/AccountsView.swift:12:20: [1;31merror: [1;39mcannot find type 'View' in scope[0;0m
-[0;36m10 |[0;0m     @State private var apiHash = ""
-[0;36m11 |[0;0m     
-[0;36m12 |[0;0m     var body: some [4;39mView[0;0m {
-   [0;36m|[0;0m                    `- [1;31merror: [1;39mcannot find type 'View' in scope[0;0m
-[0;36m13 |[0;0m         NavigationView {
-[0;36m14 |[0;0m             Form {
-
-/Users/mk/LiquidScanner/Sources/LiquidScanner/AccountsView.swift:3:24: [1;31merror: [1;39mcannot find type 'View' in scope[0;0m
- [0;36m1 |[0;0m // ... (начало файла до AddAccountView)
- [0;36m2 |[0;0m 
- [0;36m3 |[0;0m struct AddAccountView: [4;39mView[0;0m {
-   [0;36m|[0;0m                        `- [1;31merror: [1;39mcannot find type 'View' in scope[0;0m
- [0;36m4 |[0;0m     @ObservedObject var appState: AppState
- [0;36m5 |[0;0m     @Environment(\.dismiss) private var dismiss
-
-/Users/mk/LiquidScanner/Sources/LiquidScanner/AccountsView.swift:3:8: [1;31merror: [1;39minvalid redeclaration of 'AddAccountView'[0;0m
- [0;36m1 |[0;0m // ... (начало файла до AddAccountView)
- [0;36m2 |[0;0m 
- [0;36m3 |[0;0m struct AddAccountView: View {
-   [0;36m|[0;0m        `- [1;31merror: [1;39minvalid redeclaration of 'AddAccountView'[0;0m
- [0;36m4 |[0;0m     @ObservedObject var appState: AppState
- [0;36m5 |[0;0m     @Environment(\.dismiss) private var dismiss
-
-/Users/mk/LiquidScanner/Sources/LiquidScanner/PythonOutputView.swift:3:8: [1;31merror: [1;39mtype 'PythonOutputView' does not conform to protocol 'View'[0;0m
- [0;36m1 |[0;0m import SwiftUI
- [0;36m2 |[0;0m 
- [0;36m3 |[0;0m struct PythonOutputView: View {
-   [0;36m|[0;0m        |- [1;31merror: [1;39mtype 'PythonOutputView' does not conform to protocol 'View'[0;0m
-   [0;36m|[0;0m        `- [1;39mnote: [1;39madd stubs for conformance[0;0m
- [0;36m4 |[0;0m     @EnvironmentObject var appState: AppState
- [0;36m5 |[0;0m     @State private var searchText: String = ""
-
-SwiftUI.View.Body:2:16: [1;39mnote: [1;39mprotocol requires nested type 'Body'[0;0m
-[0;36m1 |[0;0m protocol View {
-[0;36m2 |[0;0m associatedtype Body : View}
-  [0;36m|[0;0m                `- [1;39mnote: [1;39mprotocol requires nested type 'Body'[0;0m
-[0;36m3 |[0;0m 
-[3/13] Compiling LiquidScanner AppState.swift
-[4/13] Compiling LiquidScanner ScannerView.swift
-/Users/mk/LiquidScanner/Sources/LiquidScanner/ScannerView.swift:10:39: [1;31merror: [1;39mvalue of type 'TelegramAccount' has no member 'isEnabled'[0;0m
-  [0;36m8 |[0;0m     
-  [0;36m9 |[0;0m     var activeAccountsCount: Int {
- [0;36m10 |[0;0m         appState.accounts.filter { [4;39m$0[0;0m.[4;39misEnabled[0;0m }.count
-    [0;36m|[0;0m                                       `- [1;31merror: [1;39mvalue of type 'TelegramAccount' has no member 'isEnabled'[0;0m
- [0;36m11 |[0;0m     }
- [0;36m12 |[0;0m     
-
-/Users/mk/LiquidScanner/Sources/LiquidScanner/ScannerView.swift:14:34: [1;31merror: [1;39mvalue of type 'AppState' has no dynamic member 'settings' using key path from root type 'AppState'[0;0m
- [0;36m12 |[0;0m     
- [0;36m13 |[0;0m     var estimatedTime: String {
- [0;36m14 |[0;0m         let totalUIDs = [4;39mappState[0;0m.[4;39msettings[0;0m.customUIDs.count
-    [0;36m|[0;0m                                  `- [1;31merror: [1;39mvalue of type 'AppState' has no dynamic member 'settings' using key path from root type 'AppState'[0;0m
- [0;36m15 |[0;0m         let delay = appState.settings.delayBetweenRequests
- [0;36m16 |[0;0m         let estimatedSeconds = Double(totalUIDs * activeAccountsCount) * delay
-
-/Users/mk/LiquidScanner/Sources/LiquidScanner/ScannerView.swift:14:25: [1;31merror: [1;39mreferencing subscript 'subscript(dynamicMember:)' requires wrapper 'ObservedObject<AppState>.Wrapper'[0;0m
- [0;36m12 |[0;0m     
- [0;36m13 |[0;0m     var estimatedTime: String {
- [0;36m14 |[0;0m         let totalUIDs = appState.settings.customUIDs.count
-    [0;36m|[0;0m                         `- [1;31merror: [1;39mreferencing subscript 'subscript(dynamicMember:)' requires wrapper 'ObservedObject<AppState>.Wrapper'[0;0m
- [0;36m15 |[0;0m         let delay = appState.settings.delayBetweenRequests
- [0;36m16 |[0;0m         let estimatedSeconds = Double(totalUIDs * activeAccountsCount) * delay
-
-/Users/mk/LiquidScanner/Sources/LiquidScanner/ScannerView.swift:15:30: [1;31merror: [1;39mvalue of type 'AppState' has no dynamic member 'settings' using key path from root type 'AppState'[0;0m
- [0;36m13 |[0;0m     var estimatedTime: String {
- [0;36m14 |[0;0m         let totalUIDs = appState.settings.customUIDs.count
- [0;36m15 |[0;0m         let delay = [4;39mappState[0;0m.[4;39msettings[0;0m.delayBetweenRequests
-    [0;36m|[0;0m                              `- [1;31merror: [1;39mvalue of type 'AppState' has no dynamic member 'settings' using key path from root type 'AppState'[0;0m
- [0;36m16 |[0;0m         let estimatedSeconds = Double(totalUIDs * activeAccountsCount) * delay
- [0;36m17 |[0;0m         return formatTimeInterval(estimatedSeconds)
-
-/Users/mk/LiquidScanner/Sources/LiquidScanner/ScannerView.swift:15:21: [1;31merror: [1;39mreferencing subscript 'subscript(dynamicMember:)' requires wrapper 'ObservedObject<AppState>.Wrapper'[0;0m
- [0;36m13 |[0;0m     var estimatedTime: String {
- [0;36m14 |[0;0m         let totalUIDs = appState.settings.customUIDs.count
- [0;36m15 |[0;0m         let delay = appState.settings.delayBetweenRequests
-    [0;36m|[0;0m                     `- [1;31merror: [1;39mreferencing subscript 'subscript(dynamicMember:)' requires wrapper 'ObservedObject<AppState>.Wrapper'[0;0m
- [0;36m16 |[0;0m         let estimatedSeconds = Double(totalUIDs * activeAccountsCount) * delay
- [0;36m17 |[0;0m         return formatTimeInterval(estimatedSeconds)
-
-/Users/mk/LiquidScanner/Sources/LiquidScanner/ScannerView.swift:17:16: [1;31merror: [1;39mcannot find 'formatTimeInterval' in scope[0;0m
- [0;36m15 |[0;0m         let delay = appState.settings.delayBetweenRequests
- [0;36m16 |[0;0m         let estimatedSeconds = Double(totalUIDs * activeAccountsCount) * delay
- [0;36m17 |[0;0m         return [4;39mformatTimeInterval[0;0m(estimatedSeconds)
-    [0;36m|[0;0m                `- [1;31merror: [1;39mcannot find 'formatTimeInterval' in scope[0;0m
- [0;36m18 |[0;0m     }
- [0;36m19 |[0;0m     
-
-/Users/mk/LiquidScanner/Sources/LiquidScanner/ScannerView.swift:124:24: [1;31merror: [1;39mcannot find 'formatTimeInterval' in scope[0;0m
-[0;36m122 |[0;0m                 icon: "clock.fill",
-[0;36m123 |[0;0m                 title: "Время работы",
-[0;36m124 |[0;0m                 value: [4;39mformatTimeInterval[0;0m(appState.stats.elapsedTime),
-    [0;36m|[0;0m                        `- [1;31merror: [1;39mcannot find 'formatTimeInterval' in scope[0;0m
-[0;36m125 |[0;0m                 color: .orange,
-[0;36m126 |[0;0m                 trend: .neutral
-
-/Users/mk/LiquidScanner/Sources/LiquidScanner/ScannerView.swift:124:52: [1;31merror: [1;39mvalue of type 'AppState' has no dynamic member 'stats' using key path from root type 'AppState'[0;0m
-[0;36m122 |[0;0m                 icon: "clock.fill",
-[0;36m123 |[0;0m                 title: "Время работы",
-[0;36m124 |[0;0m                 value: formatTimeInterval([4;39mappState[0;0m.[4;39mstats[0;0m.elapsedTime),
-    [0;36m|[0;0m                                                    `- [1;31merror: [1;39mvalue of type 'AppState' has no dynamic member 'stats' using key path from root type 'AppState'[0;0m
-[0;36m125 |[0;0m                 color: .orange,
-[0;36m126 |[0;0m                 trend: .neutral
-
-/Users/mk/LiquidScanner/Sources/LiquidScanner/ScannerView.swift:124:43: [1;31merror: [1;39mreferencing subscript 'subscript(dynamicMember:)' requires wrapper 'ObservedObject<AppState>.Wrapper'[0;0m
-[0;36m122 |[0;0m                 icon: "clock.fill",
-[0;36m123 |[0;0m                 title: "Время работы",
-[0;36m124 |[0;0m                 value: formatTimeInterval(appState.stats.elapsedTime),
-    [0;36m|[0;0m                                           `- [1;31merror: [1;39mreferencing subscript 'subscript(dynamicMember:)' requires wrapper 'ObservedObject<AppState>.Wrapper'[0;0m
-[0;36m125 |[0;0m                 color: .orange,
-[0;36m126 |[0;0m                 trend: .neutral
-
-/Users/mk/LiquidScanner/Sources/LiquidScanner/ScannerView.swift:200:39: [1;31merror: [1;39mvalue of type 'TelegramAccount' has no member 'isEnabled'[0;0m
-[0;36m198 |[0;0m     
-[0;36m199 |[0;0m     var activeAccountsCount: Int {
-[0;36m200 |[0;0m         appState.accounts.filter { [4;39m$0[0;0m.[4;39misEnabled[0;0m }.count
-    [0;36m|[0;0m                                       `- [1;31merror: [1;39mvalue of type 'TelegramAccount' has no member 'isEnabled'[0;0m
-[0;36m201 |[0;0m     }
-[0;36m202 |[0;0m     
-
-/Users/mk/LiquidScanner/Sources/LiquidScanner/ScannerView.swift:207:45: [1;31merror: [1;39mcannot convert value of type 'Binding<Subject>' to expected argument type '@MainActor () -> Void'[0;0m
-[0;36m205 |[0;0m             HStack(spacing: 12) {
-[0;36m206 |[0;0m                 if appState.isScanning {
-[0;36m207 |[0;0m                     Button(action: appState.stopScanning) {
-    [0;36m|[0;0m                                             `- [1;31merror: [1;39mcannot convert value of type 'Binding<Subject>' to expected argument type '@MainActor () -> Void'[0;0m
-[0;36m208 |[0;0m                         Label("Остановить", systemImage: "stop.circle.fill")
-[0;36m209 |[0;0m                             .frame(maxWidth: .infinity)
-
-/Users/mk/LiquidScanner/Sources/LiquidScanner/ScannerView.swift:207:45: [1;31merror: [1;39mvalue of type 'AppState' has no dynamic member 'stopScanning' using key path from root type 'AppState'[0;0m
-[0;36m205 |[0;0m             HStack(spacing: 12) {
-[0;36m206 |[0;0m                 if appState.isScanning {
-[0;36m207 |[0;0m                     Button(action: [4;39mappState[0;0m.[4;39mstopScanning[0;0m) {
-    [0;36m|[0;0m                                             `- [1;31merror: [1;39mvalue of type 'AppState' has no dynamic member 'stopScanning' using key path from root type 'AppState'[0;0m
-[0;36m208 |[0;0m                         Label("Остановить", systemImage: "stop.circle.fill")
-[0;36m209 |[0;0m                             .frame(maxWidth: .infinity)
-
-/Users/mk/LiquidScanner/Sources/LiquidScanner/ScannerView.swift:207:36: [1;31merror: [1;39mreferencing subscript 'subscript(dynamicMember:)' requires wrapper 'ObservedObject<AppState>.Wrapper'[0;0m
-[0;36m205 |[0;0m             HStack(spacing: 12) {
-[0;36m206 |[0;0m                 if appState.isScanning {
-[0;36m207 |[0;0m                     Button(action: appState.stopScanning) {
-    [0;36m|[0;0m                                    `- [1;31merror: [1;39mreferencing subscript 'subscript(dynamicMember:)' requires wrapper 'ObservedObject<AppState>.Wrapper'[0;0m
-[0;36m208 |[0;0m                         Label("Остановить", systemImage: "stop.circle.fill")
-[0;36m209 |[0;0m                             .frame(maxWidth: .infinity)
-
-/Users/mk/LiquidScanner/Sources/LiquidScanner/ScannerView.swift:269:30: [1;31merror: [1;39minitializer 'init(_:)' requires that 'Binding<Subject>' conform to 'BinaryInteger'[0;0m
-[0;36m267 |[0;0m                         .foregroundColor(.secondary)
-[0;36m268 |[0;0m                     Spacer()
-[0;36m269 |[0;0m                     Text("$\(Int(appState.settings.minDepositAmount))")
-    [0;36m|[0;0m                              `- [1;31merror: [1;39minitializer 'init(_:)' requires that 'Binding<Subject>' conform to 'BinaryInteger'[0;0m
-[0;36m270 |[0;0m                         .font(.system(.body, design: .monospaced))
-[0;36m271 |[0;0m                 }
-
-Swift.SignedInteger.init:2:8: [1;39mnote: [1;39mwhere 'T' = 'Binding<Subject>'[0;0m
-[0;36m1 |[0;0m protocol SignedInteger {
-[0;36m2 |[0;0m public init<T>(_ source: T) where T : BinaryInteger}
-  [0;36m|[0;0m        `- [1;39mnote: [1;39mwhere 'T' = 'Binding<Subject>'[0;0m
-[0;36m3 |[0;0m 
-
-/Users/mk/LiquidScanner/Sources/LiquidScanner/ScannerView.swift:269:43: [1;31merror: [1;39mvalue of type 'AppState' has no dynamic member 'settings' using key path from root type 'AppState'[0;0m
-[0;36m267 |[0;0m                         .foregroundColor(.secondary)
-[0;36m268 |[0;0m                     Spacer()
-[0;36m269 |[0;0m                     Text("$\(Int([4;39mappState[0;0m.[4;39msettings[0;0m.minDepositAmount))")
-    [0;36m|[0;0m                                           `- [1;31merror: [1;39mvalue of type 'AppState' has no dynamic member 'settings' using key path from root type 'AppState'[0;0m
-[0;36m270 |[0;0m                         .font(.system(.body, design: .monospaced))
-[0;36m271 |[0;0m                 }
-
-/Users/mk/LiquidScanner/Sources/LiquidScanner/ScannerView.swift:269:34: [1;31merror: [1;39mreferencing subscript 'subscript(dynamicMember:)' requires wrapper 'ObservedObject<AppState>.Wrapper'[0;0m
-[0;36m267 |[0;0m                         .foregroundColor(.secondary)
-[0;36m268 |[0;0m                     Spacer()
-[0;36m269 |[0;0m                     Text("$\(Int(appState.settings.minDepositAmount))")
-    [0;36m|[0;0m                                  `- [1;31merror: [1;39mreferencing subscript 'subscript(dynamicMember:)' requires wrapper 'ObservedObject<AppState>.Wrapper'[0;0m
-[0;36m270 |[0;0m                         .font(.system(.body, design: .monospaced))
-[0;36m271 |[0;0m                 }
-
-/Users/mk/LiquidScanner/Sources/LiquidScanner/ScannerView.swift:313:63: [1;31merror: [1;39mvalue of type 'ObservedObject<AppState>.Wrapper' has no dynamic member 'settings' using key path from root type 'AppState'[0;0m
-[0;36m311 |[0;0m             Form {
-[0;36m312 |[0;0m                 Section("Режим работы") {
-[0;36m313 |[0;0m                     Picker("Режим", selection: [4;39m$appState[0;0m.[4;39msettings[0;0m.mode) {
-    [0;36m|[0;0m                                                          `- [1;31merror: [1;39mvalue of type 'ObservedObject<AppState>.Wrapper' has no dynamic member 'settings' using key path from root type 'AppState'[0;0m
-[0;36m314 |[0;0m                         ForEach(ScanSettings.ScanMode.allCases, id: \.self) { mode in
-[0;36m315 |[0;0m                             Text(mode.rawValue).tag(mode)
-
-/Users/mk/LiquidScanner/Sources/LiquidScanner/ScannerView.swift:314:46: [1;31merror: [1;39mtype 'ScanSettings' has no member 'ScanMode'[0;0m
-[0;36m312 |[0;0m                 Section("Режим работы") {
-[0;36m313 |[0;0m                     Picker("Режим", selection: $appState.settings.mode) {
-[0;36m314 |[0;0m                         ForEach([4;39mScanSettings[0;0m.[4;39mScanMode[0;0m.allCases, id: \.self) { mode in
-    [0;36m|[0;0m                                              `- [1;31merror: [1;39mtype 'ScanSettings' has no member 'ScanMode'[0;0m
-[0;36m315 |[0;0m                             Text(mode.rawValue).tag(mode)
-[0;36m316 |[0;0m                         }
-
-/Users/mk/LiquidScanner/Sources/LiquidScanner/ScannerView.swift:315:49: [1;31merror: [1;39mgeneric parameter 'V' could not be inferred[0;0m
-[0;36m313 |[0;0m                     Picker("Режим", selection: $appState.settings.mode) {
-[0;36m314 |[0;0m                         ForEach(ScanSettings.ScanMode.allCases, id: \.self) { mode in
-[0;36m315 |[0;0m                             Text(mode.rawValue).tag(mode)
-    [0;36m|[0;0m                                                 `- [1;31merror: [1;39mgeneric parameter 'V' could not be inferred[0;0m
-[0;36m316 |[0;0m                         }
-[0;36m317 |[0;0m                     }
-
-SwiftUI.View.tag:2:25: [1;39mnote: [1;39min call to function 'tag(_:includeOptional:)'[0;0m
-[0;36m1 |[0;0m protocol View {
-[0;36m2 |[0;0m nonisolated public func tag<V>(_ tag: V, includeOptional: Bool = true) -> some View where V : Hashable
-  [0;36m|[0;0m                         `- [1;39mnote: [1;39min call to function 'tag(_:includeOptional:)'[0;0m
-[0;36m3 |[0;0m   }
-[0;36m4 |[0;0m 
-
-/Users/mk/LiquidScanner/Sources/LiquidScanner/ScannerView.swift:409:58: [1;31merror: [1;39mcannot assign value of type 'JoinedSequence<Binding<Subject>>' to type 'String'[0;0m
-[0;36m407 |[0;0m             }
-[0;36m408 |[0;0m             .onAppear {
-[0;36m409 |[0;0m                 textInput = [4;39mappState.settings.customUIDs.joined(separator: "\n")[0;0m
-    [0;36m|[0;0m                                                          `- [1;31merror: [1;39mcannot assign value of type 'JoinedSequence<Binding<Subject>>' to type 'String'[0;0m
-[0;36m410 |[0;0m             }
-[0;36m411 |[0;0m         }
-
-/Users/mk/LiquidScanner/Sources/LiquidScanner/ScannerView.swift:409:38: [1;31merror: [1;39mvalue of type 'AppState' has no dynamic member 'settings' using key path from root type 'AppState'[0;0m
-[0;36m407 |[0;0m             }
-[0;36m408 |[0;0m             .onAppear {
-[0;36m409 |[0;0m                 textInput = [4;39mappState[0;0m.[4;39msettings[0;0m.customUIDs.joined(separator: "\n")
-    [0;36m|[0;0m                                      `- [1;31merror: [1;39mvalue of type 'AppState' has no dynamic member 'settings' using key path from root type 'AppState'[0;0m
-[0;36m410 |[0;0m             }
-[0;36m411 |[0;0m         }
-
-/Users/mk/LiquidScanner/Sources/LiquidScanner/ScannerView.swift:409:29: [1;31merror: [1;39mreferencing subscript 'subscript(dynamicMember:)' requires wrapper 'ObservedObject<AppState>.Wrapper'[0;0m
-[0;36m407 |[0;0m             }
-[0;36m408 |[0;0m             .onAppear {
-[0;36m409 |[0;0m                 textInput = appState.settings.customUIDs.joined(separator: "\n")
-    [0;36m|[0;0m                             `- [1;31merror: [1;39mreferencing subscript 'subscript(dynamicMember:)' requires wrapper 'ObservedObject<AppState>.Wrapper'[0;0m
-[0;36m410 |[0;0m             }
-[0;36m411 |[0;0m         }
-
-/Users/mk/LiquidScanner/Sources/LiquidScanner/ScannerView.swift:409:58: [1;31merror: [1;39minstance method 'joined(separator:)' requires the types 'String.Element' (aka 'Character') and 'Binding<Subject.Element>.Element' (aka 'Binding<Subject.Element.Element>') be equivalent[0;0m
-[0;36m407 |[0;0m             }
-[0;36m408 |[0;0m             .onAppear {
-[0;36m409 |[0;0m                 textInput = appState.settings.customUIDs.joined(separator: "\n")
-    [0;36m|[0;0m                                                          `- [1;31merror: [1;39minstance method 'joined(separator:)' requires the types 'String.Element' (aka 'Character') and 'Binding<Subject.Element>.Element' (aka 'Binding<Subject.Element.Element>') be equivalent[0;0m
-[0;36m410 |[0;0m             }
-[0;36m411 |[0;0m         }
-
-Swift.Sequence.joined:2:36: [1;39mnote: [1;39mwhere 'Separator.Element' = 'String.Element' (aka 'Character'), 'Self.Element.Element' = 'Binding<Subject.Element>.Element' (aka 'Binding<Subject.Element.Element>')[0;0m
-[0;36m1 |[0;0m protocol Sequence {
-[0;36m2 |[0;0m @inlinable public __consuming func joined<Separator>(separator: Separator) -> JoinedSequence<Self> where Separator : Sequence, Separator.Element == Self.Element.Element}
-  [0;36m|[0;0m                                    `- [1;39mnote: [1;39mwhere 'Separator.Element' = 'String.Element' (aka 'Character'), 'Self.Element.Element' = 'Binding<Subject.Element>.Element' (aka 'Binding<Subject.Element.Element>')[0;0m
-[0;36m3 |[0;0m 
-
-/Users/mk/LiquidScanner/Sources/LiquidScanner/ScannerView.swift:422:18: [1;31merror: [1;39mvalue of type 'AppState' has no dynamic member 'settings' using key path from root type 'AppState'[0;0m
-[0;36m420 |[0;0m             .map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }
-[0;36m421 |[0;0m             .filter { !$0.isEmpty }
-[0;36m422 |[0;0m         [4;39mappState[0;0m.[4;39msettings[0;0m.customUIDs = uids
-    [0;36m|[0;0m                  `- [1;31merror: [1;39mvalue of type 'AppState' has no dynamic member 'settings' using key path from root type 'AppState'[0;0m
-[0;36m423 |[0;0m         appState.addPythonOutput("Обновлен список UID: \(uids.count) шт", type: .success)
-[0;36m424 |[0;0m     }
-
-/Users/mk/LiquidScanner/Sources/LiquidScanner/ScannerView.swift:422:9: [1;31merror: [1;39mreferencing subscript 'subscript(dynamicMember:)' requires wrapper 'ObservedObject<AppState>.Wrapper'[0;0m
-[0;36m420 |[0;0m             .map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }
-[0;36m421 |[0;0m             .filter { !$0.isEmpty }
-[0;36m422 |[0;0m         appState.settings.customUIDs = uids
-    [0;36m|[0;0m         `- [1;31merror: [1;39mreferencing subscript 'subscript(dynamicMember:)' requires wrapper 'ObservedObject<AppState>.Wrapper'[0;0m
-[0;36m423 |[0;0m         appState.addPythonOutput("Обновлен список UID: \(uids.count) шт", type: .success)
-[0;36m424 |[0;0m     }
-
-/Users/mk/LiquidScanner/Sources/LiquidScanner/ScannerView.swift:422:40: [1;31merror: [1;39mcannot assign value of type '[String]' to type 'Binding<Subject>'[0;0m
-[0;36m420 |[0;0m             .map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }
-[0;36m421 |[0;0m             .filter { !$0.isEmpty }
-[0;36m422 |[0;0m         appState.settings.customUIDs = [4;39muids[0;0m
-    [0;36m|[0;0m                                        `- [1;31merror: [1;39mcannot assign value of type '[String]' to type 'Binding<Subject>'[0;0m
-[0;36m423 |[0;0m         appState.addPythonOutput("Обновлен список UID: \(uids.count) шт", type: .success)
-[0;36m424 |[0;0m     }
-
-/Users/mk/LiquidScanner/Sources/LiquidScanner/ScannerView.swift:423:18: [1;31merror: [1;39mvalue of type 'AppState' has no dynamic member 'addPythonOutput' using key path from root type 'AppState'[0;0m
-[0;36m421 |[0;0m             .filter { !$0.isEmpty }
-[0;36m422 |[0;0m         appState.settings.customUIDs = uids
-[0;36m423 |[0;0m         [4;39mappState[0;0m.[4;39maddPythonOutput[0;0m("Обновлен список UID: \(uids.count) шт", type: .success)
-    [0;36m|[0;0m                  `- [1;31merror: [1;39mvalue of type 'AppState' has no dynamic member 'addPythonOutput' using key path from root type 'AppState'[0;0m
-[0;36m424 |[0;0m     }
-[0;36m425 |[0;0m }
-
-/Users/mk/LiquidScanner/Sources/LiquidScanner/ScannerView.swift:423:9: [1;31merror: [1;39mreferencing subscript 'subscript(dynamicMember:)' requires wrapper 'ObservedObject<AppState>.Wrapper'[0;0m
-[0;36m421 |[0;0m             .filter { !$0.isEmpty }
-[0;36m422 |[0;0m         appState.settings.customUIDs = uids
-[0;36m423 |[0;0m         appState.addPythonOutput("Обновлен список UID: \(uids.count) шт", type: .success)
-    [0;36m|[0;0m         `- [1;31merror: [1;39mreferencing subscript 'subscript(dynamicMember:)' requires wrapper 'ObservedObject<AppState>.Wrapper'[0;0m
-[0;36m424 |[0;0m     }
-[0;36m425 |[0;0m }
-
-/Users/mk/LiquidScanner/Sources/LiquidScanner/ScannerView.swift:423:18: [1;31merror: [1;39mcannot call value of non-function type 'Binding<Subject>'[0;0m
-[0;36m421 |[0;0m             .filter { !$0.isEmpty }
-[0;36m422 |[0;0m         appState.settings.customUIDs = uids
-[0;36m423 |[0;0m         appState.addPythonOutput("Обновлен список UID: \(uids.count) шт", type: .success)
-    [0;36m|[0;0m                  `- [1;31merror: [1;39mcannot call value of non-function type 'Binding<Subject>'[0;0m
-[0;36m424 |[0;0m     }
-[0;36m425 |[0;0m }
-
-/Users/mk/LiquidScanner/Sources/LiquidScanner/ScannerView.swift:423:98: [1;31merror: [1;39mcannot infer contextual base in reference to member 'success'[0;0m
-[0;36m421 |[0;0m             .filter { !$0.isEmpty }
-[0;36m422 |[0;0m         appState.settings.customUIDs = uids
-[0;36m423 |[0;0m         appState.addPythonOutput("Обновлен список UID: \(uids.count) шт", type: [4;39m.success[0;0m)
-    [0;36m|[0;0m                                                                                  `- [1;31merror: [1;39mcannot infer contextual base in reference to member 'success'[0;0m
-[0;36m424 |[0;0m     }
-[0;36m425 |[0;0m }
-[5/13] Compiling LiquidScanner PythonService.swift
-/Users/mk/LiquidScanner/Sources/LiquidScanner/Services/PythonService.swift:313:50: [1;31merror: [1;39mcannot find 'datetime' in scope[0;0m
-[0;36m311 |[0;0m @app.get("/health")
-[0;36m312 |[0;0m async def health_check():
-[0;36m313 |[0;0m     return {"status": "healthy", "timestamp": "\([4;39mdatetime[0;0m.now().isoformat())"}
-    [0;36m|[0;0m                                                  `- [1;31merror: [1;39mcannot find 'datetime' in scope[0;0m
-[0;36m314 |[0;0m 
-[0;36m315 |[0;0m if __name__ == "__main__":
-
-/Users/mk/LiquidScanner/Sources/LiquidScanner/Services/PythonService.swift:323:80: [1;31merror: [1;39mcannot infer contextual base in reference to member 'utf8'[0;0m
-[0;36m321 |[0;0m         
-[0;36m322 |[0;0m         do {
-[0;36m323 |[0;0m             try serverScript.write(to: scriptURL, atomically: true, encoding: [4;39m.utf8[0;0m)
-    [0;36m|[0;0m                                                                                `- [1;31merror: [1;39mcannot infer contextual base in reference to member 'utf8'[0;0m
-[0;36m324 |[0;0m             runScript(at: scriptURL.path)
-[0;36m325 |[0;0m         } catch {
-[6/13] Compiling LiquidScanner PythonOutputView.swift
-/Users/mk/LiquidScanner/Sources/LiquidScanner/PythonOutputView.swift:3:8: [1;31merror: [1;39mtype 'PythonOutputView' does not conform to protocol 'View'[0;0m
- [0;36m1 |[0;0m import SwiftUI
- [0;36m2 |[0;0m 
- [0;36m3 |[0;0m struct PythonOutputView: View {
-   [0;36m|[0;0m        |- [1;31merror: [1;39mtype 'PythonOutputView' does not conform to protocol 'View'[0;0m
-   [0;36m|[0;0m        `- [1;39mnote: [1;39madd stubs for conformance[0;0m
- [0;36m4 |[0;0m     @EnvironmentObject var appState: AppState
- [0;36m5 |[0;0m     @State private var searchText: String = ""
-
-SwiftUI.View.Body:2:16: [1;39mnote: [1;39mprotocol requires nested type 'Body'[0;0m
-[0;36m1 |[0;0m protocol View {
-[0;36m2 |[0;0m associatedtype Body : View}
-  [0;36m|[0;0m                `- [1;39mnote: [1;39mprotocol requires nested type 'Body'[0;0m
-[0;36m3 |[0;0m 
-[7/13] Compiling LiquidScanner DashboardView.swift
-/Users/mk/LiquidScanner/Sources/LiquidScanner/DashboardView.swift:56:24: [1;31merror: [1;39mcannot find 'formatTimeInterval' in scope[0;0m
- [0;36m54 |[0;0m                 icon: "clock.fill",
- [0;36m55 |[0;0m                 title: "Время работы",
- [0;36m56 |[0;0m                 value: [4;39mformatTimeInterval[0;0m(appState.stats.elapsedTime),
-    [0;36m|[0;0m                        `- [1;31merror: [1;39mcannot find 'formatTimeInterval' in scope[0;0m
- [0;36m57 |[0;0m                 color: .orange,
- [0;36m58 |[0;0m                 trend: .up
-
-/Users/mk/LiquidScanner/Sources/LiquidScanner/DashboardView.swift:32:39: [1;31merror: [1;39mcannot convert value of type 'Binding<Subject>' to expected argument type 'String'[0;0m
- [0;36m30 |[0;0m                 icon: "dollarsign.circle.fill",
- [0;36m31 |[0;0m                 title: "Общая сумма",
- [0;36m32 |[0;0m                 value: appState.stats.formattedTotalAmount,
-    [0;36m|[0;0m                                       `- [1;31merror: [1;39mcannot convert value of type 'Binding<Subject>' to expected argument type 'String'[0;0m
- [0;36m33 |[0;0m                 color: .green,
- [0;36m34 |[0;0m                 trend: .up
-
-/Users/mk/LiquidScanner/Sources/LiquidScanner/DashboardView.swift:32:33: [1;31merror: [1;39mvalue of type 'AppState' has no dynamic member 'stats' using key path from root type 'AppState'[0;0m
- [0;36m30 |[0;0m                 icon: "dollarsign.circle.fill",
- [0;36m31 |[0;0m                 title: "Общая сумма",
- [0;36m32 |[0;0m                 value: [4;39mappState[0;0m.[4;39mstats[0;0m.formattedTotalAmount,
-    [0;36m|[0;0m                                 `- [1;31merror: [1;39mvalue of type 'AppState' has no dynamic member 'stats' using key path from root type 'AppState'[0;0m
- [0;36m33 |[0;0m                 color: .green,
- [0;36m34 |[0;0m                 trend: .up
-
-/Users/mk/LiquidScanner/Sources/LiquidScanner/DashboardView.swift:32:24: [1;31merror: [1;39mreferencing subscript 'subscript(dynamicMember:)' requires wrapper 'ObservedObject<AppState>.Wrapper'[0;0m
- [0;36m30 |[0;0m                 icon: "dollarsign.circle.fill",
- [0;36m31 |[0;0m                 title: "Общая сумма",
- [0;36m32 |[0;0m                 value: appState.stats.formattedTotalAmount,
-    [0;36m|[0;0m                        `- [1;31merror: [1;39mreferencing subscript 'subscript(dynamicMember:)' requires wrapper 'ObservedObject<AppState>.Wrapper'[0;0m
- [0;36m33 |[0;0m                 color: .green,
- [0;36m34 |[0;0m                 trend: .up
-
-/Users/mk/LiquidScanner/Sources/LiquidScanner/DashboardView.swift:124:34: [1;31merror: [1;39mvalue of type 'AppState' has no dynamic member 'selectedTab' using key path from root type 'AppState'[0;0m
-[0;36m122 |[0;0m                 if !recentDeposits.isEmpty {
-[0;36m123 |[0;0m                     Button("Все") {
-[0;36m124 |[0;0m                         [4;39mappState[0;0m.[4;39mselectedTab[0;0m = 3
-    [0;36m|[0;0m                                  `- [1;31merror: [1;39mvalue of type 'AppState' has no dynamic member 'selectedTab' using key path from root type 'AppState'[0;0m
-[0;36m125 |[0;0m                     }
-[0;36m126 |[0;0m                     .font(.caption)
-
-/Users/mk/LiquidScanner/Sources/LiquidScanner/DashboardView.swift:124:25: [1;31merror: [1;39mreferencing subscript 'subscript(dynamicMember:)' requires wrapper 'ObservedObject<AppState>.Wrapper'[0;0m
-[0;36m122 |[0;0m                 if !recentDeposits.isEmpty {
-[0;36m123 |[0;0m                     Button("Все") {
-[0;36m124 |[0;0m                         appState.selectedTab = 3
-    [0;36m|[0;0m                         `- [1;31merror: [1;39mreferencing subscript 'subscript(dynamicMember:)' requires wrapper 'ObservedObject<AppState>.Wrapper'[0;0m
-[0;36m125 |[0;0m                     }
-[0;36m126 |[0;0m                     .font(.caption)
-
-/Users/mk/LiquidScanner/Sources/LiquidScanner/DashboardView.swift:124:48: [1;31merror: [1;39mcannot assign value of type 'Int' to type 'Binding<Subject>'[0;0m
-[0;36m122 |[0;0m                 if !recentDeposits.isEmpty {
-[0;36m123 |[0;0m                     Button("Все") {
-[0;36m124 |[0;0m                         appState.selectedTab = [4;39m3[0;0m
-    [0;36m|[0;0m                                                `- [1;31merror: [1;39mcannot assign value of type 'Int' to type 'Binding<Subject>'[0;0m
-[0;36m125 |[0;0m                     }
-[0;36m126 |[0;0m                     .font(.caption)
-
-/Users/mk/LiquidScanner/Sources/LiquidScanner/DashboardView.swift:179:30: [1;31merror: [1;39mvalue of type 'Deposit' has no member 'formattedAmount'[0;0m
-[0;36m177 |[0;0m             // Сумма
-[0;36m178 |[0;0m             VStack(alignment: .trailing, spacing: 4) {
-[0;36m179 |[0;0m                 Text([4;39mdeposit[0;0m.[4;39mformattedAmount[0;0m)
-    [0;36m|[0;0m                              `- [1;31merror: [1;39mvalue of type 'Deposit' has no member 'formattedAmount'[0;0m
-[0;36m180 |[0;0m                     .font(.headline)
-[0;36m181 |[0;0m                     .foregroundColor(.green)
-[8/13] Compiling LiquidScanner ContentView.swift
-/Users/mk/LiquidScanner/Sources/LiquidScanner/ContentView.swift:88:21: [1;31merror: [1;39mcannot find 'AccountsView' in scope[0;0m
- [0;36m86 |[0;0m                     DashboardView(appState: appState)
- [0;36m87 |[0;0m                 case .accounts:
- [0;36m88 |[0;0m                     [4;39mAccountsView[0;0m(appState: appState)
-    [0;36m|[0;0m                     `- [1;31merror: [1;39mcannot find 'AccountsView' in scope[0;0m
- [0;36m89 |[0;0m                 case .scanner:
- [0;36m90 |[0;0m                     ScannerView(appState: appState)
-
-/Users/mk/LiquidScanner/Sources/LiquidScanner/ContentView.swift:92:21: [1;31merror: [1;39mcannot find 'DepositsView' in scope[0;0m
- [0;36m90 |[0;0m                     ScannerView(appState: appState)
- [0;36m91 |[0;0m                 case .deposits:
- [0;36m92 |[0;0m                     [4;39mDepositsView[0;0m(appState: appState)
-    [0;36m|[0;0m                     `- [1;31merror: [1;39mcannot find 'DepositsView' in scope[0;0m
- [0;36m93 |[0;0m                 case .pythonLogs:
- [0;36m94 |[0;0m                     PythonOutputView()
-[9/13] Compiling LiquidScanner AccountsView.swift
-/Users/mk/LiquidScanner/Sources/LiquidScanner/AccountsView.swift:5:41: [1;31merror: [1;39mtype annotation missing in pattern[0;0m
- [0;36m3 |[0;0m struct AddAccountView: View {
- [0;36m4 |[0;0m     @ObservedObject var appState: AppState
- [0;36m5 |[0;0m     @Environment(\.dismiss) private var dismiss
-   [0;36m|[0;0m                                         `- [1;31merror: [1;39mtype annotation missing in pattern[0;0m
- [0;36m6 |[0;0m     
- [0;36m7 |[0;0m     @State private var name = ""
-
-/Users/mk/LiquidScanner/Sources/LiquidScanner/AccountsView.swift:4:6: [1;31merror: [1;39munknown attribute 'ObservedObject'[0;0m
- [0;36m2 |[0;0m 
- [0;36m3 |[0;0m struct AddAccountView: View {
- [0;36m4 |[0;0m     @ObservedObject var appState: AppState
-   [0;36m|[0;0m      `- [1;31merror: [1;39munknown attribute 'ObservedObject'[0;0m
- [0;36m5 |[0;0m     @Environment(\.dismiss) private var dismiss
- [0;36m6 |[0;0m     
-
-/Users/mk/LiquidScanner/Sources/LiquidScanner/AccountsView.swift:5:6: [1;31merror: [1;39munknown attribute 'Environment'[0;0m
- [0;36m3 |[0;0m struct AddAccountView: View {
- [0;36m4 |[0;0m     @ObservedObject var appState: AppState
- [0;36m5 |[0;0m     @Environment(\.dismiss) private var dismiss
-   [0;36m|[0;0m      `- [1;31merror: [1;39munknown attribute 'Environment'[0;0m
- [0;36m6 |[0;0m     
- [0;36m7 |[0;0m     @State private var name = ""
-
-/Users/mk/LiquidScanner/Sources/LiquidScanner/AccountsView.swift:7:6: [1;31merror: [1;39munknown attribute 'State'[0;0m
- [0;36m5 |[0;0m     @Environment(\.dismiss) private var dismiss
- [0;36m6 |[0;0m     
- [0;36m7 |[0;0m     @State private var name = ""
-   [0;36m|[0;0m      `- [1;31merror: [1;39munknown attribute 'State'[0;0m
- [0;36m8 |[0;0m     @State private var phone = ""
- [0;36m9 |[0;0m     @State private var apiId = ""
-
-/Users/mk/LiquidScanner/Sources/LiquidScanner/AccountsView.swift:8:6: [1;31merror: [1;39munknown attribute 'State'[0;0m
- [0;36m6 |[0;0m     
- [0;36m7 |[0;0m     @State private var name = ""
- [0;36m8 |[0;0m     @State private var phone = ""
-   [0;36m|[0;0m      `- [1;31merror: [1;39munknown attribute 'State'[0;0m
- [0;36m9 |[0;0m     @State private var apiId = ""
-[0;36m10 |[0;0m     @State private var apiHash = ""
-
-/Users/mk/LiquidScanner/Sources/LiquidScanner/AccountsView.swift:9:6: [1;31merror: [1;39munknown attribute 'State'[0;0m
- [0;36m7 |[0;0m     @State private var name = ""
- [0;36m8 |[0;0m     @State private var phone = ""
- [0;36m9 |[0;0m     @State private var apiId = ""
-   [0;36m|[0;0m      `- [1;31merror: [1;39munknown attribute 'State'[0;0m
-[0;36m10 |[0;0m     @State private var apiHash = ""
-[0;36m11 |[0;0m     
-
-/Users/mk/LiquidScanner/Sources/LiquidScanner/AccountsView.swift:10:6: [1;31merror: [1;39munknown attribute 'State'[0;0m
- [0;36m8 |[0;0m     @State private var phone = ""
- [0;36m9 |[0;0m     @State private var apiId = ""
-[0;36m10 |[0;0m     @State private var apiHash = ""
-   [0;36m|[0;0m      `- [1;31merror: [1;39munknown attribute 'State'[0;0m
-[0;36m11 |[0;0m     
-[0;36m12 |[0;0m     var body: some View {
-
-/Users/mk/LiquidScanner/Sources/LiquidScanner/AccountsView.swift:12:20: [1;31merror: [1;39mcannot find type 'View' in scope[0;0m
-[0;36m10 |[0;0m     @State private var apiHash = ""
-[0;36m11 |[0;0m     
-[0;36m12 |[0;0m     var body: some [4;39mView[0;0m {
-   [0;36m|[0;0m                    `- [1;31merror: [1;39mcannot find type 'View' in scope[0;0m
-[0;36m13 |[0;0m         NavigationView {
-[0;36m14 |[0;0m             Form {
-
-/Users/mk/LiquidScanner/Sources/LiquidScanner/AccountsView.swift:3:24: [1;31merror: [1;39mcannot find type 'View' in scope[0;0m
- [0;36m1 |[0;0m // ... (начало файла до AddAccountView)
- [0;36m2 |[0;0m 
- [0;36m3 |[0;0m struct AddAccountView: [4;39mView[0;0m {
-   [0;36m|[0;0m                        `- [1;31merror: [1;39mcannot find type 'View' in scope[0;0m
- [0;36m4 |[0;0m     @ObservedObject var appState: AppState
- [0;36m5 |[0;0m     @Environment(\.dismiss) private var dismiss
-
-/Users/mk/LiquidScanner/Sources/LiquidScanner/AccountsView.swift:3:8: [1;31merror: [1;39minvalid redeclaration of 'AddAccountView'[0;0m
- [0;36m1 |[0;0m // ... (начало файла до AddAccountView)
- [0;36m2 |[0;0m 
- [0;36m3 |[0;0m struct AddAccountView: View {
-   [0;36m|[0;0m        `- [1;31merror: [1;39minvalid redeclaration of 'AddAccountView'[0;0m
- [0;36m4 |[0;0m     @ObservedObject var appState: AppState
- [0;36m5 |[0;0m     @Environment(\.dismiss) private var dismiss
-[10/13] Compiling LiquidScanner AppMain.swift
-/Users/mk/LiquidScanner/Sources/LiquidScanner/AccountsView.swift:5:41: [1;31merror: [1;39mtype annotation missing in pattern[0;0m
- [0;36m3 |[0;0m struct AddAccountView: View {
- [0;36m4 |[0;0m     @ObservedObject var appState: AppState
- [0;36m5 |[0;0m     @Environment(\.dismiss) private var dismiss
-   [0;36m|[0;0m                                         `- [1;31merror: [1;39mtype annotation missing in pattern[0;0m
- [0;36m6 |[0;0m     
- [0;36m7 |[0;0m     @State private var name = ""
-
-/Users/mk/LiquidScanner/Sources/LiquidScanner/AccountsView.swift:4:6: [1;31merror: [1;39munknown attribute 'ObservedObject'[0;0m
- [0;36m2 |[0;0m 
- [0;36m3 |[0;0m struct AddAccountView: View {
- [0;36m4 |[0;0m     @ObservedObject var appState: AppState
-   [0;36m|[0;0m      `- [1;31merror: [1;39munknown attribute 'ObservedObject'[0;0m
- [0;36m5 |[0;0m     @Environment(\.dismiss) private var dismiss
- [0;36m6 |[0;0m     
-
-/Users/mk/LiquidScanner/Sources/LiquidScanner/AccountsView.swift:5:6: [1;31merror: [1;39munknown attribute 'Environment'[0;0m
- [0;36m3 |[0;0m struct AddAccountView: View {
- [0;36m4 |[0;0m     @ObservedObject var appState: AppState
- [0;36m5 |[0;0m     @Environment(\.dismiss) private var dismiss
-   [0;36m|[0;0m      `- [1;31merror: [1;39munknown attribute 'Environment'[0;0m
- [0;36m6 |[0;0m     
- [0;36m7 |[0;0m     @State private var name = ""
-
-/Users/mk/LiquidScanner/Sources/LiquidScanner/AccountsView.swift:7:6: [1;31merror: [1;39munknown attribute 'State'[0;0m
- [0;36m5 |[0;0m     @Environment(\.dismiss) private var dismiss
- [0;36m6 |[0;0m     
- [0;36m7 |[0;0m     @State private var name = ""
-   [0;36m|[0;0m      `- [1;31merror: [1;39munknown attribute 'State'[0;0m
- [0;36m8 |[0;0m     @State private var phone = ""
- [0;36m9 |[0;0m     @State private var apiId = ""
-
-/Users/mk/LiquidScanner/Sources/LiquidScanner/AccountsView.swift:8:6: [1;31merror: [1;39munknown attribute 'State'[0;0m
- [0;36m6 |[0;0m     
- [0;36m7 |[0;0m     @State private var name = ""
- [0;36m8 |[0;0m     @State private var phone = ""
-   [0;36m|[0;0m      `- [1;31merror: [1;39munknown attribute 'State'[0;0m
- [0;36m9 |[0;0m     @State private var apiId = ""
-[0;36m10 |[0;0m     @State private var apiHash = ""
-
-/Users/mk/LiquidScanner/Sources/LiquidScanner/AccountsView.swift:9:6: [1;31merror: [1;39munknown attribute 'State'[0;0m
- [0;36m7 |[0;0m     @State private var name = ""
- [0;36m8 |[0;0m     @State private var phone = ""
- [0;36m9 |[0;0m     @State private var apiId = ""
-   [0;36m|[0;0m      `- [1;31merror: [1;39munknown attribute 'State'[0;0m
-[0;36m10 |[0;0m     @State private var apiHash = ""
-[0;36m11 |[0;0m     
-
-/Users/mk/LiquidScanner/Sources/LiquidScanner/AccountsView.swift:10:6: [1;31merror: [1;39munknown attribute 'State'[0;0m
- [0;36m8 |[0;0m     @State private var phone = ""
- [0;36m9 |[0;0m     @State private var apiId = ""
-[0;36m10 |[0;0m     @State private var apiHash = ""
-   [0;36m|[0;0m      `- [1;31merror: [1;39munknown attribute 'State'[0;0m
-[0;36m11 |[0;0m     
-[0;36m12 |[0;0m     var body: some View {
-
-/Users/mk/LiquidScanner/Sources/LiquidScanner/AccountsView.swift:12:20: [1;31merror: [1;39mcannot find type 'View' in scope[0;0m
-[0;36m10 |[0;0m     @State private var apiHash = ""
-[0;36m11 |[0;0m     
-[0;36m12 |[0;0m     var body: some [4;39mView[0;0m {
-   [0;36m|[0;0m                    `- [1;31merror: [1;39mcannot find type 'View' in scope[0;0m
-[0;36m13 |[0;0m         NavigationView {
-[0;36m14 |[0;0m             Form {
-
-/Users/mk/LiquidScanner/Sources/LiquidScanner/AccountsView.swift:3:24: [1;31merror: [1;39mcannot find type 'View' in scope[0;0m
- [0;36m1 |[0;0m // ... (начало файла до AddAccountView)
- [0;36m2 |[0;0m 
- [0;36m3 |[0;0m struct AddAccountView: [4;39mView[0;0m {
-   [0;36m|[0;0m                        `- [1;31merror: [1;39mcannot find type 'View' in scope[0;0m
- [0;36m4 |[0;0m     @ObservedObject var appState: AppState
- [0;36m5 |[0;0m     @Environment(\.dismiss) private var dismiss
-
-/Users/mk/LiquidScanner/Sources/LiquidScanner/AccountsView.swift:3:8: [1;31merror: [1;39minvalid redeclaration of 'AddAccountView'[0;0m
- [0;36m1 |[0;0m // ... (начало файла до AddAccountView)
- [0;36m2 |[0;0m 
- [0;36m3 |[0;0m struct AddAccountView: View {
-   [0;36m|[0;0m        `- [1;31merror: [1;39minvalid redeclaration of 'AddAccountView'[0;0m
- [0;36m4 |[0;0m     @ObservedObject var appState: AppState
- [0;36m5 |[0;0m     @Environment(\.dismiss) private var dismiss
-[11/14] Compiling LiquidScanner SettingsView.swift
-/Users/mk/LiquidScanner/Sources/LiquidScanner/SettingsView.swift:349:8: [1;31merror: [1;39minvalid redeclaration of 'AddAccountView'[0;0m
-[0;36m347 |[0;0m }
-[0;36m348 |[0;0m 
-[0;36m349 |[0;0m struct AddAccountView: View {
-    [0;36m|[0;0m        `- [1;31merror: [1;39minvalid redeclaration of 'AddAccountView'[0;0m
-[0;36m350 |[0;0m     @Binding var isPresented: Bool
-[0;36m351 |[0;0m     @Binding var name: String
-
-/Users/mk/LiquidScanner/Sources/LiquidScanner/SettingsView.swift:59:41: [1;31merror: [1;39mtype 'NSVisualEffectView.Material' has no member 'ultraThinMaterial'[0;0m
- [0;36m57 |[0;0m         }
- [0;36m58 |[0;0m         .background(
- [0;36m59 |[0;0m             VisualEffectView(material: [4;39m.ultraThinMaterial[0;0m, blendingMode: .behindWindow)
-    [0;36m|[0;0m                                         `- [1;31merror: [1;39mtype 'NSVisualEffectView.Material' has no member 'ultraThinMaterial'[0;0m
- [0;36m60 |[0;0m         )
- [0;36m61 |[0;0m         .frame(width: 600, height: 500)
-
-/Users/mk/LiquidScanner/Sources/LiquidScanner/SettingsView.swift:79:18: [1;31merror: [1;39mvalue of type 'AppState' has no dynamic member 'settings' using key path from root type 'AppState'[0;0m
- [0;36m77 |[0;0m     
- [0;36m78 |[0;0m     private func saveSettings() {
- [0;36m79 |[0;0m         [4;39mappState[0;0m.[4;39msettings[0;0m.notificationsEnabled = notificationsEnabled
-    [0;36m|[0;0m                  `- [1;31merror: [1;39mvalue of type 'AppState' has no dynamic member 'settings' using key path from root type 'AppState'[0;0m
- [0;36m80 |[0;0m         appState.settings.soundEnabled = soundEnabled
- [0;36m81 |[0;0m         appState.settings.autoExportEnabled = autoExportEnabled
-
-/Users/mk/LiquidScanner/Sources/LiquidScanner/SettingsView.swift:79:9: [1;31merror: [1;39mreferencing subscript 'subscript(dynamicMember:)' requires wrapper 'EnvironmentObject<AppState>.Wrapper'[0;0m
- [0;36m77 |[0;0m     
- [0;36m78 |[0;0m     private func saveSettings() {
- [0;36m79 |[0;0m         appState.settings.notificationsEnabled = notificationsEnabled
-    [0;36m|[0;0m         `- [1;31merror: [1;39mreferencing subscript 'subscript(dynamicMember:)' requires wrapper 'EnvironmentObject<AppState>.Wrapper'[0;0m
- [0;36m80 |[0;0m         appState.settings.soundEnabled = soundEnabled
- [0;36m81 |[0;0m         appState.settings.autoExportEnabled = autoExportEnabled
-
-/Users/mk/LiquidScanner/Sources/LiquidScanner/SettingsView.swift:79:50: [1;31merror: [1;39mcannot assign value of type 'Bool' to type 'Binding<Subject>'[0;0m
- [0;36m77 |[0;0m     
- [0;36m78 |[0;0m     private func saveSettings() {
- [0;36m79 |[0;0m         appState.settings.notificationsEnabled = [4;39mnotificationsEnabled[0;0m
-    [0;36m|[0;0m                                                  `- [1;31merror: [1;39mcannot assign value of type 'Bool' to type 'Binding<Subject>'[0;0m
- [0;36m80 |[0;0m         appState.settings.soundEnabled = soundEnabled
- [0;36m81 |[0;0m         appState.settings.autoExportEnabled = autoExportEnabled
-
-/Users/mk/LiquidScanner/Sources/LiquidScanner/SettingsView.swift:80:18: [1;31merror: [1;39mvalue of type 'AppState' has no dynamic member 'settings' using key path from root type 'AppState'[0;0m
- [0;36m78 |[0;0m     private func saveSettings() {
- [0;36m79 |[0;0m         appState.settings.notificationsEnabled = notificationsEnabled
- [0;36m80 |[0;0m         [4;39mappState[0;0m.[4;39msettings[0;0m.soundEnabled = soundEnabled
-    [0;36m|[0;0m                  `- [1;31merror: [1;39mvalue of type 'AppState' has no dynamic member 'settings' using key path from root type 'AppState'[0;0m
- [0;36m81 |[0;0m         appState.settings.autoExportEnabled = autoExportEnabled
- [0;36m82 |[0;0m         appState.settings.scanIntervalMinutes = Int(scanInterval)
-
-/Users/mk/LiquidScanner/Sources/LiquidScanner/SettingsView.swift:80:9: [1;31merror: [1;39mreferencing subscript 'subscript(dynamicMember:)' requires wrapper 'EnvironmentObject<AppState>.Wrapper'[0;0m
- [0;36m78 |[0;0m     private func saveSettings() {
- [0;36m79 |[0;0m         appState.settings.notificationsEnabled = notificationsEnabled
- [0;36m80 |[0;0m         appState.settings.soundEnabled = soundEnabled
-    [0;36m|[0;0m         `- [1;31merror: [1;39mreferencing subscript 'subscript(dynamicMember:)' requires wrapper 'EnvironmentObject<AppState>.Wrapper'[0;0m
- [0;36m81 |[0;0m         appState.settings.autoExportEnabled = autoExportEnabled
- [0;36m82 |[0;0m         appState.settings.scanIntervalMinutes = Int(scanInterval)
-
-/Users/mk/LiquidScanner/Sources/LiquidScanner/SettingsView.swift:80:42: [1;31merror: [1;39mcannot assign value of type 'Bool' to type 'Binding<Subject>'[0;0m
- [0;36m78 |[0;0m     private func saveSettings() {
- [0;36m79 |[0;0m         appState.settings.notificationsEnabled = notificationsEnabled
- [0;36m80 |[0;0m         appState.settings.soundEnabled = [4;39msoundEnabled[0;0m
-    [0;36m|[0;0m                                          `- [1;31merror: [1;39mcannot assign value of type 'Bool' to type 'Binding<Subject>'[0;0m
- [0;36m81 |[0;0m         appState.settings.autoExportEnabled = autoExportEnabled
- [0;36m82 |[0;0m         appState.settings.scanIntervalMinutes = Int(scanInterval)
-
-/Users/mk/LiquidScanner/Sources/LiquidScanner/SettingsView.swift:81:18: [1;31merror: [1;39mvalue of type 'AppState' has no dynamic member 'settings' using key path from root type 'AppState'[0;0m
- [0;36m79 |[0;0m         appState.settings.notificationsEnabled = notificationsEnabled
- [0;36m80 |[0;0m         appState.settings.soundEnabled = soundEnabled
- [0;36m81 |[0;0m         [4;39mappState[0;0m.[4;39msettings[0;0m.autoExportEnabled = autoExportEnabled
-    [0;36m|[0;0m                  `- [1;31merror: [1;39mvalue of type 'AppState' has no dynamic member 'settings' using key path from root type 'AppState'[0;0m
- [0;36m82 |[0;0m         appState.settings.scanIntervalMinutes = Int(scanInterval)
- [0;36m83 |[0;0m         appState.settings.minDepositAmount = minDepositAmount
-
-/Users/mk/LiquidScanner/Sources/LiquidScanner/SettingsView.swift:81:9: [1;31merror: [1;39mreferencing subscript 'subscript(dynamicMember:)' requires wrapper 'EnvironmentObject<AppState>.Wrapper'[0;0m
- [0;36m79 |[0;0m         appState.settings.notificationsEnabled = notificationsEnabled
- [0;36m80 |[0;0m         appState.settings.soundEnabled = soundEnabled
- [0;36m81 |[0;0m         appState.settings.autoExportEnabled = autoExportEnabled
-    [0;36m|[0;0m         `- [1;31merror: [1;39mreferencing subscript 'subscript(dynamicMember:)' requires wrapper 'EnvironmentObject<AppState>.Wrapper'[0;0m
- [0;36m82 |[0;0m         appState.settings.scanIntervalMinutes = Int(scanInterval)
- [0;36m83 |[0;0m         appState.settings.minDepositAmount = minDepositAmount
-
-/Users/mk/LiquidScanner/Sources/LiquidScanner/SettingsView.swift:81:47: [1;31merror: [1;39mcannot assign value of type 'Bool' to type 'Binding<Subject>'[0;0m
- [0;36m79 |[0;0m         appState.settings.notificationsEnabled = notificationsEnabled
- [0;36m80 |[0;0m         appState.settings.soundEnabled = soundEnabled
- [0;36m81 |[0;0m         appState.settings.autoExportEnabled = [4;39mautoExportEnabled[0;0m
-    [0;36m|[0;0m                                               `- [1;31merror: [1;39mcannot assign value of type 'Bool' to type 'Binding<Subject>'[0;0m
- [0;36m82 |[0;0m         appState.settings.scanIntervalMinutes = Int(scanInterval)
- [0;36m83 |[0;0m         appState.settings.minDepositAmount = minDepositAmount
-
-/Users/mk/LiquidScanner/Sources/LiquidScanner/SettingsView.swift:82:18: [1;31merror: [1;39mvalue of type 'AppState' has no dynamic member 'settings' using key path from root type 'AppState'[0;0m
- [0;36m80 |[0;0m         appState.settings.soundEnabled = soundEnabled
- [0;36m81 |[0;0m         appState.settings.autoExportEnabled = autoExportEnabled
- [0;36m82 |[0;0m         [4;39mappState[0;0m.[4;39msettings[0;0m.scanIntervalMinutes = Int(scanInterval)
-    [0;36m|[0;0m                  `- [1;31merror: [1;39mvalue of type 'AppState' has no dynamic member 'settings' using key path from root type 'AppState'[0;0m
- [0;36m83 |[0;0m         appState.settings.minDepositAmount = minDepositAmount
- [0;36m84 |[0;0m         appState.settings.exportFormat = exportFormat.rawValue
-
-/Users/mk/LiquidScanner/Sources/LiquidScanner/SettingsView.swift:82:9: [1;31merror: [1;39mreferencing subscript 'subscript(dynamicMember:)' requires wrapper 'EnvironmentObject<AppState>.Wrapper'[0;0m
- [0;36m80 |[0;0m         appState.settings.soundEnabled = soundEnabled
- [0;36m81 |[0;0m         appState.settings.autoExportEnabled = autoExportEnabled
- [0;36m82 |[0;0m         appState.settings.scanIntervalMinutes = Int(scanInterval)
-    [0;36m|[0;0m         `- [1;31merror: [1;39mreferencing subscript 'subscript(dynamicMember:)' requires wrapper 'EnvironmentObject<AppState>.Wrapper'[0;0m
- [0;36m83 |[0;0m         appState.settings.minDepositAmount = minDepositAmount
- [0;36m84 |[0;0m         appState.settings.exportFormat = exportFormat.rawValue
-
-/Users/mk/LiquidScanner/Sources/LiquidScanner/SettingsView.swift:82:49: [1;31merror: [1;39mcannot assign value of type 'Int' to type 'Binding<Subject>'[0;0m
- [0;36m80 |[0;0m         appState.settings.soundEnabled = soundEnabled
- [0;36m81 |[0;0m         appState.settings.autoExportEnabled = autoExportEnabled
- [0;36m82 |[0;0m         appState.settings.scanIntervalMinutes = [4;39mInt(scanInterval)[0;0m
-    [0;36m|[0;0m                                                 `- [1;31merror: [1;39mcannot assign value of type 'Int' to type 'Binding<Subject>'[0;0m
- [0;36m83 |[0;0m         appState.settings.minDepositAmount = minDepositAmount
- [0;36m84 |[0;0m         appState.settings.exportFormat = exportFormat.rawValue
-
-/Users/mk/LiquidScanner/Sources/LiquidScanner/SettingsView.swift:83:18: [1;31merror: [1;39mvalue of type 'AppState' has no dynamic member 'settings' using key path from root type 'AppState'[0;0m
- [0;36m81 |[0;0m         appState.settings.autoExportEnabled = autoExportEnabled
- [0;36m82 |[0;0m         appState.settings.scanIntervalMinutes = Int(scanInterval)
- [0;36m83 |[0;0m         [4;39mappState[0;0m.[4;39msettings[0;0m.minDepositAmount = minDepositAmount
-    [0;36m|[0;0m                  `- [1;31merror: [1;39mvalue of type 'AppState' has no dynamic member 'settings' using key path from root type 'AppState'[0;0m
- [0;36m84 |[0;0m         appState.settings.exportFormat = exportFormat.rawValue
- [0;36m85 |[0;0m         appState.settings.pythonPath = pythonPath
-
-/Users/mk/LiquidScanner/Sources/LiquidScanner/SettingsView.swift:83:9: [1;31merror: [1;39mreferencing subscript 'subscript(dynamicMember:)' requires wrapper 'EnvironmentObject<AppState>.Wrapper'[0;0m
- [0;36m81 |[0;0m         appState.settings.autoExportEnabled = autoExportEnabled
- [0;36m82 |[0;0m         appState.settings.scanIntervalMinutes = Int(scanInterval)
- [0;36m83 |[0;0m         appState.settings.minDepositAmount = minDepositAmount
-    [0;36m|[0;0m         `- [1;31merror: [1;39mreferencing subscript 'subscript(dynamicMember:)' requires wrapper 'EnvironmentObject<AppState>.Wrapper'[0;0m
- [0;36m84 |[0;0m         appState.settings.exportFormat = exportFormat.rawValue
- [0;36m85 |[0;0m         appState.settings.pythonPath = pythonPath
-
-/Users/mk/LiquidScanner/Sources/LiquidScanner/SettingsView.swift:83:46: [1;31merror: [1;39mcannot assign value of type 'Double' to type 'Binding<Subject>'[0;0m
- [0;36m81 |[0;0m         appState.settings.autoExportEnabled = autoExportEnabled
- [0;36m82 |[0;0m         appState.settings.scanIntervalMinutes = Int(scanInterval)
- [0;36m83 |[0;0m         appState.settings.minDepositAmount = [4;39mminDepositAmount[0;0m
-    [0;36m|[0;0m                                              `- [1;31merror: [1;39mcannot assign value of type 'Double' to type 'Binding<Subject>'[0;0m
- [0;36m84 |[0;0m         appState.settings.exportFormat = exportFormat.rawValue
- [0;36m85 |[0;0m         appState.settings.pythonPath = pythonPath
-
-/Users/mk/LiquidScanner/Sources/LiquidScanner/SettingsView.swift:84:18: [1;31merror: [1;39mvalue of type 'AppState' has no dynamic member 'settings' using key path from root type 'AppState'[0;0m
- [0;36m82 |[0;0m         appState.settings.scanIntervalMinutes = Int(scanInterval)
- [0;36m83 |[0;0m         appState.settings.minDepositAmount = minDepositAmount
- [0;36m84 |[0;0m         [4;39mappState[0;0m.[4;39msettings[0;0m.exportFormat = exportFormat.rawValue
-    [0;36m|[0;0m                  `- [1;31merror: [1;39mvalue of type 'AppState' has no dynamic member 'settings' using key path from root type 'AppState'[0;0m
- [0;36m85 |[0;0m         appState.settings.pythonPath = pythonPath
- [0;36m86 |[0;0m         appState.settings.apiPort = apiPort
-
-/Users/mk/LiquidScanner/Sources/LiquidScanner/SettingsView.swift:84:9: [1;31merror: [1;39mreferencing subscript 'subscript(dynamicMember:)' requires wrapper 'EnvironmentObject<AppState>.Wrapper'[0;0m
- [0;36m82 |[0;0m         appState.settings.scanIntervalMinutes = Int(scanInterval)
- [0;36m83 |[0;0m         appState.settings.minDepositAmount = minDepositAmount
- [0;36m84 |[0;0m         appState.settings.exportFormat = exportFormat.rawValue
-    [0;36m|[0;0m         `- [1;31merror: [1;39mreferencing subscript 'subscript(dynamicMember:)' requires wrapper 'EnvironmentObject<AppState>.Wrapper'[0;0m
- [0;36m85 |[0;0m         appState.settings.pythonPath = pythonPath
- [0;36m86 |[0;0m         appState.settings.apiPort = apiPort
-
-/Users/mk/LiquidScanner/Sources/LiquidScanner/SettingsView.swift:84:55: [1;31merror: [1;39mcannot assign value of type 'String' to type 'Binding<Subject>'[0;0m
- [0;36m82 |[0;0m         appState.settings.scanIntervalMinutes = Int(scanInterval)
- [0;36m83 |[0;0m         appState.settings.minDepositAmount = minDepositAmount
- [0;36m84 |[0;0m         appState.settings.exportFormat = [4;39mexportFormat.rawValue[0;0m
-    [0;36m|[0;0m                                                       `- [1;31merror: [1;39mcannot assign value of type 'String' to type 'Binding<Subject>'[0;0m
- [0;36m85 |[0;0m         appState.settings.pythonPath = pythonPath
- [0;36m86 |[0;0m         appState.settings.apiPort = apiPort
-
-/Users/mk/LiquidScanner/Sources/LiquidScanner/SettingsView.swift:85:18: [1;31merror: [1;39mvalue of type 'AppState' has no dynamic member 'settings' using key path from root type 'AppState'[0;0m
- [0;36m83 |[0;0m         appState.settings.minDepositAmount = minDepositAmount
- [0;36m84 |[0;0m         appState.settings.exportFormat = exportFormat.rawValue
- [0;36m85 |[0;0m         [4;39mappState[0;0m.[4;39msettings[0;0m.pythonPath = pythonPath
-    [0;36m|[0;0m                  `- [1;31merror: [1;39mvalue of type 'AppState' has no dynamic member 'settings' using key path from root type 'AppState'[0;0m
- [0;36m86 |[0;0m         appState.settings.apiPort = apiPort
- [0;36m87 |[0;0m         appState.settings.debugMode = debugModeEnabled
-
-/Users/mk/LiquidScanner/Sources/LiquidScanner/SettingsView.swift:85:9: [1;31merror: [1;39mreferencing subscript 'subscript(dynamicMember:)' requires wrapper 'EnvironmentObject<AppState>.Wrapper'[0;0m
- [0;36m83 |[0;0m         appState.settings.minDepositAmount = minDepositAmount
- [0;36m84 |[0;0m         appState.settings.exportFormat = exportFormat.rawValue
- [0;36m85 |[0;0m         appState.settings.pythonPath = pythonPath
-    [0;36m|[0;0m         `- [1;31merror: [1;39mreferencing subscript 'subscript(dynamicMember:)' requires wrapper 'EnvironmentObject<AppState>.Wrapper'[0;0m
- [0;36m86 |[0;0m         appState.settings.apiPort = apiPort
- [0;36m87 |[0;0m         appState.settings.debugMode = debugModeEnabled
-
-/Users/mk/LiquidScanner/Sources/LiquidScanner/SettingsView.swift:85:40: [1;31merror: [1;39mcannot assign value of type 'String' to type 'Binding<Subject>'[0;0m
- [0;36m83 |[0;0m         appState.settings.minDepositAmount = minDepositAmount
- [0;36m84 |[0;0m         appState.settings.exportFormat = exportFormat.rawValue
- [0;36m85 |[0;0m         appState.settings.pythonPath = [4;39mpythonPath[0;0m
-    [0;36m|[0;0m                                        `- [1;31merror: [1;39mcannot assign value of type 'String' to type 'Binding<Subject>'[0;0m
- [0;36m86 |[0;0m         appState.settings.apiPort = apiPort
- [0;36m87 |[0;0m         appState.settings.debugMode = debugModeEnabled
-
-/Users/mk/LiquidScanner/Sources/LiquidScanner/SettingsView.swift:86:18: [1;31merror: [1;39mvalue of type 'AppState' has no dynamic member 'settings' using key path from root type 'AppState'[0;0m
- [0;36m84 |[0;0m         appState.settings.exportFormat = exportFormat.rawValue
- [0;36m85 |[0;0m         appState.settings.pythonPath = pythonPath
- [0;36m86 |[0;0m         [4;39mappState[0;0m.[4;39msettings[0;0m.apiPort = apiPort
-    [0;36m|[0;0m                  `- [1;31merror: [1;39mvalue of type 'AppState' has no dynamic member 'settings' using key path from root type 'AppState'[0;0m
- [0;36m87 |[0;0m         appState.settings.debugMode = debugModeEnabled
- [0;36m88 |[0;0m         
-
-/Users/mk/LiquidScanner/Sources/LiquidScanner/SettingsView.swift:86:9: [1;31merror: [1;39mreferencing subscript 'subscript(dynamicMember:)' requires wrapper 'EnvironmentObject<AppState>.Wrapper'[0;0m
- [0;36m84 |[0;0m         appState.settings.exportFormat = exportFormat.rawValue
- [0;36m85 |[0;0m         appState.settings.pythonPath = pythonPath
- [0;36m86 |[0;0m         appState.settings.apiPort = apiPort
-    [0;36m|[0;0m         `- [1;31merror: [1;39mreferencing subscript 'subscript(dynamicMember:)' requires wrapper 'EnvironmentObject<AppState>.Wrapper'[0;0m
- [0;36m87 |[0;0m         appState.settings.debugMode = debugModeEnabled
- [0;36m88 |[0;0m         
-
-/Users/mk/LiquidScanner/Sources/LiquidScanner/SettingsView.swift:86:37: [1;31merror: [1;39mcannot assign value of type 'Int' to type 'Binding<Subject>'[0;0m
- [0;36m84 |[0;0m         appState.settings.exportFormat = exportFormat.rawValue
- [0;36m85 |[0;0m         appState.settings.pythonPath = pythonPath
- [0;36m86 |[0;0m         appState.settings.apiPort = [4;39mapiPort[0;0m
-    [0;36m|[0;0m                                     `- [1;31merror: [1;39mcannot assign value of type 'Int' to type 'Binding<Subject>'[0;0m
- [0;36m87 |[0;0m         appState.settings.debugMode = debugModeEnabled
- [0;36m88 |[0;0m         
-
-/Users/mk/LiquidScanner/Sources/LiquidScanner/SettingsView.swift:87:18: [1;31merror: [1;39mvalue of type 'AppState' has no dynamic member 'settings' using key path from root type 'AppState'[0;0m
- [0;36m85 |[0;0m         appState.settings.pythonPath = pythonPath
- [0;36m86 |[0;0m         appState.settings.apiPort = apiPort
- [0;36m87 |[0;0m         [4;39mappState[0;0m.[4;39msettings[0;0m.debugMode = debugModeEnabled
-    [0;36m|[0;0m                  `- [1;31merror: [1;39mvalue of type 'AppState' has no dynamic member 'settings' using key path from root type 'AppState'[0;0m
- [0;36m88 |[0;0m         
- [0;36m89 |[0;0m         appState.addPythonLog("Настройки сохранены", level: .success)
-
-/Users/mk/LiquidScanner/Sources/LiquidScanner/SettingsView.swift:87:9: [1;31merror: [1;39mreferencing subscript 'subscript(dynamicMember:)' requires wrapper 'EnvironmentObject<AppState>.Wrapper'[0;0m
- [0;36m85 |[0;0m         appState.settings.pythonPath = pythonPath
- [0;36m86 |[0;0m         appState.settings.apiPort = apiPort
- [0;36m87 |[0;0m         appState.settings.debugMode = debugModeEnabled
-    [0;36m|[0;0m         `- [1;31merror: [1;39mreferencing subscript 'subscript(dynamicMember:)' requires wrapper 'EnvironmentObject<AppState>.Wrapper'[0;0m
- [0;36m88 |[0;0m         
- [0;36m89 |[0;0m         appState.addPythonLog("Настройки сохранены", level: .success)
-
-/Users/mk/LiquidScanner/Sources/LiquidScanner/SettingsView.swift:87:39: [1;31merror: [1;39mcannot assign value of type 'Bool' to type 'Binding<Subject>'[0;0m
- [0;36m85 |[0;0m         appState.settings.pythonPath = pythonPath
- [0;36m86 |[0;0m         appState.settings.apiPort = apiPort
- [0;36m87 |[0;0m         appState.settings.debugMode = [4;39mdebugModeEnabled[0;0m
-    [0;36m|[0;0m                                       `- [1;31merror: [1;39mcannot assign value of type 'Bool' to type 'Binding<Subject>'[0;0m
- [0;36m88 |[0;0m         
- [0;36m89 |[0;0m         appState.addPythonLog("Настройки сохранены", level: .success)
-
-/Users/mk/LiquidScanner/Sources/LiquidScanner/AccountsView.swift:5:41: [1;31merror: [1;39mtype annotation missing in pattern[0;0m
- [0;36m3 |[0;0m struct AddAccountView: View {
- [0;36m4 |[0;0m     @ObservedObject var appState: AppState
- [0;36m5 |[0;0m     @Environment(\.dismiss) private var dismiss
-   [0;36m|[0;0m                                         `- [1;31merror: [1;39mtype annotation missing in pattern[0;0m
- [0;36m6 |[0;0m     
- [0;36m7 |[0;0m     @State private var name = ""
-
-/Users/mk/LiquidScanner/Sources/LiquidScanner/SettingsView.swift:391:41: [1;31merror: [1;39mtype 'NSVisualEffectView.Material' has no member 'ultraThinMaterial'[0;0m
-[0;36m389 |[0;0m         .frame(width: 400)
-[0;36m390 |[0;0m         .background(
-[0;36m391 |[0;0m             VisualEffectView(material: [4;39m.ultraThinMaterial[0;0m, blendingMode: .behindWindow)
-    [0;36m|[0;0m                                         `- [1;31merror: [1;39mtype 'NSVisualEffectView.Material' has no member 'ultraThinMaterial'[0;0m
-[0;36m392 |[0;0m         )
-[0;36m393 |[0;0m     }
+[5/15] Emitting module LiquidScanner
+/Users/mk/LiquidScanner/liquidscanner_project/Sources/LiquidScanner/AccountsView.swift:5:41: error: type annotation missing in pattern
+ 3 | struct AddAccountView: View {
+ 4 |     @ObservedObject var appState: AppState
+ 5 |     @Environment(\.dismiss) private var dismiss
+   |                                         `- error: type annotation missing in pattern
+ 6 |     
+ 7 |     @State private var name = ""
+
+/Users/mk/LiquidScanner/liquidscanner_project/Sources/LiquidScanner/AccountsView.swift:4:6: error: unknown attribute 'ObservedObject'
+ 2 | 
+ 3 | struct AddAccountView: View {
+ 4 |     @ObservedObject var appState: AppState
+   |      `- error: unknown attribute 'ObservedObject'
+ 5 |     @Environment(\.dismiss) private var dismiss
+ 6 |     
+
+/Users/mk/LiquidScanner/liquidscanner_project/Sources/LiquidScanner/AccountsView.swift:5:6: error: unknown attribute 'Environment'
+ 3 | struct AddAccountView: View {
+ 4 |     @ObservedObject var appState: AppState
+ 5 |     @Environment(\.dismiss) private var dismiss
+   |      `- error: unknown attribute 'Environment'
+ 6 |     
+ 7 |     @State private var name = ""
+
+/Users/mk/LiquidScanner/liquidscanner_project/Sources/LiquidScanner/AccountsView.swift:7:6: error: unknown attribute 'State'
+ 5 |     @Environment(\.dismiss) private var dismiss
+ 6 |     
+ 7 |     @State private var name = ""
+   |      `- error: unknown attribute 'State'
+ 8 |     @State private var phone = ""
+ 9 |     @State private var apiId = ""
+
+/Users/mk/LiquidScanner/liquidscanner_project/Sources/LiquidScanner/AccountsView.swift:8:6: error: unknown attribute 'State'
+ 6 |     
+ 7 |     @State private var name = ""
+ 8 |     @State private var phone = ""
+   |      `- error: unknown attribute 'State'
+ 9 |     @State private var apiId = ""
+10 |     @State private var apiHash = ""
+
+/Users/mk/LiquidScanner/liquidscanner_project/Sources/LiquidScanner/AccountsView.swift:9:6: error: unknown attribute 'State'
+ 7 |     @State private var name = ""
+ 8 |     @State private var phone = ""
+ 9 |     @State private var apiId = ""
+   |      `- error: unknown attribute 'State'
+10 |     @State private var apiHash = ""
+11 |     
+
+/Users/mk/LiquidScanner/liquidscanner_project/Sources/LiquidScanner/AccountsView.swift:10:6: error: unknown attribute 'State'
+ 8 |     @State private var phone = ""
+ 9 |     @State private var apiId = ""
+10 |     @State private var apiHash = ""
+   |      `- error: unknown attribute 'State'
+11 |     
+12 |     var body: some View {
+
+/Users/mk/LiquidScanner/liquidscanner_project/Sources/LiquidScanner/AccountsView.swift:12:20: error: cannot find type 'View' in scope
+10 |     @State private var apiHash = ""
+11 |     
+12 |     var body: some View {
+   |                    `- error: cannot find type 'View' in scope
+13 |         NavigationView {
+14 |             Form {
+
+/Users/mk/LiquidScanner/liquidscanner_project/Sources/LiquidScanner/AccountsView.swift:3:24: error: cannot find type 'View' in scope
+ 1 | // ... (начало файла до AddAccountView)
+ 2 | 
+ 3 | struct AddAccountView: View {
+   |                        `- error: cannot find type 'View' in scope
+ 4 |     @ObservedObject var appState: AppState
+ 5 |     @Environment(\.dismiss) private var dismiss
+
+/Users/mk/LiquidScanner/liquidscanner_project/Sources/LiquidScanner/AccountsView.swift:3:8: error: invalid redeclaration of 'AddAccountView'
+ 1 | // ... (начало файла до AddAccountView)
+ 2 | 
+ 3 | struct AddAccountView: View {
+   |        `- error: invalid redeclaration of 'AddAccountView'
+ 4 |     @ObservedObject var appState: AppState
+ 5 |     @Environment(\.dismiss) private var dismiss
+
+/Users/mk/LiquidScanner/liquidscanner_project/Sources/LiquidScanner/PythonOutputView.swift:3:8: error: type 'PythonOutputView' does not conform to protocol 'View'
+ 1 | import SwiftUI
+ 2 | 
+ 3 | struct PythonOutputView: View {
+   |        |- error: type 'PythonOutputView' does not conform to protocol 'View'
+   |        `- note: add stubs for conformance
+ 4 |     @EnvironmentObject var appState: AppState
+ 5 |     @State private var searchText: String = ""
+
+SwiftUI.View.Body:2:16: note: protocol requires nested type 'Body'
+1 | protocol View {
+2 | associatedtype Body : View}
+  |                `- note: protocol requires nested type 'Body'
+3 | 
+[6/15] Compiling LiquidScanner ScannerView.swift
+/Users/mk/LiquidScanner/liquidscanner_project/Sources/LiquidScanner/ScannerView.swift:10:39: error: value of type 'TelegramAccount' has no member 'isEnabled'
+  8 |     
+  9 |     var activeAccountsCount: Int {
+ 10 |         appState.accounts.filter { $0.isEnabled }.count
+    |                                       `- error: value of type 'TelegramAccount' has no member 'isEnabled'
+ 11 |     }
+ 12 |     
+
+/Users/mk/LiquidScanner/liquidscanner_project/Sources/LiquidScanner/ScannerView.swift:14:34: error: value of type 'AppState' has no dynamic member 'settings' using key path from root type 'AppState'
+ 12 |     
+ 13 |     var estimatedTime: String {
+ 14 |         let totalUIDs = appState.settings.customUIDs.count
+    |                                  `- error: value of type 'AppState' has no dynamic member 'settings' using key path from root type 'AppState'
+ 15 |         let delay = appState.settings.delayBetweenRequests
+ 16 |         let estimatedSeconds = Double(totalUIDs * activeAccountsCount) * delay
+
+/Users/mk/LiquidScanner/liquidscanner_project/Sources/LiquidScanner/ScannerView.swift:14:25: error: referencing subscript 'subscript(dynamicMember:)' requires wrapper 'ObservedObject<AppState>.Wrapper'
+ 12 |     
+ 13 |     var estimatedTime: String {
+ 14 |         let totalUIDs = appState.settings.customUIDs.count
+    |                         `- error: referencing subscript 'subscript(dynamicMember:)' requires wrapper 'ObservedObject<AppState>.Wrapper'
+ 15 |         let delay = appState.settings.delayBetweenRequests
+ 16 |         let estimatedSeconds = Double(totalUIDs * activeAccountsCount) * delay
+
+/Users/mk/LiquidScanner/liquidscanner_project/Sources/LiquidScanner/ScannerView.swift:15:30: error: value of type 'AppState' has no dynamic member 'settings' using key path from root type 'AppState'
+ 13 |     var estimatedTime: String {
+ 14 |         let totalUIDs = appState.settings.customUIDs.count
+ 15 |         let delay = appState.settings.delayBetweenRequests
+    |                              `- error: value of type 'AppState' has no dynamic member 'settings' using key path from root type 'AppState'
+ 16 |         let estimatedSeconds = Double(totalUIDs * activeAccountsCount) * delay
+ 17 |         return formatTimeInterval(estimatedSeconds)
+
+/Users/mk/LiquidScanner/liquidscanner_project/Sources/LiquidScanner/ScannerView.swift:15:21: error: referencing subscript 'subscript(dynamicMember:)' requires wrapper 'ObservedObject<AppState>.Wrapper'
+ 13 |     var estimatedTime: String {
+ 14 |         let totalUIDs = appState.settings.customUIDs.count
+ 15 |         let delay = appState.settings.delayBetweenRequests
+    |                     `- error: referencing subscript 'subscript(dynamicMember:)' requires wrapper 'ObservedObject<AppState>.Wrapper'
+ 16 |         let estimatedSeconds = Double(totalUIDs * activeAccountsCount) * delay
+ 17 |         return formatTimeInterval(estimatedSeconds)
+
+/Users/mk/LiquidScanner/liquidscanner_project/Sources/LiquidScanner/ScannerView.swift:17:16: error: cannot find 'formatTimeInterval' in scope
+ 15 |         let delay = appState.settings.delayBetweenRequests
+ 16 |         let estimatedSeconds = Double(totalUIDs * activeAccountsCount) * delay
+ 17 |         return formatTimeInterval(estimatedSeconds)
+    |                `- error: cannot find 'formatTimeInterval' in scope
+ 18 |     }
+ 19 |     
+
+/Users/mk/LiquidScanner/liquidscanner_project/Sources/LiquidScanner/ScannerView.swift:124:24: error: cannot find 'formatTimeInterval' in scope
+122 |                 icon: "clock.fill",
+123 |                 title: "Время работы",
+124 |                 value: formatTimeInterval(appState.stats.elapsedTime),
+    |                        `- error: cannot find 'formatTimeInterval' in scope
+125 |                 color: .orange,
+126 |                 trend: .neutral
+
+/Users/mk/LiquidScanner/liquidscanner_project/Sources/LiquidScanner/ScannerView.swift:124:52: error: value of type 'AppState' has no dynamic member 'stats' using key path from root type 'AppState'
+122 |                 icon: "clock.fill",
+123 |                 title: "Время работы",
+124 |                 value: formatTimeInterval(appState.stats.elapsedTime),
+    |                                                    `- error: value of type 'AppState' has no dynamic member 'stats' using key path from root type 'AppState'
+125 |                 color: .orange,
+126 |                 trend: .neutral
+
+/Users/mk/LiquidScanner/liquidscanner_project/Sources/LiquidScanner/ScannerView.swift:124:43: error: referencing subscript 'subscript(dynamicMember:)' requires wrapper 'ObservedObject<AppState>.Wrapper'
+122 |                 icon: "clock.fill",
+123 |                 title: "Время работы",
+124 |                 value: formatTimeInterval(appState.stats.elapsedTime),
+    |                                           `- error: referencing subscript 'subscript(dynamicMember:)' requires wrapper 'ObservedObject<AppState>.Wrapper'
+125 |                 color: .orange,
+126 |                 trend: .neutral
+
+/Users/mk/LiquidScanner/liquidscanner_project/Sources/LiquidScanner/ScannerView.swift:200:39: error: value of type 'TelegramAccount' has no member 'isEnabled'
+198 |     
+199 |     var activeAccountsCount: Int {
+200 |         appState.accounts.filter { $0.isEnabled }.count
+    |                                       `- error: value of type 'TelegramAccount' has no member 'isEnabled'
+201 |     }
+202 |     
+
+/Users/mk/LiquidScanner/liquidscanner_project/Sources/LiquidScanner/ScannerView.swift:207:45: error: cannot convert value of type 'Binding<Subject>' to expected argument type '@MainActor () -> Void'
+205 |             HStack(spacing: 12) {
+206 |                 if appState.isScanning {
+207 |                     Button(action: appState.stopScanning) {
+    |                                             `- error: cannot convert value of type 'Binding<Subject>' to expected argument type '@MainActor () -> Void'
+208 |                         Label("Остановить", systemImage: "stop.circle.fill")
+209 |                             .frame(maxWidth: .infinity)
+
+/Users/mk/LiquidScanner/liquidscanner_project/Sources/LiquidScanner/ScannerView.swift:207:45: error: value of type 'AppState' has no dynamic member 'stopScanning' using key path from root type 'AppState'
+205 |             HStack(spacing: 12) {
+206 |                 if appState.isScanning {
+207 |                     Button(action: appState.stopScanning) {
+    |                                             `- error: value of type 'AppState' has no dynamic member 'stopScanning' using key path from root type 'AppState'
+208 |                         Label("Остановить", systemImage: "stop.circle.fill")
+209 |                             .frame(maxWidth: .infinity)
+
+/Users/mk/LiquidScanner/liquidscanner_project/Sources/LiquidScanner/ScannerView.swift:207:36: error: referencing subscript 'subscript(dynamicMember:)' requires wrapper 'ObservedObject<AppState>.Wrapper'
+205 |             HStack(spacing: 12) {
+206 |                 if appState.isScanning {
+207 |                     Button(action: appState.stopScanning) {
+    |                                    `- error: referencing subscript 'subscript(dynamicMember:)' requires wrapper 'ObservedObject<AppState>.Wrapper'
+208 |                         Label("Остановить", systemImage: "stop.circle.fill")
+209 |                             .frame(maxWidth: .infinity)
+
+/Users/mk/LiquidScanner/liquidscanner_project/Sources/LiquidScanner/ScannerView.swift:269:30: error: initializer 'init(_:)' requires that 'Binding<Subject>' conform to 'BinaryInteger'
+267 |                         .foregroundColor(.secondary)
+268 |                     Spacer()
+269 |                     Text("$\(Int(appState.settings.minDepositAmount))")
+    |                              `- error: initializer 'init(_:)' requires that 'Binding<Subject>' conform to 'BinaryInteger'
+270 |                         .font(.system(.body, design: .monospaced))
+271 |                 }
+
+Swift.SignedInteger.init:2:8: note: where 'T' = 'Binding<Subject>'
+1 | protocol SignedInteger {
+2 | public init<T>(_ source: T) where T : BinaryInteger}
+  |        `- note: where 'T' = 'Binding<Subject>'
+3 | 
+
+/Users/mk/LiquidScanner/liquidscanner_project/Sources/LiquidScanner/ScannerView.swift:269:43: error: value of type 'AppState' has no dynamic member 'settings' using key path from root type 'AppState'
+267 |                         .foregroundColor(.secondary)
+268 |                     Spacer()
+269 |                     Text("$\(Int(appState.settings.minDepositAmount))")
+    |                                           `- error: value of type 'AppState' has no dynamic member 'settings' using key path from root type 'AppState'
+270 |                         .font(.system(.body, design: .monospaced))
+271 |                 }
+
+/Users/mk/LiquidScanner/liquidscanner_project/Sources/LiquidScanner/ScannerView.swift:269:34: error: referencing subscript 'subscript(dynamicMember:)' requires wrapper 'ObservedObject<AppState>.Wrapper'
+267 |                         .foregroundColor(.secondary)
+268 |                     Spacer()
+269 |                     Text("$\(Int(appState.settings.minDepositAmount))")
+    |                                  `- error: referencing subscript 'subscript(dynamicMember:)' requires wrapper 'ObservedObject<AppState>.Wrapper'
+270 |                         .font(.system(.body, design: .monospaced))
+271 |                 }
+
+/Users/mk/LiquidScanner/liquidscanner_project/Sources/LiquidScanner/ScannerView.swift:313:63: error: value of type 'ObservedObject<AppState>.Wrapper' has no dynamic member 'settings' using key path from root type 'AppState'
+311 |             Form {
+312 |                 Section("Режим работы") {
+313 |                     Picker("Режим", selection: $appState.settings.mode) {
+    |                                                          `- error: value of type 'ObservedObject<AppState>.Wrapper' has no dynamic member 'settings' using key path from root type 'AppState'
+314 |                         ForEach(ScanSettings.ScanMode.allCases, id: \.self) { mode in
+315 |                             Text(mode.rawValue).tag(mode)
+
+/Users/mk/LiquidScanner/liquidscanner_project/Sources/LiquidScanner/ScannerView.swift:314:46: error: type 'ScanSettings' has no member 'ScanMode'
+312 |                 Section("Режим работы") {
+313 |                     Picker("Режим", selection: $appState.settings.mode) {
+314 |                         ForEach(ScanSettings.ScanMode.allCases, id: \.self) { mode in
+    |                                              `- error: type 'ScanSettings' has no member 'ScanMode'
+315 |                             Text(mode.rawValue).tag(mode)
+316 |                         }
+
+/Users/mk/LiquidScanner/liquidscanner_project/Sources/LiquidScanner/ScannerView.swift:315:49: error: generic parameter 'V' could not be inferred
+313 |                     Picker("Режим", selection: $appState.settings.mode) {
+314 |                         ForEach(ScanSettings.ScanMode.allCases, id: \.self) { mode in
+315 |                             Text(mode.rawValue).tag(mode)
+    |                                                 `- error: generic parameter 'V' could not be inferred
+316 |                         }
+317 |                     }
+
+SwiftUI.View.tag:2:25: note: in call to function 'tag(_:includeOptional:)'
+1 | protocol View {
+2 | nonisolated public func tag<V>(_ tag: V, includeOptional: Bool = true) -> some View where V : Hashable
+  |                         `- note: in call to function 'tag(_:includeOptional:)'
+3 |   }
+4 | 
+
+/Users/mk/LiquidScanner/liquidscanner_project/Sources/LiquidScanner/ScannerView.swift:409:58: error: cannot assign value of type 'JoinedSequence<Binding<Subject>>' to type 'String'
+407 |             }
+408 |             .onAppear {
+409 |                 textInput = appState.settings.customUIDs.joined(separator: "\n")
+    |                                                          `- error: cannot assign value of type 'JoinedSequence<Binding<Subject>>' to type 'String'
+410 |             }
+411 |         }
+
+/Users/mk/LiquidScanner/liquidscanner_project/Sources/LiquidScanner/ScannerView.swift:409:38: error: value of type 'AppState' has no dynamic member 'settings' using key path from root type 'AppState'
+407 |             }
+408 |             .onAppear {
+409 |                 textInput = appState.settings.customUIDs.joined(separator: "\n")
+    |                                      `- error: value of type 'AppState' has no dynamic member 'settings' using key path from root type 'AppState'
+410 |             }
+411 |         }
+
+/Users/mk/LiquidScanner/liquidscanner_project/Sources/LiquidScanner/ScannerView.swift:409:29: error: referencing subscript 'subscript(dynamicMember:)' requires wrapper 'ObservedObject<AppState>.Wrapper'
+407 |             }
+408 |             .onAppear {
+409 |                 textInput = appState.settings.customUIDs.joined(separator: "\n")
+    |                             `- error: referencing subscript 'subscript(dynamicMember:)' requires wrapper 'ObservedObject<AppState>.Wrapper'
+410 |             }
+411 |         }
+
+/Users/mk/LiquidScanner/liquidscanner_project/Sources/LiquidScanner/ScannerView.swift:409:58: error: instance method 'joined(separator:)' requires the types 'String.Element' (aka 'Character') and 'Binding<Subject.Element>.Element' (aka 'Binding<Subject.Element.Element>') be equivalent
+407 |             }
+408 |             .onAppear {
+409 |                 textInput = appState.settings.customUIDs.joined(separator: "\n")
+    |                                                          `- error: instance method 'joined(separator:)' requires the types 'String.Element' (aka 'Character') and 'Binding<Subject.Element>.Element' (aka 'Binding<Subject.Element.Element>') be equivalent
+410 |             }
+411 |         }
+
+Swift.Sequence.joined:2:36: note: where 'Separator.Element' = 'String.Element' (aka 'Character'), 'Self.Element.Element' = 'Binding<Subject.Element>.Element' (aka 'Binding<Subject.Element.Element>')
+1 | protocol Sequence {
+2 | @inlinable public __consuming func joined<Separator>(separator: Separator) -> JoinedSequence<Self> where Separator : Sequence, Separator.Element == Self.Element.Element}
+  |                                    `- note: where 'Separator.Element' = 'String.Element' (aka 'Character'), 'Self.Element.Element' = 'Binding<Subject.Element>.Element' (aka 'Binding<Subject.Element.Element>')
+3 | 
+
+/Users/mk/LiquidScanner/liquidscanner_project/Sources/LiquidScanner/ScannerView.swift:422:18: error: value of type 'AppState' has no dynamic member 'settings' using key path from root type 'AppState'
+420 |             .map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }
+421 |             .filter { !$0.isEmpty }
+422 |         appState.settings.customUIDs = uids
+    |                  `- error: value of type 'AppState' has no dynamic member 'settings' using key path from root type 'AppState'
+423 |         appState.addPythonOutput("Обновлен список UID: \(uids.count) шт", type: .success)
+424 |     }
+
+/Users/mk/LiquidScanner/liquidscanner_project/Sources/LiquidScanner/ScannerView.swift:422:9: error: referencing subscript 'subscript(dynamicMember:)' requires wrapper 'ObservedObject<AppState>.Wrapper'
+420 |             .map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }
+421 |             .filter { !$0.isEmpty }
+422 |         appState.settings.customUIDs = uids
+    |         `- error: referencing subscript 'subscript(dynamicMember:)' requires wrapper 'ObservedObject<AppState>.Wrapper'
+423 |         appState.addPythonOutput("Обновлен список UID: \(uids.count) шт", type: .success)
+424 |     }
+
+/Users/mk/LiquidScanner/liquidscanner_project/Sources/LiquidScanner/ScannerView.swift:422:40: error: cannot assign value of type '[String]' to type 'Binding<Subject>'
+420 |             .map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }
+421 |             .filter { !$0.isEmpty }
+422 |         appState.settings.customUIDs = uids
+    |                                        `- error: cannot assign value of type '[String]' to type 'Binding<Subject>'
+423 |         appState.addPythonOutput("Обновлен список UID: \(uids.count) шт", type: .success)
+424 |     }
+
+/Users/mk/LiquidScanner/liquidscanner_project/Sources/LiquidScanner/ScannerView.swift:423:18: error: cannot call value of non-function type 'Binding<Subject>'
+421 |             .filter { !$0.isEmpty }
+422 |         appState.settings.customUIDs = uids
+423 |         appState.addPythonOutput("Обновлен список UID: \(uids.count) шт", type: .success)
+    |                  `- error: cannot call value of non-function type 'Binding<Subject>'
+424 |     }
+425 | }
+
+/Users/mk/LiquidScanner/liquidscanner_project/Sources/LiquidScanner/ScannerView.swift:423:18: error: value of type 'AppState' has no dynamic member 'addPythonOutput' using key path from root type 'AppState'
+421 |             .filter { !$0.isEmpty }
+422 |         appState.settings.customUIDs = uids
+423 |         appState.addPythonOutput("Обновлен список UID: \(uids.count) шт", type: .success)
+    |                  `- error: value of type 'AppState' has no dynamic member 'addPythonOutput' using key path from root type 'AppState'
+424 |     }
+425 | }
+
+/Users/mk/LiquidScanner/liquidscanner_project/Sources/LiquidScanner/ScannerView.swift:423:9: error: referencing subscript 'subscript(dynamicMember:)' requires wrapper 'ObservedObject<AppState>.Wrapper'
+421 |             .filter { !$0.isEmpty }
+422 |         appState.settings.customUIDs = uids
+423 |         appState.addPythonOutput("Обновлен список UID: \(uids.count) шт", type: .success)
+    |         `- error: referencing subscript 'subscript(dynamicMember:)' requires wrapper 'ObservedObject<AppState>.Wrapper'
+424 |     }
+425 | }
+
+/Users/mk/LiquidScanner/liquidscanner_project/Sources/LiquidScanner/ScannerView.swift:423:98: error: cannot infer contextual base in reference to member 'success'
+421 |             .filter { !$0.isEmpty }
+422 |         appState.settings.customUIDs = uids
+423 |         appState.addPythonOutput("Обновлен список UID: \(uids.count) шт", type: .success)
+    |                                                                                  `- error: cannot infer contextual base in reference to member 'success'
+424 |     }
+425 | }
+[7/15] Compiling LiquidScanner DashboardView.swift
+/Users/mk/LiquidScanner/liquidscanner_project/Sources/LiquidScanner/DashboardView.swift:56:24: error: cannot find 'formatTimeInterval' in scope
+ 54 |                 icon: "clock.fill",
+ 55 |                 title: "Время работы",
+ 56 |                 value: formatTimeInterval(appState.stats.elapsedTime),
+    |                        `- error: cannot find 'formatTimeInterval' in scope
+ 57 |                 color: .orange,
+ 58 |                 trend: .up
+
+/Users/mk/LiquidScanner/liquidscanner_project/Sources/LiquidScanner/DashboardView.swift:32:39: error: cannot convert value of type 'Binding<Subject>' to expected argument type 'String'
+ 30 |                 icon: "dollarsign.circle.fill",
+ 31 |                 title: "Общая сумма",
+ 32 |                 value: appState.stats.formattedTotalAmount,
+    |                                       `- error: cannot convert value of type 'Binding<Subject>' to expected argument type 'String'
+ 33 |                 color: .green,
+ 34 |                 trend: .up
+
+/Users/mk/LiquidScanner/liquidscanner_project/Sources/LiquidScanner/DashboardView.swift:32:33: error: value of type 'AppState' has no dynamic member 'stats' using key path from root type 'AppState'
+ 30 |                 icon: "dollarsign.circle.fill",
+ 31 |                 title: "Общая сумма",
+ 32 |                 value: appState.stats.formattedTotalAmount,
+    |                                 `- error: value of type 'AppState' has no dynamic member 'stats' using key path from root type 'AppState'
+ 33 |                 color: .green,
+ 34 |                 trend: .up
+
+/Users/mk/LiquidScanner/liquidscanner_project/Sources/LiquidScanner/DashboardView.swift:32:24: error: referencing subscript 'subscript(dynamicMember:)' requires wrapper 'ObservedObject<AppState>.Wrapper'
+ 30 |                 icon: "dollarsign.circle.fill",
+ 31 |                 title: "Общая сумма",
+ 32 |                 value: appState.stats.formattedTotalAmount,
+    |                        `- error: referencing subscript 'subscript(dynamicMember:)' requires wrapper 'ObservedObject<AppState>.Wrapper'
+ 33 |                 color: .green,
+ 34 |                 trend: .up
+
+/Users/mk/LiquidScanner/liquidscanner_project/Sources/LiquidScanner/DashboardView.swift:124:34: error: value of type 'AppState' has no dynamic member 'selectedTab' using key path from root type 'AppState'
+122 |                 if !recentDeposits.isEmpty {
+123 |                     Button("Все") {
+124 |                         appState.selectedTab = 3
+    |                                  `- error: value of type 'AppState' has no dynamic member 'selectedTab' using key path from root type 'AppState'
+125 |                     }
+126 |                     .font(.caption)
+
+/Users/mk/LiquidScanner/liquidscanner_project/Sources/LiquidScanner/DashboardView.swift:124:25: error: referencing subscript 'subscript(dynamicMember:)' requires wrapper 'ObservedObject<AppState>.Wrapper'
+122 |                 if !recentDeposits.isEmpty {
+123 |                     Button("Все") {
+124 |                         appState.selectedTab = 3
+    |                         `- error: referencing subscript 'subscript(dynamicMember:)' requires wrapper 'ObservedObject<AppState>.Wrapper'
+125 |                     }
+126 |                     .font(.caption)
+
+/Users/mk/LiquidScanner/liquidscanner_project/Sources/LiquidScanner/DashboardView.swift:124:48: error: cannot assign value of type 'Int' to type 'Binding<Subject>'
+122 |                 if !recentDeposits.isEmpty {
+123 |                     Button("Все") {
+124 |                         appState.selectedTab = 3
+    |                                                `- error: cannot assign value of type 'Int' to type 'Binding<Subject>'
+125 |                     }
+126 |                     .font(.caption)
+
+/Users/mk/LiquidScanner/liquidscanner_project/Sources/LiquidScanner/DashboardView.swift:179:30: error: value of type 'Deposit' has no member 'formattedAmount'
+177 |             // Сумма
+178 |             VStack(alignment: .trailing, spacing: 4) {
+179 |                 Text(deposit.formattedAmount)
+    |                              `- error: value of type 'Deposit' has no member 'formattedAmount'
+180 |                     .font(.headline)
+181 |                     .foregroundColor(.green)
+[8/15] Compiling LiquidScanner PythonOutputView.swift
+/Users/mk/LiquidScanner/liquidscanner_project/Sources/LiquidScanner/PythonOutputView.swift:3:8: error: type 'PythonOutputView' does not conform to protocol 'View'
+ 1 | import SwiftUI
+ 2 | 
+ 3 | struct PythonOutputView: View {
+   |        |- error: type 'PythonOutputView' does not conform to protocol 'View'
+   |        `- note: add stubs for conformance
+ 4 |     @EnvironmentObject var appState: AppState
+ 5 |     @State private var searchText: String = ""
+
+SwiftUI.View.Body:2:16: note: protocol requires nested type 'Body'
+1 | protocol View {
+2 | associatedtype Body : View}
+  |                `- note: protocol requires nested type 'Body'
+3 | 
+[9/15] Compiling LiquidScanner AccountsView.swift
+/Users/mk/LiquidScanner/liquidscanner_project/Sources/LiquidScanner/AccountsView.swift:5:41: error: type annotation missing in pattern
+ 3 | struct AddAccountView: View {
+ 4 |     @ObservedObject var appState: AppState
+ 5 |     @Environment(\.dismiss) private var dismiss
+   |                                         `- error: type annotation missing in pattern
+ 6 |     
+ 7 |     @State private var name = ""
+
+/Users/mk/LiquidScanner/liquidscanner_project/Sources/LiquidScanner/AccountsView.swift:4:6: error: unknown attribute 'ObservedObject'
+ 2 | 
+ 3 | struct AddAccountView: View {
+ 4 |     @ObservedObject var appState: AppState
+   |      `- error: unknown attribute 'ObservedObject'
+ 5 |     @Environment(\.dismiss) private var dismiss
+ 6 |     
+
+/Users/mk/LiquidScanner/liquidscanner_project/Sources/LiquidScanner/AccountsView.swift:5:6: error: unknown attribute 'Environment'
+ 3 | struct AddAccountView: View {
+ 4 |     @ObservedObject var appState: AppState
+ 5 |     @Environment(\.dismiss) private var dismiss
+   |      `- error: unknown attribute 'Environment'
+ 6 |     
+ 7 |     @State private var name = ""
+
+/Users/mk/LiquidScanner/liquidscanner_project/Sources/LiquidScanner/AccountsView.swift:7:6: error: unknown attribute 'State'
+ 5 |     @Environment(\.dismiss) private var dismiss
+ 6 |     
+ 7 |     @State private var name = ""
+   |      `- error: unknown attribute 'State'
+ 8 |     @State private var phone = ""
+ 9 |     @State private var apiId = ""
+
+/Users/mk/LiquidScanner/liquidscanner_project/Sources/LiquidScanner/AccountsView.swift:8:6: error: unknown attribute 'State'
+ 6 |     
+ 7 |     @State private var name = ""
+ 8 |     @State private var phone = ""
+   |      `- error: unknown attribute 'State'
+ 9 |     @State private var apiId = ""
+10 |     @State private var apiHash = ""
+
+/Users/mk/LiquidScanner/liquidscanner_project/Sources/LiquidScanner/AccountsView.swift:9:6: error: unknown attribute 'State'
+ 7 |     @State private var name = ""
+ 8 |     @State private var phone = ""
+ 9 |     @State private var apiId = ""
+   |      `- error: unknown attribute 'State'
+10 |     @State private var apiHash = ""
+11 |     
+
+/Users/mk/LiquidScanner/liquidscanner_project/Sources/LiquidScanner/AccountsView.swift:10:6: error: unknown attribute 'State'
+ 8 |     @State private var phone = ""
+ 9 |     @State private var apiId = ""
+10 |     @State private var apiHash = ""
+   |      `- error: unknown attribute 'State'
+11 |     
+12 |     var body: some View {
+
+/Users/mk/LiquidScanner/liquidscanner_project/Sources/LiquidScanner/AccountsView.swift:12:20: error: cannot find type 'View' in scope
+10 |     @State private var apiHash = ""
+11 |     
+12 |     var body: some View {
+   |                    `- error: cannot find type 'View' in scope
+13 |         NavigationView {
+14 |             Form {
+
+/Users/mk/LiquidScanner/liquidscanner_project/Sources/LiquidScanner/AccountsView.swift:3:24: error: cannot find type 'View' in scope
+ 1 | // ... (начало файла до AddAccountView)
+ 2 | 
+ 3 | struct AddAccountView: View {
+   |                        `- error: cannot find type 'View' in scope
+ 4 |     @ObservedObject var appState: AppState
+ 5 |     @Environment(\.dismiss) private var dismiss
+
+/Users/mk/LiquidScanner/liquidscanner_project/Sources/LiquidScanner/AccountsView.swift:3:8: error: invalid redeclaration of 'AddAccountView'
+ 1 | // ... (начало файла до AddAccountView)
+ 2 | 
+ 3 | struct AddAccountView: View {
+   |        `- error: invalid redeclaration of 'AddAccountView'
+ 4 |     @ObservedObject var appState: AppState
+ 5 |     @Environment(\.dismiss) private var dismiss
+[10/15] Compiling LiquidScanner AppMain.swift
+/Users/mk/LiquidScanner/liquidscanner_project/Sources/LiquidScanner/AccountsView.swift:5:41: error: type annotation missing in pattern
+ 3 | struct AddAccountView: View {
+ 4 |     @ObservedObject var appState: AppState
+ 5 |     @Environment(\.dismiss) private var dismiss
+   |                                         `- error: type annotation missing in pattern
+ 6 |     
+ 7 |     @State private var name = ""
+
+/Users/mk/LiquidScanner/liquidscanner_project/Sources/LiquidScanner/AccountsView.swift:4:6: error: unknown attribute 'ObservedObject'
+ 2 | 
+ 3 | struct AddAccountView: View {
+ 4 |     @ObservedObject var appState: AppState
+   |      `- error: unknown attribute 'ObservedObject'
+ 5 |     @Environment(\.dismiss) private var dismiss
+ 6 |     
+
+/Users/mk/LiquidScanner/liquidscanner_project/Sources/LiquidScanner/AccountsView.swift:5:6: error: unknown attribute 'Environment'
+ 3 | struct AddAccountView: View {
+ 4 |     @ObservedObject var appState: AppState
+ 5 |     @Environment(\.dismiss) private var dismiss
+   |      `- error: unknown attribute 'Environment'
+ 6 |     
+ 7 |     @State private var name = ""
+
+/Users/mk/LiquidScanner/liquidscanner_project/Sources/LiquidScanner/AccountsView.swift:7:6: error: unknown attribute 'State'
+ 5 |     @Environment(\.dismiss) private var dismiss
+ 6 |     
+ 7 |     @State private var name = ""
+   |      `- error: unknown attribute 'State'
+ 8 |     @State private var phone = ""
+ 9 |     @State private var apiId = ""
+
+/Users/mk/LiquidScanner/liquidscanner_project/Sources/LiquidScanner/AccountsView.swift:8:6: error: unknown attribute 'State'
+ 6 |     
+ 7 |     @State private var name = ""
+ 8 |     @State private var phone = ""
+   |      `- error: unknown attribute 'State'
+ 9 |     @State private var apiId = ""
+10 |     @State private var apiHash = ""
+
+/Users/mk/LiquidScanner/liquidscanner_project/Sources/LiquidScanner/AccountsView.swift:9:6: error: unknown attribute 'State'
+ 7 |     @State private var name = ""
+ 8 |     @State private var phone = ""
+ 9 |     @State private var apiId = ""
+   |      `- error: unknown attribute 'State'
+10 |     @State private var apiHash = ""
+11 |     
+
+/Users/mk/LiquidScanner/liquidscanner_project/Sources/LiquidScanner/AccountsView.swift:10:6: error: unknown attribute 'State'
+ 8 |     @State private var phone = ""
+ 9 |     @State private var apiId = ""
+10 |     @State private var apiHash = ""
+   |      `- error: unknown attribute 'State'
+11 |     
+12 |     var body: some View {
+
+/Users/mk/LiquidScanner/liquidscanner_project/Sources/LiquidScanner/AccountsView.swift:12:20: error: cannot find type 'View' in scope
+10 |     @State private var apiHash = ""
+11 |     
+12 |     var body: some View {
+   |                    `- error: cannot find type 'View' in scope
+13 |         NavigationView {
+14 |             Form {
+
+/Users/mk/LiquidScanner/liquidscanner_project/Sources/LiquidScanner/AccountsView.swift:3:24: error: cannot find type 'View' in scope
+ 1 | // ... (начало файла до AddAccountView)
+ 2 | 
+ 3 | struct AddAccountView: View {
+   |                        `- error: cannot find type 'View' in scope
+ 4 |     @ObservedObject var appState: AppState
+ 5 |     @Environment(\.dismiss) private var dismiss
+
+/Users/mk/LiquidScanner/liquidscanner_project/Sources/LiquidScanner/AccountsView.swift:3:8: error: invalid redeclaration of 'AddAccountView'
+ 1 | // ... (начало файла до AddAccountView)
+ 2 | 
+ 3 | struct AddAccountView: View {
+   |        `- error: invalid redeclaration of 'AddAccountView'
+ 4 |     @ObservedObject var appState: AppState
+ 5 |     @Environment(\.dismiss) private var dismiss
+[11/15] Compiling LiquidScanner AppState.swift
+/Users/mk/LiquidScanner/liquidscanner_project/Sources/LiquidScanner/ContentView.swift:88:21: error: cannot find 'AccountsView' in scope
+ 86 |                     DashboardView(appState: appState)
+ 87 |                 case .accounts:
+ 88 |                     AccountsView(appState: appState)
+    |                     `- error: cannot find 'AccountsView' in scope
+ 89 |                 case .scanner:
+ 90 |                     ScannerView(appState: appState)
+
+/Users/mk/LiquidScanner/liquidscanner_project/Sources/LiquidScanner/ContentView.swift:92:21: error: cannot find 'DepositsView' in scope
+ 90 |                     ScannerView(appState: appState)
+ 91 |                 case .deposits:
+ 92 |                     DepositsView(appState: appState)
+    |                     `- error: cannot find 'DepositsView' in scope
+ 93 |                 case .pythonLogs:
+ 94 |                     PythonOutputView()
+[12/15] Compiling LiquidScanner ContentView.swift
+/Users/mk/LiquidScanner/liquidscanner_project/Sources/LiquidScanner/ContentView.swift:88:21: error: cannot find 'AccountsView' in scope
+ 86 |                     DashboardView(appState: appState)
+ 87 |                 case .accounts:
+ 88 |                     AccountsView(appState: appState)
+    |                     `- error: cannot find 'AccountsView' in scope
+ 89 |                 case .scanner:
+ 90 |                     ScannerView(appState: appState)
+
+/Users/mk/LiquidScanner/liquidscanner_project/Sources/LiquidScanner/ContentView.swift:92:21: error: cannot find 'DepositsView' in scope
+ 90 |                     ScannerView(appState: appState)
+ 91 |                 case .deposits:
+ 92 |                     DepositsView(appState: appState)
+    |                     `- error: cannot find 'DepositsView' in scope
+ 93 |                 case .pythonLogs:
+ 94 |                     PythonOutputView()
+[13/17] Compiling LiquidScanner APIService.swift
+[14/17] Compiling LiquidScanner TelegramService.swift
