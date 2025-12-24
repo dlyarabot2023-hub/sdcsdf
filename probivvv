@@ -1,0 +1,321 @@
+Building for debugging...
+[0/4] Write swift-version--1AB21518FC5DEDBE.txt
+error: emit-module command failed with exit code 1 (use -v to see invocation)
+[2/8] Emitting module TelegramUIDScanner
+/Users/mk/TelegramUIDScanner/Sources/TelegramUIDScanner/Services/ConfigService.swift:4:16: [1;31merror: [1;39mstatic property 'shared' is not concurrency-safe because non-'Sendable' type 'ConfigService' may have shared mutable state[0;0m [#]8;;https://docs.swift.org/compiler/documentation/diagnostics/mutable-global-variable\MutableGlobalVariable]8;;\]
+ [0;36m1 |[0;0m import Foundation
+ [0;36m2 |[0;0m 
+ [0;36m3 |[0;0m class ConfigService {
+   [0;36m|[0;0m       `- [1;39mnote: [1;39mclass 'ConfigService' does not conform to the 'Sendable' protocol[0;0m
+ [0;36m4 |[0;0m     static let shared = ConfigService()
+   [0;36m|[0;0m                |- [1;31merror: [1;39mstatic property 'shared' is not concurrency-safe because non-'Sendable' type 'ConfigService' may have shared mutable state[0;0m [#]8;;https://docs.swift.org/compiler/documentation/diagnostics/mutable-global-variable\MutableGlobalVariable]8;;\]
+   [0;36m|[0;0m                |- [1;39mnote: [1;39madd '@MainActor' to make static property 'shared' part of global actor 'MainActor'[0;0m
+   [0;36m|[0;0m                `- [1;39mnote: [1;39mdisable concurrency-safety checks if accesses are protected by an external synchronization mechanism[0;0m
+ [0;36m5 |[0;0m     
+ [0;36m6 |[0;0m     private let defaults = UserDefaults.standard
+
+/Users/mk/TelegramUIDScanner/Sources/TelegramUIDScanner/Services/FileService.swift:5:16: [1;31merror: [1;39mstatic property 'shared' is not concurrency-safe because non-'Sendable' type 'FileService' may have shared mutable state[0;0m [#]8;;https://docs.swift.org/compiler/documentation/diagnostics/mutable-global-variable\MutableGlobalVariable]8;;\]
+ [0;36m2 |[0;0m import SwiftUI
+ [0;36m3 |[0;0m 
+ [0;36m4 |[0;0m class FileService {
+   [0;36m|[0;0m       `- [1;39mnote: [1;39mclass 'FileService' does not conform to the 'Sendable' protocol[0;0m
+ [0;36m5 |[0;0m     static let shared = FileService()
+   [0;36m|[0;0m                |- [1;31merror: [1;39mstatic property 'shared' is not concurrency-safe because non-'Sendable' type 'FileService' may have shared mutable state[0;0m [#]8;;https://docs.swift.org/compiler/documentation/diagnostics/mutable-global-variable\MutableGlobalVariable]8;;\]
+   [0;36m|[0;0m                |- [1;39mnote: [1;39madd '@MainActor' to make static property 'shared' part of global actor 'MainActor'[0;0m
+   [0;36m|[0;0m                `- [1;39mnote: [1;39mdisable concurrency-safety checks if accesses are protected by an external synchronization mechanism[0;0m
+ [0;36m6 |[0;0m     
+ [0;36m7 |[0;0m     func loadUIDs(from url: URL) throws -> [String] {
+
+[#MutableGlobalVariable]: <https://docs.swift.org/compiler/documentation/diagnostics/mutable-global-variable>
+[3/8] Compiling TelegramUIDScanner SettingsView.swift
+/Users/mk/TelegramUIDScanner/Sources/TelegramUIDScanner/Views/SettingsView.swift:135:92: [1;31merror: [1;39mcannot convert value of type 'any WritableKeyPath<TelegramAccount, Bool> & Sendable' to expected argument type 'ReferenceWritableKeyPath<TelegramAccount, Bool>'[0;0m
+[0;36m133 |[0;0m                         Spacer()
+[0;36m134 |[0;0m                         
+[0;36m135 |[0;0m                         Toggle("Активен", isOn: bindingForAccount(account, keyPath: \.isActive))
+    [0;36m|[0;0m                                                                                     `- [1;31merror: [1;39mcannot convert value of type 'any WritableKeyPath<TelegramAccount, Bool> & Sendable' to expected argument type 'ReferenceWritableKeyPath<TelegramAccount, Bool>'[0;0m
+[0;36m136 |[0;0m                     }
+[0;36m137 |[0;0m                 }
+[4/8] Compiling TelegramUIDScanner ConfigService.swift
+/Users/mk/TelegramUIDScanner/Sources/TelegramUIDScanner/Services/ConfigService.swift:4:16: [1;31merror: [1;39mstatic property 'shared' is not concurrency-safe because non-'Sendable' type 'ConfigService' may have shared mutable state[0;0m [#]8;;https://docs.swift.org/compiler/documentation/diagnostics/mutable-global-variable\MutableGlobalVariable]8;;\]
+ [0;36m1 |[0;0m import Foundation
+ [0;36m2 |[0;0m 
+ [0;36m3 |[0;0m class ConfigService {
+   [0;36m|[0;0m       `- [1;39mnote: [1;39mclass 'ConfigService' does not conform to the 'Sendable' protocol[0;0m
+ [0;36m4 |[0;0m     static let shared = ConfigService()
+   [0;36m|[0;0m                |- [1;31merror: [1;39mstatic property 'shared' is not concurrency-safe because non-'Sendable' type 'ConfigService' may have shared mutable state[0;0m [#]8;;https://docs.swift.org/compiler/documentation/diagnostics/mutable-global-variable\MutableGlobalVariable]8;;\]
+   [0;36m|[0;0m                |- [1;39mnote: [1;39madd '@MainActor' to make static property 'shared' part of global actor 'MainActor'[0;0m
+   [0;36m|[0;0m                `- [1;39mnote: [1;39mdisable concurrency-safety checks if accesses are protected by an external synchronization mechanism[0;0m
+ [0;36m5 |[0;0m     
+ [0;36m6 |[0;0m     private let defaults = UserDefaults.standard
+
+[#MutableGlobalVariable]: <https://docs.swift.org/compiler/documentation/diagnostics/mutable-global-variable>
+[5/8] Compiling TelegramUIDScanner FileService.swift
+/Users/mk/TelegramUIDScanner/Sources/TelegramUIDScanner/Services/FileService.swift:5:16: [1;31merror: [1;39mstatic property 'shared' is not concurrency-safe because non-'Sendable' type 'FileService' may have shared mutable state[0;0m [#]8;;https://docs.swift.org/compiler/documentation/diagnostics/mutable-global-variable\MutableGlobalVariable]8;;\]
+ [0;36m2 |[0;0m import SwiftUI
+ [0;36m3 |[0;0m 
+ [0;36m4 |[0;0m class FileService {
+   [0;36m|[0;0m       `- [1;39mnote: [1;39mclass 'FileService' does not conform to the 'Sendable' protocol[0;0m
+ [0;36m5 |[0;0m     static let shared = FileService()
+   [0;36m|[0;0m                |- [1;31merror: [1;39mstatic property 'shared' is not concurrency-safe because non-'Sendable' type 'FileService' may have shared mutable state[0;0m [#]8;;https://docs.swift.org/compiler/documentation/diagnostics/mutable-global-variable\MutableGlobalVariable]8;;\]
+   [0;36m|[0;0m                |- [1;39mnote: [1;39madd '@MainActor' to make static property 'shared' part of global actor 'MainActor'[0;0m
+   [0;36m|[0;0m                `- [1;39mnote: [1;39mdisable concurrency-safety checks if accesses are protected by an external synchronization mechanism[0;0m
+ [0;36m6 |[0;0m     
+ [0;36m7 |[0;0m     func loadUIDs(from url: URL) throws -> [String] {
+
+/Users/mk/TelegramUIDScanner/Sources/TelegramUIDScanner/Services/FileService.swift:15:21: [1;33mwarning: [1;39mcall to main actor-isolated initializer 'init()' in a synchronous nonisolated context[0;0m [#]8;;https://docs.swift.org/compiler/documentation/diagnostics/actor-isolated-call\ActorIsolatedCall]8;;\]
+[0;36m12 |[0;0m     }
+[0;36m13 |[0;0m     
+[0;36m14 |[0;0m     func selectFile() -> URL? {
+   [0;36m|[0;0m          `- [1;39mnote: [1;39madd '@MainActor' to make instance method 'selectFile()' part of global actor 'MainActor'[0;0m
+[0;36m15 |[0;0m         let panel = NSOpenPanel()
+   [0;36m|[0;0m                     `- [1;33mwarning: [1;39mcall to main actor-isolated initializer 'init()' in a synchronous nonisolated context[0;0m [#]8;;https://docs.swift.org/compiler/documentation/diagnostics/actor-isolated-call\ActorIsolatedCall]8;;\]
+[0;36m16 |[0;0m         panel.allowsMultipleSelection = false
+[0;36m17 |[0;0m         panel.canChooseDirectories = false
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSResponder.h:23:1: [1;39mnote: [1;39mcalls to initializer 'init()' from outside of its actor context are implicitly asynchronous[0;0m
+ [0;36m21 |[0;0m @interface NSResponder : NSObject <NSCoding>
+ [0;36m22 |[0;0m 
+ [0;36m23 |[0;0m - (instancetype)init NS_DESIGNATED_INITIALIZER;
+    [0;36m|[0;0m |- [1;39mnote: [1;39mcalls to initializer 'init()' from outside of its actor context are implicitly asynchronous[0;0m
+    [0;36m|[0;0m `- [1;39mnote: [1;39mmain actor isolation inferred from inheritance from class 'NSSavePanel'[0;0m
+ [0;36m24 |[0;0m - (nullable instancetype)initWithCoder:(NSCoder *)coder NS_DESIGNATED_INITIALIZER;
+ [0;36m25 |[0;0m 
+
+/Users/mk/TelegramUIDScanner/Sources/TelegramUIDScanner/Services/FileService.swift:16:15: [1;33mwarning: [1;39mmain actor-isolated property 'allowsMultipleSelection' can not be mutated from a nonisolated context[0;0m
+[0;36m12 |[0;0m     }
+[0;36m13 |[0;0m     
+[0;36m14 |[0;0m     func selectFile() -> URL? {
+   [0;36m|[0;0m          `- [1;39mnote: [1;39madd '@MainActor' to make instance method 'selectFile()' part of global actor 'MainActor'[0;0m
+[0;36m15 |[0;0m         let panel = NSOpenPanel()
+[0;36m16 |[0;0m         panel.allowsMultipleSelection = false
+   [0;36m|[0;0m               `- [1;33mwarning: [1;39mmain actor-isolated property 'allowsMultipleSelection' can not be mutated from a nonisolated context[0;0m
+[0;36m17 |[0;0m         panel.canChooseDirectories = false
+[0;36m18 |[0;0m         panel.canChooseFiles = true
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSOpenPanel.h:30:16: [1;39mnote: [1;39mmutation of this property is only permitted within the actor[0;0m
+[0;36m28 |[0;0m @property BOOL canChooseDirectories;
+[0;36m29 |[0;0m 
+[0;36m30 |[0;0m @property BOOL allowsMultipleSelection;
+   [0;36m|[0;0m                `- [1;39mnote: [1;39mmutation of this property is only permitted within the actor[0;0m
+[0;36m31 |[0;0m 
+[0;36m32 |[0;0m @property BOOL canChooseFiles;
+
+/Users/mk/TelegramUIDScanner/Sources/TelegramUIDScanner/Services/FileService.swift:17:15: [1;33mwarning: [1;39mmain actor-isolated property 'canChooseDirectories' can not be mutated from a nonisolated context[0;0m
+[0;36m12 |[0;0m     }
+[0;36m13 |[0;0m     
+[0;36m14 |[0;0m     func selectFile() -> URL? {
+   [0;36m|[0;0m          `- [1;39mnote: [1;39madd '@MainActor' to make instance method 'selectFile()' part of global actor 'MainActor'[0;0m
+[0;36m15 |[0;0m         let panel = NSOpenPanel()
+[0;36m16 |[0;0m         panel.allowsMultipleSelection = false
+[0;36m17 |[0;0m         panel.canChooseDirectories = false
+   [0;36m|[0;0m               `- [1;33mwarning: [1;39mmain actor-isolated property 'canChooseDirectories' can not be mutated from a nonisolated context[0;0m
+[0;36m18 |[0;0m         panel.canChooseFiles = true
+[0;36m19 |[0;0m         panel.allowedContentTypes = [.text]
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSOpenPanel.h:28:16: [1;39mnote: [1;39mmutation of this property is only permitted within the actor[0;0m
+[0;36m26 |[0;0m @property BOOL resolvesAliases;
+[0;36m27 |[0;0m 
+[0;36m28 |[0;0m @property BOOL canChooseDirectories;
+   [0;36m|[0;0m                `- [1;39mnote: [1;39mmutation of this property is only permitted within the actor[0;0m
+[0;36m29 |[0;0m 
+[0;36m30 |[0;0m @property BOOL allowsMultipleSelection;
+
+/Users/mk/TelegramUIDScanner/Sources/TelegramUIDScanner/Services/FileService.swift:18:15: [1;33mwarning: [1;39mmain actor-isolated property 'canChooseFiles' can not be mutated from a nonisolated context[0;0m
+[0;36m12 |[0;0m     }
+[0;36m13 |[0;0m     
+[0;36m14 |[0;0m     func selectFile() -> URL? {
+   [0;36m|[0;0m          `- [1;39mnote: [1;39madd '@MainActor' to make instance method 'selectFile()' part of global actor 'MainActor'[0;0m
+[0;36m15 |[0;0m         let panel = NSOpenPanel()
+[0;36m16 |[0;0m         panel.allowsMultipleSelection = false
+[0;36m17 |[0;0m         panel.canChooseDirectories = false
+[0;36m18 |[0;0m         panel.canChooseFiles = true
+   [0;36m|[0;0m               `- [1;33mwarning: [1;39mmain actor-isolated property 'canChooseFiles' can not be mutated from a nonisolated context[0;0m
+[0;36m19 |[0;0m         panel.allowedContentTypes = [.text]
+[0;36m20 |[0;0m         
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSOpenPanel.h:32:16: [1;39mnote: [1;39mmutation of this property is only permitted within the actor[0;0m
+[0;36m30 |[0;0m @property BOOL allowsMultipleSelection;
+[0;36m31 |[0;0m 
+[0;36m32 |[0;0m @property BOOL canChooseFiles;
+   [0;36m|[0;0m                `- [1;39mnote: [1;39mmutation of this property is only permitted within the actor[0;0m
+[0;36m33 |[0;0m 
+[0;36m34 |[0;0m /* Controls how the receiver responds to ubiquitous documents with conflicting versions. If YES, then when the user attempts to open one or more documents with conflicts, the receiver will first display conflict resolution UI, requiring the user to resolve those conflicts before the documents can be opened. If NO, then the receiver does nothing in response to conflicts, allowing your application to handle them. The default value is YES, except for applications linked against the 10.9 SDK or earlier that have adopted iCloud by specifying a ubiquitous container identifier entitlement.
+
+/Users/mk/TelegramUIDScanner/Sources/TelegramUIDScanner/Services/FileService.swift:19:15: [1;33mwarning: [1;39mmain actor-isolated property 'allowedContentTypes' can not be mutated from a nonisolated context[0;0m
+[0;36m12 |[0;0m     }
+[0;36m13 |[0;0m     
+[0;36m14 |[0;0m     func selectFile() -> URL? {
+   [0;36m|[0;0m          `- [1;39mnote: [1;39madd '@MainActor' to make instance method 'selectFile()' part of global actor 'MainActor'[0;0m
+[0;36m15 |[0;0m         let panel = NSOpenPanel()
+[0;36m16 |[0;0m         panel.allowsMultipleSelection = false
+[0;36m17 |[0;0m         panel.canChooseDirectories = false
+[0;36m18 |[0;0m         panel.canChooseFiles = true
+[0;36m19 |[0;0m         panel.allowedContentTypes = [.text]
+   [0;36m|[0;0m               `- [1;33mwarning: [1;39mmain actor-isolated property 'allowedContentTypes' can not be mutated from a nonisolated context[0;0m
+[0;36m20 |[0;0m         
+[0;36m21 |[0;0m         if panel.runModal() == .OK {
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSSavePanel.h:62:37: [1;39mnote: [1;39mmutation of this property is only permitted within the actor[0;0m
+ [0;36m60 |[0;0m  `NSOpenPanel`: This property determines which files should be enabled in the open panel. Using the deprecated methods to show the open panel (the ones that take a "types:" parameter) will overwrite this value, and should not be used. `allowedContentTypes` can be changed while the panel is running (ie: from an accessory view). This is also known as the "enabled file types". Set to `@[]` to specify that all files should be enabled.
+ [0;36m61 |[0;0m  */
+ [0;36m62 |[0;0m @property (copy) NSArray<UTType *> *allowedContentTypes API_AVAILABLE(macos(11.0));
+    [0;36m|[0;0m                                     `- [1;39mnote: [1;39mmutation of this property is only permitted within the actor[0;0m
+ [0;36m63 |[0;0m 
+ [0;36m64 |[0;0m /**
+
+/Users/mk/TelegramUIDScanner/Sources/TelegramUIDScanner/Services/FileService.swift:21:18: [1;33mwarning: [1;39mcall to main actor-isolated instance method 'runModal()' in a synchronous nonisolated context[0;0m [#]8;;https://docs.swift.org/compiler/documentation/diagnostics/actor-isolated-call\ActorIsolatedCall]8;;\]
+[0;36m12 |[0;0m     }
+[0;36m13 |[0;0m     
+[0;36m14 |[0;0m     func selectFile() -> URL? {
+   [0;36m|[0;0m          `- [1;39mnote: [1;39madd '@MainActor' to make instance method 'selectFile()' part of global actor 'MainActor'[0;0m
+[0;36m15 |[0;0m         let panel = NSOpenPanel()
+[0;36m16 |[0;0m         panel.allowsMultipleSelection = false
+   [0;36m:[0;0m
+[0;36m19 |[0;0m         panel.allowedContentTypes = [.text]
+[0;36m20 |[0;0m         
+[0;36m21 |[0;0m         if panel.runModal() == .OK {
+   [0;36m|[0;0m                  `- [1;33mwarning: [1;39mcall to main actor-isolated instance method 'runModal()' in a synchronous nonisolated context[0;0m [#]8;;https://docs.swift.org/compiler/documentation/diagnostics/actor-isolated-call\ActorIsolatedCall]8;;\]
+[0;36m22 |[0;0m             return panel.url
+[0;36m23 |[0;0m         }
+
+AppKit.NSSavePanel.runModal:2:22: [1;39mnote: [1;39mcalls to instance method 'runModal()' from outside of its actor context are implicitly asynchronous[0;0m
+[0;36m1 |[0;0m class NSSavePanel {
+[0;36m2 |[0;0m @MainActor open func runModal() -> NSApplication.ModalResponse}
+  [0;36m|[0;0m                      |- [1;39mnote: [1;39mcalls to instance method 'runModal()' from outside of its actor context are implicitly asynchronous[0;0m
+  [0;36m|[0;0m                      `- [1;39mnote: [1;39mmain actor isolation inferred from inheritance from class 'NSPanel'[0;0m
+[0;36m3 |[0;0m 
+
+/Users/mk/TelegramUIDScanner/Sources/TelegramUIDScanner/Services/FileService.swift:22:26: [1;33mwarning: [1;39mmain actor-isolated property 'url' can not be referenced from a nonisolated context[0;0m
+[0;36m12 |[0;0m     }
+[0;36m13 |[0;0m     
+[0;36m14 |[0;0m     func selectFile() -> URL? {
+   [0;36m|[0;0m          `- [1;39mnote: [1;39madd '@MainActor' to make instance method 'selectFile()' part of global actor 'MainActor'[0;0m
+[0;36m15 |[0;0m         let panel = NSOpenPanel()
+[0;36m16 |[0;0m         panel.allowsMultipleSelection = false
+   [0;36m:[0;0m
+[0;36m20 |[0;0m         
+[0;36m21 |[0;0m         if panel.runModal() == .OK {
+[0;36m22 |[0;0m             return panel.url
+   [0;36m|[0;0m                          `- [1;33mwarning: [1;39mmain actor-isolated property 'url' can not be referenced from a nonisolated context[0;0m
+[0;36m23 |[0;0m         }
+[0;36m24 |[0;0m         return nil
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSSavePanel.h:39:45: [1;39mnote: [1;39mproperty declared here[0;0m
+ [0;36m37 |[0;0m  `NSOpenPanel`: Returns the single filename selected by the user. Note: if -allowsMultipleSelection is set, you should use the -URLs on NSOpenPanel instead.
+ [0;36m38 |[0;0m  */
+ [0;36m39 |[0;0m @property (nullable, readonly, copy) NSURL *URL;
+    [0;36m|[0;0m                                             `- [1;39mnote: [1;39mproperty declared here[0;0m
+ [0;36m40 |[0;0m 
+ [0;36m41 |[0;0m // MARK: - Configuration Properties
+
+/Users/mk/TelegramUIDScanner/Sources/TelegramUIDScanner/Services/FileService.swift:41:21: [1;33mwarning: [1;39mcall to main actor-isolated initializer 'init()' in a synchronous nonisolated context[0;0m [#]8;;https://docs.swift.org/compiler/documentation/diagnostics/actor-isolated-call\ActorIsolatedCall]8;;\]
+[0;36m25 |[0;0m     }
+[0;36m26 |[0;0m     
+[0;36m27 |[0;0m     func exportToCSV(_ results: [UIDResult], fileName: String) {
+   [0;36m|[0;0m          `- [1;39mnote: [1;39madd '@MainActor' to make instance method 'exportToCSV(_:fileName:)' part of global actor 'MainActor'[0;0m
+[0;36m28 |[0;0m         var csv = "UID,Сумма депозита,Аккаунт,Время,Сохранено в избранное\n"
+[0;36m29 |[0;0m         
+   [0;36m:[0;0m
+[0;36m39 |[0;0m         }
+[0;36m40 |[0;0m         
+[0;36m41 |[0;0m         let panel = NSSavePanel()
+   [0;36m|[0;0m                     `- [1;33mwarning: [1;39mcall to main actor-isolated initializer 'init()' in a synchronous nonisolated context[0;0m [#]8;;https://docs.swift.org/compiler/documentation/diagnostics/actor-isolated-call\ActorIsolatedCall]8;;\]
+[0;36m42 |[0;0m         panel.nameFieldStringValue = fileName
+[0;36m43 |[0;0m         panel.allowedContentTypes = [.commaSeparatedText]
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSResponder.h:23:1: [1;39mnote: [1;39mcalls to initializer 'init()' from outside of its actor context are implicitly asynchronous[0;0m
+ [0;36m21 |[0;0m @interface NSResponder : NSObject <NSCoding>
+ [0;36m22 |[0;0m 
+ [0;36m23 |[0;0m - (instancetype)init NS_DESIGNATED_INITIALIZER;
+    [0;36m|[0;0m |- [1;39mnote: [1;39mcalls to initializer 'init()' from outside of its actor context are implicitly asynchronous[0;0m
+    [0;36m|[0;0m `- [1;39mnote: [1;39mmain actor isolation inferred from inheritance from class 'NSPanel'[0;0m
+ [0;36m24 |[0;0m - (nullable instancetype)initWithCoder:(NSCoder *)coder NS_DESIGNATED_INITIALIZER;
+ [0;36m25 |[0;0m 
+
+/Users/mk/TelegramUIDScanner/Sources/TelegramUIDScanner/Services/FileService.swift:42:15: [1;33mwarning: [1;39mmain actor-isolated property 'nameFieldStringValue' can not be mutated from a nonisolated context[0;0m
+[0;36m25 |[0;0m     }
+[0;36m26 |[0;0m     
+[0;36m27 |[0;0m     func exportToCSV(_ results: [UIDResult], fileName: String) {
+   [0;36m|[0;0m          `- [1;39mnote: [1;39madd '@MainActor' to make instance method 'exportToCSV(_:fileName:)' part of global actor 'MainActor'[0;0m
+[0;36m28 |[0;0m         var csv = "UID,Сумма депозита,Аккаунт,Время,Сохранено в избранное\n"
+[0;36m29 |[0;0m         
+   [0;36m:[0;0m
+[0;36m40 |[0;0m         
+[0;36m41 |[0;0m         let panel = NSSavePanel()
+[0;36m42 |[0;0m         panel.nameFieldStringValue = fileName
+   [0;36m|[0;0m               `- [1;33mwarning: [1;39mmain actor-isolated property 'nameFieldStringValue' can not be mutated from a nonisolated context[0;0m
+[0;36m43 |[0;0m         panel.allowedContentTypes = [.commaSeparatedText]
+[0;36m44 |[0;0m         
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSSavePanel.h:149:28: [1;39mnote: [1;39mmutation of this property is only permitted within the actor[0;0m
+[0;36m147 |[0;0m  `NSOpenPanel`: Not used.
+[0;36m148 |[0;0m */
+[0;36m149 |[0;0m @property (copy) NSString *nameFieldStringValue API_AVAILABLE(macos(10.6));
+    [0;36m|[0;0m                            `- [1;39mnote: [1;39mmutation of this property is only permitted within the actor[0;0m
+[0;36m150 |[0;0m 
+[0;36m151 |[0;0m /**
+
+/Users/mk/TelegramUIDScanner/Sources/TelegramUIDScanner/Services/FileService.swift:43:15: [1;33mwarning: [1;39mmain actor-isolated property 'allowedContentTypes' can not be mutated from a nonisolated context[0;0m
+[0;36m25 |[0;0m     }
+[0;36m26 |[0;0m     
+[0;36m27 |[0;0m     func exportToCSV(_ results: [UIDResult], fileName: String) {
+   [0;36m|[0;0m          `- [1;39mnote: [1;39madd '@MainActor' to make instance method 'exportToCSV(_:fileName:)' part of global actor 'MainActor'[0;0m
+[0;36m28 |[0;0m         var csv = "UID,Сумма депозита,Аккаунт,Время,Сохранено в избранное\n"
+[0;36m29 |[0;0m         
+   [0;36m:[0;0m
+[0;36m41 |[0;0m         let panel = NSSavePanel()
+[0;36m42 |[0;0m         panel.nameFieldStringValue = fileName
+[0;36m43 |[0;0m         panel.allowedContentTypes = [.commaSeparatedText]
+   [0;36m|[0;0m               `- [1;33mwarning: [1;39mmain actor-isolated property 'allowedContentTypes' can not be mutated from a nonisolated context[0;0m
+[0;36m44 |[0;0m         
+[0;36m45 |[0;0m         panel.begin { response in
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSSavePanel.h:62:37: [1;39mnote: [1;39mmutation of this property is only permitted within the actor[0;0m
+ [0;36m60 |[0;0m  `NSOpenPanel`: This property determines which files should be enabled in the open panel. Using the deprecated methods to show the open panel (the ones that take a "types:" parameter) will overwrite this value, and should not be used. `allowedContentTypes` can be changed while the panel is running (ie: from an accessory view). This is also known as the "enabled file types". Set to `@[]` to specify that all files should be enabled.
+ [0;36m61 |[0;0m  */
+ [0;36m62 |[0;0m @property (copy) NSArray<UTType *> *allowedContentTypes API_AVAILABLE(macos(11.0));
+    [0;36m|[0;0m                                     `- [1;39mnote: [1;39mmutation of this property is only permitted within the actor[0;0m
+ [0;36m63 |[0;0m 
+ [0;36m64 |[0;0m /**
+
+/Users/mk/TelegramUIDScanner/Sources/TelegramUIDScanner/Services/FileService.swift:45:15: [1;33mwarning: [1;39mcall to main actor-isolated instance method 'begin(completionHandler:)' in a synchronous nonisolated context[0;0m [#]8;;https://docs.swift.org/compiler/documentation/diagnostics/actor-isolated-call\ActorIsolatedCall]8;;\]
+[0;36m25 |[0;0m     }
+[0;36m26 |[0;0m     
+[0;36m27 |[0;0m     func exportToCSV(_ results: [UIDResult], fileName: String) {
+   [0;36m|[0;0m          `- [1;39mnote: [1;39madd '@MainActor' to make instance method 'exportToCSV(_:fileName:)' part of global actor 'MainActor'[0;0m
+[0;36m28 |[0;0m         var csv = "UID,Сумма депозита,Аккаунт,Время,Сохранено в избранное\n"
+[0;36m29 |[0;0m         
+   [0;36m:[0;0m
+[0;36m43 |[0;0m         panel.allowedContentTypes = [.commaSeparatedText]
+[0;36m44 |[0;0m         
+[0;36m45 |[0;0m         panel.begin { response in
+   [0;36m|[0;0m               `- [1;33mwarning: [1;39mcall to main actor-isolated instance method 'begin(completionHandler:)' in a synchronous nonisolated context[0;0m [#]8;;https://docs.swift.org/compiler/documentation/diagnostics/actor-isolated-call\ActorIsolatedCall]8;;\]
+[0;36m46 |[0;0m             if response == .OK, let url = panel.url {
+[0;36m47 |[0;0m                 do {
+
+AppKit.NSSavePanel.begin:3:24: [1;39mnote: [1;39mcalls to instance method 'begin(completionHandler:)' from outside of its actor context are implicitly asynchronous[0;0m
+[0;36m1 |[0;0m class NSSavePanel {
+[0;36m2 |[0;0m @available(macOS 10.6, *)
+[0;36m3 |[0;0m   @MainActor open func begin(completionHandler handler: @escaping (NSApplication.ModalResponse) -> Void)}
+  [0;36m|[0;0m                        |- [1;39mnote: [1;39mcalls to instance method 'begin(completionHandler:)' from outside of its actor context are implicitly asynchronous[0;0m
+  [0;36m|[0;0m                        `- [1;39mnote: [1;39mmain actor isolation inferred from inheritance from class 'NSPanel'[0;0m
+[0;36m4 |[0;0m 
+
+/Users/mk/TelegramUIDScanner/Sources/TelegramUIDScanner/Services/FileService.swift:46:49: [1;33mwarning: [1;39mmain actor-isolated property 'url' can not be referenced from a nonisolated context[0;0m
+[0;36m44 |[0;0m         
+[0;36m45 |[0;0m         panel.begin { response in
+[0;36m46 |[0;0m             if response == .OK, let url = panel.url {
+   [0;36m|[0;0m                                                 `- [1;33mwarning: [1;39mmain actor-isolated property 'url' can not be referenced from a nonisolated context[0;0m
+[0;36m47 |[0;0m                 do {
+[0;36m48 |[0;0m                     try csv.write(to: url, atomically: true, encoding: .utf8)
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSSavePanel.h:39:45: [1;39mnote: [1;39mproperty declared here[0;0m
+ [0;36m37 |[0;0m  `NSOpenPanel`: Returns the single filename selected by the user. Note: if -allowsMultipleSelection is set, you should use the -URLs on NSOpenPanel instead.
+ [0;36m38 |[0;0m  */
+ [0;36m39 |[0;0m @property (nullable, readonly, copy) NSURL *URL;
+    [0;36m|[0;0m                                             `- [1;39mnote: [1;39mproperty declared here[0;0m
+ [0;36m40 |[0;0m 
+ [0;36m41 |[0;0m // MARK: - Configuration Properties
+
+[#ActorIsolatedCall]: <https://docs.swift.org/compiler/documentation/diagnostics/actor-isolated-call>
+[#MutableGlobalVariable]: <https://docs.swift.org/compiler/documentation/diagnostics/mutable-global-variable>
