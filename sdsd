@@ -1,0 +1,1541 @@
+    // MARK: - Data Management
+    func clearAllDeposits() {
+        deposits.removeAll()
+        scanStats.totalDeposits = 0
+        scanStats.totalAmount = 0.0
+        addPythonLog("Все депозиты очищены", level: .info)
+    }
+}
+EOF
+mk@mav LiquidScanner % swift build
+
+Building for debugging...
+error: emit-module command failed with exit code 1 (use -v to see invocation)
+/Users/mk/LiquidScanner/Sources/LiquidScanner/AccountsView.swift:4:35: error: 'AppState' is ambiguous for type lookup in this context
+ 2 | 
+ 3 | struct AddAccountView: View {
+ 4 |     @ObservedObject var appState: AppState
+   |                                   `- error: 'AppState' is ambiguous for type lookup in this context
+ 5 |     @Environment(\.dismiss) private var dismiss
+ 6 |     
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/AppState.swift:4:7: note: found this candidate
+  2 | import Combine
+  3 | 
+  4 | class AppState: ObservableObject {
+    |       `- note: found this candidate
+  5 |     @Published var accounts: [TelegramAccount] = Constants.defaultAccounts
+  6 |     @Published var deposits: [Deposit] = []
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/Models.swift:99:7: note: found this candidate
+ 97 | 
+ 98 | // MARK: - App State
+ 99 | class AppState: ObservableObject {
+    |       `- note: found this candidate
+100 |     @Published var accounts: [TelegramAccount] = [
+101 |         TelegramAccount(name: "Эвелин", phoneNumber: "+79891243575", apiID: "38902122", apiHash: "d2bf17a44846878618e6eb15e9cce56d"),
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/AccountsView.swift:5:41: error: type annotation missing in pattern
+ 3 | struct AddAccountView: View {
+ 4 |     @ObservedObject var appState: AppState
+ 5 |     @Environment(\.dismiss) private var dismiss
+   |                                         `- error: type annotation missing in pattern
+ 6 |     
+ 7 |     @State private var name = ""
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/AccountsView.swift:4:6: error: unknown attribute 'ObservedObject'
+ 2 | 
+ 3 | struct AddAccountView: View {
+ 4 |     @ObservedObject var appState: AppState
+   |      `- error: unknown attribute 'ObservedObject'
+ 5 |     @Environment(\.dismiss) private var dismiss
+ 6 |     
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/AccountsView.swift:5:6: error: unknown attribute 'Environment'
+ 3 | struct AddAccountView: View {
+ 4 |     @ObservedObject var appState: AppState
+ 5 |     @Environment(\.dismiss) private var dismiss
+   |      `- error: unknown attribute 'Environment'
+ 6 |     
+ 7 |     @State private var name = ""
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/AccountsView.swift:7:6: error: unknown attribute 'State'
+ 5 |     @Environment(\.dismiss) private var dismiss
+ 6 |     
+ 7 |     @State private var name = ""
+   |      `- error: unknown attribute 'State'
+ 8 |     @State private var phone = ""
+ 9 |     @State private var apiId = ""
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/AccountsView.swift:8:6: error: unknown attribute 'State'
+ 6 |     
+ 7 |     @State private var name = ""
+ 8 |     @State private var phone = ""
+   |      `- error: unknown attribute 'State'
+ 9 |     @State private var apiId = ""
+10 |     @State private var apiHash = ""
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/AccountsView.swift:9:6: error: unknown attribute 'State'
+ 7 |     @State private var name = ""
+ 8 |     @State private var phone = ""
+ 9 |     @State private var apiId = ""
+   |      `- error: unknown attribute 'State'
+10 |     @State private var apiHash = ""
+11 |     
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/AccountsView.swift:10:6: error: unknown attribute 'State'
+ 8 |     @State private var phone = ""
+ 9 |     @State private var apiId = ""
+10 |     @State private var apiHash = ""
+   |      `- error: unknown attribute 'State'
+11 |     
+12 |     var body: some View {
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/AccountsView.swift:12:20: error: cannot find type 'View' in scope
+10 |     @State private var apiHash = ""
+11 |     
+12 |     var body: some View {
+   |                    `- error: cannot find type 'View' in scope
+13 |         NavigationView {
+14 |             Form {
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/AccountsView.swift:3:24: error: cannot find type 'View' in scope
+ 1 | // ... (начало файла до AddAccountView)
+ 2 | 
+ 3 | struct AddAccountView: View {
+   |                        `- error: cannot find type 'View' in scope
+ 4 |     @ObservedObject var appState: AppState
+ 5 |     @Environment(\.dismiss) private var dismiss
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/AccountsView.swift:3:8: error: invalid redeclaration of 'AddAccountView'
+ 1 | // ... (начало файла до AddAccountView)
+ 2 | 
+ 3 | struct AddAccountView: View {
+   |        `- error: invalid redeclaration of 'AddAccountView'
+ 4 |     @ObservedObject var appState: AppState
+ 5 |     @Environment(\.dismiss) private var dismiss
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/AppState.swift:5:50: error: cannot find 'Constants' in scope
+  3 | 
+  4 | class AppState: ObservableObject {
+  5 |     @Published var accounts: [TelegramAccount] = Constants.defaultAccounts
+    |                                                  `- error: cannot find 'Constants' in scope
+  6 |     @Published var deposits: [Deposit] = []
+  7 |     @Published var settings: ScanSettings = Constants.defaultSettings
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/AppState.swift:7:45: error: cannot find 'Constants' in scope
+  5 |     @Published var accounts: [TelegramAccount] = Constants.defaultAccounts
+  6 |     @Published var deposits: [Deposit] = []
+  7 |     @Published var settings: ScanSettings = Constants.defaultSettings
+    |                                             `- error: cannot find 'Constants' in scope
+  8 |     @Published var stats = ScanStats(
+  9 |         totalScanned: 0,
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/AppState.swift:8:37: error: extra arguments at positions #2, #4, #5, #6 in call
+  6 |     @Published var deposits: [Deposit] = []
+  7 |     @Published var settings: ScanSettings = Constants.defaultSettings
+  8 |     @Published var stats = ScanStats(
+    |                                     `- error: extra arguments at positions #2, #4, #5, #6 in call
+  9 |         totalScanned: 0,
+ 10 |         totalFound: 0,
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/Models.swift:61:8: note: 'init(totalScans:totalDeposits:totalAmount:lastScanDate:)' declared here
+ 59 | 
+ 60 | // MARK: - Scan Stats
+ 61 | struct ScanStats: Codable {
+    |        `- note: 'init(totalScans:totalDeposits:totalAmount:lastScanDate:)' declared here
+ 62 |     var totalScans: Int = 0
+ 63 |     var totalDeposits: Int = 0
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/AppState.swift:13:20: error: 'nil' requires a contextual type
+ 11 |         totalAmount: 0,
+ 12 |         averageAmount: 0,
+ 13 |         startTime: nil,
+    |                    `- error: 'nil' requires a contextual type
+ 14 |         elapsedTime: 0
+ 15 |     )
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/AppState.swift:183:61: error: 'OutputType' is not a member type of struct 'LiquidScanner.PythonOutput'
+181 |     }
+182 |     
+183 |     func addPythonOutput(_ text: String, type: PythonOutput.OutputType = .info) {
+    |                                                             `- error: 'OutputType' is not a member type of struct 'LiquidScanner.PythonOutput'
+184 |         let output = PythonOutput(timestamp: Date(), text: text, type: type)
+185 |         pythonOutput.append(output)
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/Models.swift:72:8: note: 'PythonOutput' declared here
+ 70 | 
+ 71 | // MARK: - Python Output Log
+ 72 | struct PythonOutput: Identifiable {
+    |        `- note: 'PythonOutput' declared here
+ 73 |     let id: UUID
+ 74 |     let message: String
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/AppState.swift:4:7: error: invalid redeclaration of 'AppState'
+  2 | import Combine
+  3 | 
+  4 | class AppState: ObservableObject {
+    |       `- error: invalid redeclaration of 'AppState'
+  5 |     @Published var accounts: [TelegramAccount] = Constants.defaultAccounts
+  6 |     @Published var deposits: [Deposit] = []
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/ContentView.swift:50:35: error: 'AppState' is ambiguous for type lookup in this context
+ 48 | 
+ 49 | struct SidebarView: View {
+ 50 |     @ObservedObject var appState: AppState
+    |                                   `- error: 'AppState' is ambiguous for type lookup in this context
+ 51 |     
+ 52 |     var body: some View {
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/AppState.swift:4:7: note: found this candidate
+  2 | import Combine
+  3 | 
+  4 | class AppState: ObservableObject {
+    |       `- note: found this candidate
+  5 |     @Published var accounts: [TelegramAccount] = Constants.defaultAccounts
+  6 |     @Published var deposits: [Deposit] = []
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/Models.swift:99:7: note: found this candidate
+ 97 | 
+ 98 | // MARK: - App State
+ 99 | class AppState: ObservableObject {
+    |       `- note: found this candidate
+100 |     @Published var accounts: [TelegramAccount] = [
+101 |         TelegramAccount(name: "Эвелин", phoneNumber: "+79891243575", apiID: "38902122", apiHash: "d2bf17a44846878618e6eb15e9cce56d"),
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/ContentView.swift:158:35: error: 'AppState' is ambiguous for type lookup in this context
+156 | 
+157 | struct MainContentView: View {
+158 |     @ObservedObject var appState: AppState
+    |                                   `- error: 'AppState' is ambiguous for type lookup in this context
+159 |     
+160 |     var body: some View {
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/AppState.swift:4:7: note: found this candidate
+  2 | import Combine
+  3 | 
+  4 | class AppState: ObservableObject {
+    |       `- note: found this candidate
+  5 |     @Published var accounts: [TelegramAccount] = Constants.defaultAccounts
+  6 |     @Published var deposits: [Deposit] = []
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/Models.swift:99:7: note: found this candidate
+ 97 | 
+ 98 | // MARK: - App State
+ 99 | class AppState: ObservableObject {
+    |       `- note: found this candidate
+100 |     @Published var accounts: [TelegramAccount] = [
+101 |         TelegramAccount(name: "Эвелин", phoneNumber: "+79891243575", apiID: "38902122", apiHash: "d2bf17a44846878618e6eb15e9cce56d"),
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/ContentView.swift:196:35: error: 'AppState' is ambiguous for type lookup in this context
+194 | 
+195 | struct HeaderView: View {
+196 |     @ObservedObject var appState: AppState
+    |                                   `- error: 'AppState' is ambiguous for type lookup in this context
+197 |     
+198 |     var body: some View {
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/AppState.swift:4:7: note: found this candidate
+  2 | import Combine
+  3 | 
+  4 | class AppState: ObservableObject {
+    |       `- note: found this candidate
+  5 |     @Published var accounts: [TelegramAccount] = Constants.defaultAccounts
+  6 |     @Published var deposits: [Deposit] = []
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/Models.swift:99:7: note: found this candidate
+ 97 | 
+ 98 | // MARK: - App State
+ 99 | class AppState: ObservableObject {
+    |       `- note: found this candidate
+100 |     @Published var accounts: [TelegramAccount] = [
+101 |         TelegramAccount(name: "Эвелин", phoneNumber: "+79891243575", apiID: "38902122", apiHash: "d2bf17a44846878618e6eb15e9cce56d"),
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/ContentView.swift:271:35: error: 'AppState' is ambiguous for type lookup in this context
+269 | 
+270 | struct ScanControlButton: View {
+271 |     @ObservedObject var appState: AppState
+    |                                   `- error: 'AppState' is ambiguous for type lookup in this context
+272 |     
+273 |     var body: some View {
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/AppState.swift:4:7: note: found this candidate
+  2 | import Combine
+  3 | 
+  4 | class AppState: ObservableObject {
+    |       `- note: found this candidate
+  5 |     @Published var accounts: [TelegramAccount] = Constants.defaultAccounts
+  6 |     @Published var deposits: [Deposit] = []
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/Models.swift:99:7: note: found this candidate
+ 97 | 
+ 98 | // MARK: - App State
+ 99 | class AppState: ObservableObject {
+    |       `- note: found this candidate
+100 |     @Published var accounts: [TelegramAccount] = [
+101 |         TelegramAccount(name: "Эвелин", phoneNumber: "+79891243575", apiID: "38902122", apiHash: "d2bf17a44846878618e6eb15e9cce56d"),
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/ContentView.swift:296:35: error: 'AppState' is ambiguous for type lookup in this context
+294 | 
+295 | struct ScanningProgressView: View {
+296 |     @ObservedObject var appState: AppState
+    |                                   `- error: 'AppState' is ambiguous for type lookup in this context
+297 |     
+298 |     var body: some View {
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/AppState.swift:4:7: note: found this candidate
+  2 | import Combine
+  3 | 
+  4 | class AppState: ObservableObject {
+    |       `- note: found this candidate
+  5 |     @Published var accounts: [TelegramAccount] = Constants.defaultAccounts
+  6 |     @Published var deposits: [Deposit] = []
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/Models.swift:99:7: note: found this candidate
+ 97 | 
+ 98 | // MARK: - App State
+ 99 | class AppState: ObservableObject {
+    |       `- note: found this candidate
+100 |     @Published var accounts: [TelegramAccount] = [
+101 |         TelegramAccount(name: "Эвелин", phoneNumber: "+79891243575", apiID: "38902122", apiHash: "d2bf17a44846878618e6eb15e9cce56d"),
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/ContentView.swift:319:35: error: 'AppState' is ambiguous for type lookup in this context
+317 | 
+318 | struct DetailView: View {
+319 |     @ObservedObject var appState: AppState
+    |                                   `- error: 'AppState' is ambiguous for type lookup in this context
+320 |     
+321 |     var body: some View {
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/AppState.swift:4:7: note: found this candidate
+  2 | import Combine
+  3 | 
+  4 | class AppState: ObservableObject {
+    |       `- note: found this candidate
+  5 |     @Published var accounts: [TelegramAccount] = Constants.defaultAccounts
+  6 |     @Published var deposits: [Deposit] = []
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/Models.swift:99:7: note: found this candidate
+ 97 | 
+ 98 | // MARK: - App State
+ 99 | class AppState: ObservableObject {
+    |       `- note: found this candidate
+100 |     @Published var accounts: [TelegramAccount] = [
+101 |         TelegramAccount(name: "Эвелин", phoneNumber: "+79891243575", apiID: "38902122", apiHash: "d2bf17a44846878618e6eb15e9cce56d"),
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/ContentView.swift:487:35: error: 'AppState' is ambiguous for type lookup in this context
+485 | struct AccountStatusRow: View {
+486 |     let account: TelegramAccount
+487 |     @ObservedObject var appState: AppState
+    |                                   `- error: 'AppState' is ambiguous for type lookup in this context
+488 |     
+489 |     var body: some View {
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/AppState.swift:4:7: note: found this candidate
+  2 | import Combine
+  3 | 
+  4 | class AppState: ObservableObject {
+    |       `- note: found this candidate
+  5 |     @Published var accounts: [TelegramAccount] = Constants.defaultAccounts
+  6 |     @Published var deposits: [Deposit] = []
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/Models.swift:99:7: note: found this candidate
+ 97 | 
+ 98 | // MARK: - App State
+ 99 | class AppState: ObservableObject {
+    |       `- note: found this candidate
+100 |     @Published var accounts: [TelegramAccount] = [
+101 |         TelegramAccount(name: "Эвелин", phoneNumber: "+79891243575", apiID: "38902122", apiHash: "d2bf17a44846878618e6eb15e9cce56d"),
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/DashboardView.swift:4:35: error: 'AppState' is ambiguous for type lookup in this context
+  2 | 
+  3 | struct DashboardView: View {
+  4 |     @ObservedObject var appState: AppState
+    |                                   `- error: 'AppState' is ambiguous for type lookup in this context
+  5 |     
+  6 |     var body: some View {
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/AppState.swift:4:7: note: found this candidate
+  2 | import Combine
+  3 | 
+  4 | class AppState: ObservableObject {
+    |       `- note: found this candidate
+  5 |     @Published var accounts: [TelegramAccount] = Constants.defaultAccounts
+  6 |     @Published var deposits: [Deposit] = []
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/Models.swift:99:7: note: found this candidate
+ 97 | 
+ 98 | // MARK: - App State
+ 99 | class AppState: ObservableObject {
+    |       `- note: found this candidate
+100 |     @Published var accounts: [TelegramAccount] = [
+101 |         TelegramAccount(name: "Эвелин", phoneNumber: "+79891243575", apiID: "38902122", apiHash: "d2bf17a44846878618e6eb15e9cce56d"),
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/DashboardView.swift:25:35: error: 'AppState' is ambiguous for type lookup in this context
+ 23 | 
+ 24 | struct StatsGridView: View {
+ 25 |     @ObservedObject var appState: AppState
+    |                                   `- error: 'AppState' is ambiguous for type lookup in this context
+ 26 |     
+ 27 |     var body: some View {
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/AppState.swift:4:7: note: found this candidate
+  2 | import Combine
+  3 | 
+  4 | class AppState: ObservableObject {
+    |       `- note: found this candidate
+  5 |     @Published var accounts: [TelegramAccount] = Constants.defaultAccounts
+  6 |     @Published var deposits: [Deposit] = []
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/Models.swift:99:7: note: found this candidate
+ 97 | 
+ 98 | // MARK: - App State
+ 99 | class AppState: ObservableObject {
+    |       `- note: found this candidate
+100 |     @Published var accounts: [TelegramAccount] = [
+101 |         TelegramAccount(name: "Эвелин", phoneNumber: "+79891243575", apiID: "38902122", apiHash: "d2bf17a44846878618e6eb15e9cce56d"),
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/DashboardView.swift:108:35: error: 'AppState' is ambiguous for type lookup in this context
+106 | 
+107 | struct RecentDepositsView: View {
+108 |     @ObservedObject var appState: AppState
+    |                                   `- error: 'AppState' is ambiguous for type lookup in this context
+109 |     
+110 |     var recentDeposits: [Deposit] {
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/AppState.swift:4:7: note: found this candidate
+  2 | import Combine
+  3 | 
+  4 | class AppState: ObservableObject {
+    |       `- note: found this candidate
+  5 |     @Published var accounts: [TelegramAccount] = Constants.defaultAccounts
+  6 |     @Published var deposits: [Deposit] = []
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/Models.swift:99:7: note: found this candidate
+ 97 | 
+ 98 | // MARK: - App State
+ 99 | class AppState: ObservableObject {
+    |       `- note: found this candidate
+100 |     @Published var accounts: [TelegramAccount] = [
+101 |         TelegramAccount(name: "Эвелин", phoneNumber: "+79891243575", apiID: "38902122", apiHash: "d2bf17a44846878618e6eb15e9cce56d"),
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/PythonOutputView.swift:4:38: error: 'AppState' is ambiguous for type lookup in this context
+ 2 | 
+ 3 | struct PythonOutputView: View {
+ 4 |     @EnvironmentObject var appState: AppState
+   |                                      `- error: 'AppState' is ambiguous for type lookup in this context
+ 5 |     @State private var searchText: String = ""
+ 6 |     @State private var selectedLogLevel: PythonOutput.LogLevel = .all
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/AppState.swift:4:7: note: found this candidate
+  2 | import Combine
+  3 | 
+  4 | class AppState: ObservableObject {
+    |       `- note: found this candidate
+  5 |     @Published var accounts: [TelegramAccount] = Constants.defaultAccounts
+  6 |     @Published var deposits: [Deposit] = []
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/Models.swift:99:7: note: found this candidate
+ 97 | 
+ 98 | // MARK: - App State
+ 99 | class AppState: ObservableObject {
+    |       `- note: found this candidate
+100 |     @Published var accounts: [TelegramAccount] = [
+101 |         TelegramAccount(name: "Эвелин", phoneNumber: "+79891243575", apiID: "38902122", apiHash: "d2bf17a44846878618e6eb15e9cce56d"),
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/PythonOutputView.swift:3:8: error: type 'PythonOutputView' does not conform to protocol 'View'
+ 1 | import SwiftUI
+ 2 | 
+ 3 | struct PythonOutputView: View {
+   |        |- error: type 'PythonOutputView' does not conform to protocol 'View'
+   |        `- note: add stubs for conformance
+ 4 |     @EnvironmentObject var appState: AppState
+ 5 |     @State private var searchText: String = ""
+
+SwiftUI.View.Body:2:16: note: protocol requires nested type 'Body'
+1 | protocol View {
+2 | associatedtype Body : View}
+  |                `- note: protocol requires nested type 'Body'
+3 | 
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/ScannerView.swift:4:35: error: 'AppState' is ambiguous for type lookup in this context
+  2 | 
+  3 | struct ScannerView: View {
+  4 |     @ObservedObject var appState: AppState
+    |                                   `- error: 'AppState' is ambiguous for type lookup in this context
+  5 |     @State private var showingSettings = false
+  6 |     @State private var showingUIDsEditor = false
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/AppState.swift:4:7: note: found this candidate
+  2 | import Combine
+  3 | 
+  4 | class AppState: ObservableObject {
+    |       `- note: found this candidate
+  5 |     @Published var accounts: [TelegramAccount] = Constants.defaultAccounts
+  6 |     @Published var deposits: [Deposit] = []
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/Models.swift:99:7: note: found this candidate
+ 97 | 
+ 98 | // MARK: - App State
+ 99 | class AppState: ObservableObject {
+    |       `- note: found this candidate
+100 |     @Published var accounts: [TelegramAccount] = [
+101 |         TelegramAccount(name: "Эвелин", phoneNumber: "+79891243575", apiID: "38902122", apiHash: "d2bf17a44846878618e6eb15e9cce56d"),
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/ScannerView.swift:52:35: error: 'AppState' is ambiguous for type lookup in this context
+ 50 | 
+ 51 | struct ProgressCardView: View {
+ 52 |     @ObservedObject var appState: AppState
+    |                                   `- error: 'AppState' is ambiguous for type lookup in this context
+ 53 |     @Binding var progressAnimation: Double
+ 54 |     
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/AppState.swift:4:7: note: found this candidate
+  2 | import Combine
+  3 | 
+  4 | class AppState: ObservableObject {
+    |       `- note: found this candidate
+  5 |     @Published var accounts: [TelegramAccount] = Constants.defaultAccounts
+  6 |     @Published var deposits: [Deposit] = []
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/Models.swift:99:7: note: found this candidate
+ 97 | 
+ 98 | // MARK: - App State
+ 99 | class AppState: ObservableObject {
+    |       `- note: found this candidate
+100 |     @Published var accounts: [TelegramAccount] = [
+101 |         TelegramAccount(name: "Эвелин", phoneNumber: "+79891243575", apiID: "38902122", apiHash: "d2bf17a44846878618e6eb15e9cce56d"),
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/ScannerView.swift:117:35: error: 'AppState' is ambiguous for type lookup in this context
+115 | 
+116 | struct LiveStatsView: View {
+117 |     @ObservedObject var appState: AppState
+    |                                   `- error: 'AppState' is ambiguous for type lookup in this context
+118 |     
+119 |     var body: some View {
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/AppState.swift:4:7: note: found this candidate
+  2 | import Combine
+  3 | 
+  4 | class AppState: ObservableObject {
+    |       `- note: found this candidate
+  5 |     @Published var accounts: [TelegramAccount] = Constants.defaultAccounts
+  6 |     @Published var deposits: [Deposit] = []
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/Models.swift:99:7: note: found this candidate
+ 97 | 
+ 98 | // MARK: - App State
+ 99 | class AppState: ObservableObject {
+    |       `- note: found this candidate
+100 |     @Published var accounts: [TelegramAccount] = [
+101 |         TelegramAccount(name: "Эвелин", phoneNumber: "+79891243575", apiID: "38902122", apiHash: "d2bf17a44846878618e6eb15e9cce56d"),
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/ScannerView.swift:195:35: error: 'AppState' is ambiguous for type lookup in this context
+193 | 
+194 | struct ControlPanelView: View {
+195 |     @ObservedObject var appState: AppState
+    |                                   `- error: 'AppState' is ambiguous for type lookup in this context
+196 |     @Binding var showingSettings: Bool
+197 |     @Binding var showingUIDsEditor: Bool
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/AppState.swift:4:7: note: found this candidate
+  2 | import Combine
+  3 | 
+  4 | class AppState: ObservableObject {
+    |       `- note: found this candidate
+  5 |     @Published var accounts: [TelegramAccount] = Constants.defaultAccounts
+  6 |     @Published var deposits: [Deposit] = []
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/Models.swift:99:7: note: found this candidate
+ 97 | 
+ 98 | // MARK: - App State
+ 99 | class AppState: ObservableObject {
+    |       `- note: found this candidate
+100 |     @Published var accounts: [TelegramAccount] = [
+101 |         TelegramAccount(name: "Эвелин", phoneNumber: "+79891243575", apiID: "38902122", apiHash: "d2bf17a44846878618e6eb15e9cce56d"),
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/ScannerView.swift:256:35: error: 'AppState' is ambiguous for type lookup in this context
+254 | 
+255 | struct QuickSettingsView: View {
+256 |     @ObservedObject var appState: AppState
+    |                                   `- error: 'AppState' is ambiguous for type lookup in this context
+257 |     let estimatedTime: String
+258 |     
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/AppState.swift:4:7: note: found this candidate
+  2 | import Combine
+  3 | 
+  4 | class AppState: ObservableObject {
+    |       `- note: found this candidate
+  5 |     @Published var accounts: [TelegramAccount] = Constants.defaultAccounts
+  6 |     @Published var deposits: [Deposit] = []
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/Models.swift:99:7: note: found this candidate
+ 97 | 
+ 98 | // MARK: - App State
+ 99 | class AppState: ObservableObject {
+    |       `- note: found this candidate
+100 |     @Published var accounts: [TelegramAccount] = [
+101 |         TelegramAccount(name: "Эвелин", phoneNumber: "+79891243575", apiID: "38902122", apiHash: "d2bf17a44846878618e6eb15e9cce56d"),
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/ScannerView.swift:306:35: error: 'AppState' is ambiguous for type lookup in this context
+304 | 
+305 | struct ScannerSettingsView: View {
+306 |     @ObservedObject var appState: AppState
+    |                                   `- error: 'AppState' is ambiguous for type lookup in this context
+307 |     @Environment(\.dismiss) private var dismiss
+308 |     
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/AppState.swift:4:7: note: found this candidate
+  2 | import Combine
+  3 | 
+  4 | class AppState: ObservableObject {
+    |       `- note: found this candidate
+  5 |     @Published var accounts: [TelegramAccount] = Constants.defaultAccounts
+  6 |     @Published var deposits: [Deposit] = []
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/Models.swift:99:7: note: found this candidate
+ 97 | 
+ 98 | // MARK: - App State
+ 99 | class AppState: ObservableObject {
+    |       `- note: found this candidate
+100 |     @Published var accounts: [TelegramAccount] = [
+101 |         TelegramAccount(name: "Эвелин", phoneNumber: "+79891243575", apiID: "38902122", apiHash: "d2bf17a44846878618e6eb15e9cce56d"),
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/ScannerView.swift:362:35: error: 'AppState' is ambiguous for type lookup in this context
+360 | 
+361 | struct UIDsEditorView: View {
+362 |     @ObservedObject var appState: AppState
+    |                                   `- error: 'AppState' is ambiguous for type lookup in this context
+363 |     @Environment(\.dismiss) private var dismiss
+364 |     
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/AppState.swift:4:7: note: found this candidate
+  2 | import Combine
+  3 | 
+  4 | class AppState: ObservableObject {
+    |       `- note: found this candidate
+  5 |     @Published var accounts: [TelegramAccount] = Constants.defaultAccounts
+  6 |     @Published var deposits: [Deposit] = []
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/Models.swift:99:7: note: found this candidate
+ 97 | 
+ 98 | // MARK: - App State
+ 99 | class AppState: ObservableObject {
+    |       `- note: found this candidate
+100 |     @Published var accounts: [TelegramAccount] = [
+101 |         TelegramAccount(name: "Эвелин", phoneNumber: "+79891243575", apiID: "38902122", apiHash: "d2bf17a44846878618e6eb15e9cce56d"),
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/SettingsView.swift:4:38: error: 'AppState' is ambiguous for type lookup in this context
+  2 | 
+  3 | struct SettingsView: View {
+  4 |     @EnvironmentObject var appState: AppState
+    |                                      `- error: 'AppState' is ambiguous for type lookup in this context
+  5 |     @State private var selectedTab: SettingsTab = .general
+  6 |     @State private var notificationsEnabled: Bool = true
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/AppState.swift:4:7: note: found this candidate
+  2 | import Combine
+  3 | 
+  4 | class AppState: ObservableObject {
+    |       `- note: found this candidate
+  5 |     @Published var accounts: [TelegramAccount] = Constants.defaultAccounts
+  6 |     @Published var deposits: [Deposit] = []
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/Models.swift:99:7: note: found this candidate
+ 97 | 
+ 98 | // MARK: - App State
+ 99 | class AppState: ObservableObject {
+    |       `- note: found this candidate
+100 |     @Published var accounts: [TelegramAccount] = [
+101 |         TelegramAccount(name: "Эвелин", phoneNumber: "+79891243575", apiID: "38902122", apiHash: "d2bf17a44846878618e6eb15e9cce56d"),
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/SettingsView.swift:139:38: error: 'AppState' is ambiguous for type lookup in this context
+137 |     let selectedTab: SettingsView.SettingsTab
+138 |     
+139 |     @EnvironmentObject var appState: AppState
+    |                                      `- error: 'AppState' is ambiguous for type lookup in this context
+140 |     @State private var notificationsEnabled: Bool = true
+141 |     @State private var soundEnabled: Bool = true
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/AppState.swift:4:7: note: found this candidate
+  2 | import Combine
+  3 | 
+  4 | class AppState: ObservableObject {
+    |       `- note: found this candidate
+  5 |     @Published var accounts: [TelegramAccount] = Constants.defaultAccounts
+  6 |     @Published var deposits: [Deposit] = []
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/Models.swift:99:7: note: found this candidate
+ 97 | 
+ 98 | // MARK: - App State
+ 99 | class AppState: ObservableObject {
+    |       `- note: found this candidate
+100 |     @Published var accounts: [TelegramAccount] = [
+101 |         TelegramAccount(name: "Эвелин", phoneNumber: "+79891243575", apiID: "38902122", apiHash: "d2bf17a44846878618e6eb15e9cce56d"),
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/SettingsView.swift:236:35: error: 'AppState' is ambiguous for type lookup in this context
+234 | 
+235 | struct AccountsSettingsView: View {
+236 |     @ObservedObject var appState: AppState
+    |                                   `- error: 'AppState' is ambiguous for type lookup in this context
+237 |     @State private var showingAddAccount = false
+238 |     @State private var newAccountName = ""
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/AppState.swift:4:7: note: found this candidate
+  2 | import Combine
+  3 | 
+  4 | class AppState: ObservableObject {
+    |       `- note: found this candidate
+  5 |     @Published var accounts: [TelegramAccount] = Constants.defaultAccounts
+  6 |     @Published var deposits: [Deposit] = []
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/Models.swift:99:7: note: found this candidate
+ 97 | 
+ 98 | // MARK: - App State
+ 99 | class AppState: ObservableObject {
+    |       `- note: found this candidate
+100 |     @Published var accounts: [TelegramAccount] = [
+101 |         TelegramAccount(name: "Эвелин", phoneNumber: "+79891243575", apiID: "38902122", apiHash: "d2bf17a44846878618e6eb15e9cce56d"),
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/SettingsView.swift:306:35: error: 'AppState' is ambiguous for type lookup in this context
+304 | struct AccountRowView: View {
+305 |     let account: TelegramAccount
+306 |     @ObservedObject var appState: AppState
+    |                                   `- error: 'AppState' is ambiguous for type lookup in this context
+307 |     
+308 |     var body: some View {
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/AppState.swift:4:7: note: found this candidate
+  2 | import Combine
+  3 | 
+  4 | class AppState: ObservableObject {
+    |       `- note: found this candidate
+  5 |     @Published var accounts: [TelegramAccount] = Constants.defaultAccounts
+  6 |     @Published var deposits: [Deposit] = []
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/Models.swift:99:7: note: found this candidate
+ 97 | 
+ 98 | // MARK: - App State
+ 99 | class AppState: ObservableObject {
+    |       `- note: found this candidate
+100 |     @Published var accounts: [TelegramAccount] = [
+101 |         TelegramAccount(name: "Эвелин", phoneNumber: "+79891243575", apiID: "38902122", apiHash: "d2bf17a44846878618e6eb15e9cce56d"),
+/Users/mk/LiquidScanner/Sources/LiquidScanner/Services/PythonService.swift:313:50: error: cannot find 'datetime' in scope
+311 | @app.get("/health")
+312 | async def health_check():
+313 |     return {"status": "healthy", "timestamp": "\(datetime.now().isoformat())"}
+    |                                                  `- error: cannot find 'datetime' in scope
+314 | 
+315 | if __name__ == "__main__":
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/Services/PythonService.swift:323:80: error: cannot infer contextual base in reference to member 'utf8'
+321 |         
+322 |         do {
+323 |             try serverScript.write(to: scriptURL, atomically: true, encoding: .utf8)
+    |                                                                                `- error: cannot infer contextual base in reference to member 'utf8'
+324 |             runScript(at: scriptURL.path)
+325 |         } catch {
+/Users/mk/LiquidScanner/Sources/LiquidScanner/ContentView.swift:4:41: error: ambiguous use of 'init()'
+  2 | 
+  3 | struct ContentView: View {
+  4 |     @StateObject private var appState = AppState()
+    |                                         `- error: ambiguous use of 'init()'
+  5 |     @State private var showingSettings = false
+  6 |     @State private var showingExportDialog = false
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/AppState.swift:26:5: note: found this candidate 
+ 24 |     private var statsTimer: Timer?
+ 25 |     
+ 26 |     init() {
+    |     `- note: found this candidate 
+ 27 |         setupObservers()
+ 28 |         startServices()
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/Models.swift:99:7: note: found this candidate 
+ 97 | 
+ 98 | // MARK: - App State
+ 99 | class AppState: ObservableObject {
+    |       `- note: found this candidate 
+100 |     @Published var accounts: [TelegramAccount] = [
+101 |         TelegramAccount(name: "Эвелин", phoneNumber: "+79891243575", apiID: "38902122", apiHash: "d2bf17a44846878618e6eb15e9cce56d"),
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/ContentView.swift:50:35: error: 'AppState' is ambiguous for type lookup in this context
+ 48 | 
+ 49 | struct SidebarView: View {
+ 50 |     @ObservedObject var appState: AppState
+    |                                   `- error: 'AppState' is ambiguous for type lookup in this context
+ 51 |     
+ 52 |     var body: some View {
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/AppState.swift:4:7: note: found this candidate
+  2 | import Combine
+  3 | 
+  4 | class AppState: ObservableObject {
+    |       `- note: found this candidate
+  5 |     @Published var accounts: [TelegramAccount] = Constants.defaultAccounts
+  6 |     @Published var deposits: [Deposit] = []
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/Models.swift:99:7: note: found this candidate
+ 97 | 
+ 98 | // MARK: - App State
+ 99 | class AppState: ObservableObject {
+    |       `- note: found this candidate
+100 |     @Published var accounts: [TelegramAccount] = [
+101 |         TelegramAccount(name: "Эвелин", phoneNumber: "+79891243575", apiID: "38902122", apiHash: "d2bf17a44846878618e6eb15e9cce56d"),
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/ContentView.swift:158:35: error: 'AppState' is ambiguous for type lookup in this context
+156 | 
+157 | struct MainContentView: View {
+158 |     @ObservedObject var appState: AppState
+    |                                   `- error: 'AppState' is ambiguous for type lookup in this context
+159 |     
+160 |     var body: some View {
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/AppState.swift:4:7: note: found this candidate
+  2 | import Combine
+  3 | 
+  4 | class AppState: ObservableObject {
+    |       `- note: found this candidate
+  5 |     @Published var accounts: [TelegramAccount] = Constants.defaultAccounts
+  6 |     @Published var deposits: [Deposit] = []
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/Models.swift:99:7: note: found this candidate
+ 97 | 
+ 98 | // MARK: - App State
+ 99 | class AppState: ObservableObject {
+    |       `- note: found this candidate
+100 |     @Published var accounts: [TelegramAccount] = [
+101 |         TelegramAccount(name: "Эвелин", phoneNumber: "+79891243575", apiID: "38902122", apiHash: "d2bf17a44846878618e6eb15e9cce56d"),
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/ContentView.swift:196:35: error: 'AppState' is ambiguous for type lookup in this context
+194 | 
+195 | struct HeaderView: View {
+196 |     @ObservedObject var appState: AppState
+    |                                   `- error: 'AppState' is ambiguous for type lookup in this context
+197 |     
+198 |     var body: some View {
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/AppState.swift:4:7: note: found this candidate
+  2 | import Combine
+  3 | 
+  4 | class AppState: ObservableObject {
+    |       `- note: found this candidate
+  5 |     @Published var accounts: [TelegramAccount] = Constants.defaultAccounts
+  6 |     @Published var deposits: [Deposit] = []
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/Models.swift:99:7: note: found this candidate
+ 97 | 
+ 98 | // MARK: - App State
+ 99 | class AppState: ObservableObject {
+    |       `- note: found this candidate
+100 |     @Published var accounts: [TelegramAccount] = [
+101 |         TelegramAccount(name: "Эвелин", phoneNumber: "+79891243575", apiID: "38902122", apiHash: "d2bf17a44846878618e6eb15e9cce56d"),
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/ContentView.swift:271:35: error: 'AppState' is ambiguous for type lookup in this context
+269 | 
+270 | struct ScanControlButton: View {
+271 |     @ObservedObject var appState: AppState
+    |                                   `- error: 'AppState' is ambiguous for type lookup in this context
+272 |     
+273 |     var body: some View {
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/AppState.swift:4:7: note: found this candidate
+  2 | import Combine
+  3 | 
+  4 | class AppState: ObservableObject {
+    |       `- note: found this candidate
+  5 |     @Published var accounts: [TelegramAccount] = Constants.defaultAccounts
+  6 |     @Published var deposits: [Deposit] = []
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/Models.swift:99:7: note: found this candidate
+ 97 | 
+ 98 | // MARK: - App State
+ 99 | class AppState: ObservableObject {
+    |       `- note: found this candidate
+100 |     @Published var accounts: [TelegramAccount] = [
+101 |         TelegramAccount(name: "Эвелин", phoneNumber: "+79891243575", apiID: "38902122", apiHash: "d2bf17a44846878618e6eb15e9cce56d"),
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/ContentView.swift:296:35: error: 'AppState' is ambiguous for type lookup in this context
+294 | 
+295 | struct ScanningProgressView: View {
+296 |     @ObservedObject var appState: AppState
+    |                                   `- error: 'AppState' is ambiguous for type lookup in this context
+297 |     
+298 |     var body: some View {
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/AppState.swift:4:7: note: found this candidate
+  2 | import Combine
+  3 | 
+  4 | class AppState: ObservableObject {
+    |       `- note: found this candidate
+  5 |     @Published var accounts: [TelegramAccount] = Constants.defaultAccounts
+  6 |     @Published var deposits: [Deposit] = []
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/Models.swift:99:7: note: found this candidate
+ 97 | 
+ 98 | // MARK: - App State
+ 99 | class AppState: ObservableObject {
+    |       `- note: found this candidate
+100 |     @Published var accounts: [TelegramAccount] = [
+101 |         TelegramAccount(name: "Эвелин", phoneNumber: "+79891243575", apiID: "38902122", apiHash: "d2bf17a44846878618e6eb15e9cce56d"),
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/ContentView.swift:319:35: error: 'AppState' is ambiguous for type lookup in this context
+317 | 
+318 | struct DetailView: View {
+319 |     @ObservedObject var appState: AppState
+    |                                   `- error: 'AppState' is ambiguous for type lookup in this context
+320 |     
+321 |     var body: some View {
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/AppState.swift:4:7: note: found this candidate
+  2 | import Combine
+  3 | 
+  4 | class AppState: ObservableObject {
+    |       `- note: found this candidate
+  5 |     @Published var accounts: [TelegramAccount] = Constants.defaultAccounts
+  6 |     @Published var deposits: [Deposit] = []
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/Models.swift:99:7: note: found this candidate
+ 97 | 
+ 98 | // MARK: - App State
+ 99 | class AppState: ObservableObject {
+    |       `- note: found this candidate
+100 |     @Published var accounts: [TelegramAccount] = [
+101 |         TelegramAccount(name: "Эвелин", phoneNumber: "+79891243575", apiID: "38902122", apiHash: "d2bf17a44846878618e6eb15e9cce56d"),
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/ContentView.swift:487:35: error: 'AppState' is ambiguous for type lookup in this context
+485 | struct AccountStatusRow: View {
+486 |     let account: TelegramAccount
+487 |     @ObservedObject var appState: AppState
+    |                                   `- error: 'AppState' is ambiguous for type lookup in this context
+488 |     
+489 |     var body: some View {
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/AppState.swift:4:7: note: found this candidate
+  2 | import Combine
+  3 | 
+  4 | class AppState: ObservableObject {
+    |       `- note: found this candidate
+  5 |     @Published var accounts: [TelegramAccount] = Constants.defaultAccounts
+  6 |     @Published var deposits: [Deposit] = []
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/Models.swift:99:7: note: found this candidate
+ 97 | 
+ 98 | // MARK: - App State
+ 99 | class AppState: ObservableObject {
+    |       `- note: found this candidate
+100 |     @Published var accounts: [TelegramAccount] = [
+101 |         TelegramAccount(name: "Эвелин", phoneNumber: "+79891243575", apiID: "38902122", apiHash: "d2bf17a44846878618e6eb15e9cce56d"),
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/SettingsView.swift:4:38: error: 'AppState' is ambiguous for type lookup in this context
+  2 | 
+  3 | struct SettingsView: View {
+  4 |     @EnvironmentObject var appState: AppState
+    |                                      `- error: 'AppState' is ambiguous for type lookup in this context
+  5 |     @State private var selectedTab: SettingsTab = .general
+  6 |     @State private var notificationsEnabled: Bool = true
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/AppState.swift:4:7: note: found this candidate
+  2 | import Combine
+  3 | 
+  4 | class AppState: ObservableObject {
+    |       `- note: found this candidate
+  5 |     @Published var accounts: [TelegramAccount] = Constants.defaultAccounts
+  6 |     @Published var deposits: [Deposit] = []
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/Models.swift:99:7: note: found this candidate
+ 97 | 
+ 98 | // MARK: - App State
+ 99 | class AppState: ObservableObject {
+    |       `- note: found this candidate
+100 |     @Published var accounts: [TelegramAccount] = [
+101 |         TelegramAccount(name: "Эвелин", phoneNumber: "+79891243575", apiID: "38902122", apiHash: "d2bf17a44846878618e6eb15e9cce56d"),
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/ContentView.swift:31:34: error: cannot infer contextual base in reference to member 'ultraThinMaterial'
+ 29 |                 SidebarView(appState: appState)
+ 30 |                     .frame(width: 250)
+ 31 |                     .background(.ultraThinMaterial)
+    |                                  `- error: cannot infer contextual base in reference to member 'ultraThinMaterial'
+ 32 |                 
+ 33 |                 // Центральная панель
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/ContentView.swift:44:36: error: argument passed to call that takes no arguments
+ 42 |         }
+ 43 |         .sheet(isPresented: $showingSettings) {
+ 44 |             SettingsView(appState: appState)
+    |                                    `- error: argument passed to call that takes no arguments
+ 45 |         }
+ 46 |     }
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/ContentView.swift:177:21: error: cannot find 'AccountsView' in scope
+175 |                     DashboardView(appState: appState)
+176 |                 case 1:
+177 |                     AccountsView(appState: appState)
+    |                     `- error: cannot find 'AccountsView' in scope
+178 |                 case 2:
+179 |                     ScannerView(appState: appState)
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/ContentView.swift:181:21: error: cannot find 'DepositsView' in scope
+179 |                     ScannerView(appState: appState)
+180 |                 case 3:
+181 |                     DepositsView(appState: appState)
+    |                     `- error: cannot find 'DepositsView' in scope
+182 |                 case 4:
+183 |                     PythonOutputView(appState: appState)
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/ContentView.swift:431:30: error: value of type 'Deposit' has no member 'formattedAmount'
+429 |                 Spacer()
+430 |                 
+431 |                 Text(deposit.formattedAmount)
+    |                              `- error: value of type 'Deposit' has no member 'formattedAmount'
+432 |                     .font(.title3)
+433 |                     .fontWeight(.bold)
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/ContentView.swift:501:32: error: value of type 'TelegramAccount' has no member 'isEnabled'
+499 |             
+500 |             Toggle("", isOn: Binding(
+501 |                 get: { account.isEnabled },
+    |                                `- error: value of type 'TelegramAccount' has no member 'isEnabled'
+502 |                 set: { appState.toggleAccount(account.id, isEnabled: $0) }
+503 |             ))
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/ContentView.swift:511:24: error: value of type 'TelegramAccount' has no member 'status'
+509 |     
+510 |     private var statusColor: Color {
+511 |         switch account.status {
+    |                        `- error: value of type 'TelegramAccount' has no member 'status'
+512 |         case .offline: return .gray
+513 |         case .ready: return .green
+/Users/mk/LiquidScanner/Sources/LiquidScanner/Models.swift:99:7: error: invalid redeclaration of 'AppState'
+ 97 | 
+ 98 | // MARK: - App State
+ 99 | class AppState: ObservableObject {
+    |       `- error: invalid redeclaration of 'AppState'
+100 |     @Published var accounts: [TelegramAccount] = [
+101 |         TelegramAccount(name: "Эвелин", phoneNumber: "+79891243575", apiID: "38902122", apiHash: "d2bf17a44846878618e6eb15e9cce56d"),
+/Users/mk/LiquidScanner/Sources/LiquidScanner/PythonOutputView.swift:4:38: error: 'AppState' is ambiguous for type lookup in this context
+ 2 | 
+ 3 | struct PythonOutputView: View {
+ 4 |     @EnvironmentObject var appState: AppState
+   |                                      `- error: 'AppState' is ambiguous for type lookup in this context
+ 5 |     @State private var searchText: String = ""
+ 6 |     @State private var selectedLogLevel: PythonOutput.LogLevel = .all
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/AppState.swift:4:7: note: found this candidate
+  2 | import Combine
+  3 | 
+  4 | class AppState: ObservableObject {
+    |       `- note: found this candidate
+  5 |     @Published var accounts: [TelegramAccount] = Constants.defaultAccounts
+  6 |     @Published var deposits: [Deposit] = []
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/Models.swift:99:7: note: found this candidate
+ 97 | 
+ 98 | // MARK: - App State
+ 99 | class AppState: ObservableObject {
+    |       `- note: found this candidate
+100 |     @Published var accounts: [TelegramAccount] = [
+101 |         TelegramAccount(name: "Эвелин", phoneNumber: "+79891243575", apiID: "38902122", apiHash: "d2bf17a44846878618e6eb15e9cce56d"),
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/PythonOutputView.swift:3:8: error: type 'PythonOutputView' does not conform to protocol 'View'
+ 1 | import SwiftUI
+ 2 | 
+ 3 | struct PythonOutputView: View {
+   |        |- error: type 'PythonOutputView' does not conform to protocol 'View'
+   |        `- note: add stubs for conformance
+ 4 |     @EnvironmentObject var appState: AppState
+ 5 |     @State private var searchText: String = ""
+
+SwiftUI.View.Body:2:16: note: protocol requires nested type 'Body'
+1 | protocol View {
+2 | associatedtype Body : View}
+  |                `- note: protocol requires nested type 'Body'
+3 | 
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/PythonOutputView.swift:52:32: error: ambiguous use of 'init()'
+50 |     static var previews: some View {
+51 |         PythonOutputView()
+52 |             .environmentObject(AppState())
+   |                                `- error: ambiguous use of 'init()'
+53 |             .frame(width: 400, height: 500)
+54 |     }
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/AppState.swift:26:5: note: found this candidate 
+ 24 |     private var statsTimer: Timer?
+ 25 |     
+ 26 |     init() {
+    |     `- note: found this candidate 
+ 27 |         setupObservers()
+ 28 |         startServices()
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/Models.swift:99:7: note: found this candidate 
+ 97 | 
+ 98 | // MARK: - App State
+ 99 | class AppState: ObservableObject {
+    |       `- note: found this candidate 
+100 |     @Published var accounts: [TelegramAccount] = [
+101 |         TelegramAccount(name: "Эвелин", phoneNumber: "+79891243575", apiID: "38902122", apiHash: "d2bf17a44846878618e6eb15e9cce56d"),
+/Users/mk/LiquidScanner/Sources/LiquidScanner/AccountsView.swift:4:35: error: 'AppState' is ambiguous for type lookup in this context
+ 2 | 
+ 3 | struct AddAccountView: View {
+ 4 |     @ObservedObject var appState: AppState
+   |                                   `- error: 'AppState' is ambiguous for type lookup in this context
+ 5 |     @Environment(\.dismiss) private var dismiss
+ 6 |     
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/AppState.swift:4:7: note: found this candidate
+  2 | import Combine
+  3 | 
+  4 | class AppState: ObservableObject {
+    |       `- note: found this candidate
+  5 |     @Published var accounts: [TelegramAccount] = Constants.defaultAccounts
+  6 |     @Published var deposits: [Deposit] = []
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/Models.swift:99:7: note: found this candidate
+ 97 | 
+ 98 | // MARK: - App State
+ 99 | class AppState: ObservableObject {
+    |       `- note: found this candidate
+100 |     @Published var accounts: [TelegramAccount] = [
+101 |         TelegramAccount(name: "Эвелин", phoneNumber: "+79891243575", apiID: "38902122", apiHash: "d2bf17a44846878618e6eb15e9cce56d"),
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/AccountsView.swift:5:41: error: type annotation missing in pattern
+ 3 | struct AddAccountView: View {
+ 4 |     @ObservedObject var appState: AppState
+ 5 |     @Environment(\.dismiss) private var dismiss
+   |                                         `- error: type annotation missing in pattern
+ 6 |     
+ 7 |     @State private var name = ""
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/AccountsView.swift:4:6: error: unknown attribute 'ObservedObject'
+ 2 | 
+ 3 | struct AddAccountView: View {
+ 4 |     @ObservedObject var appState: AppState
+   |      `- error: unknown attribute 'ObservedObject'
+ 5 |     @Environment(\.dismiss) private var dismiss
+ 6 |     
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/AccountsView.swift:5:6: error: unknown attribute 'Environment'
+ 3 | struct AddAccountView: View {
+ 4 |     @ObservedObject var appState: AppState
+ 5 |     @Environment(\.dismiss) private var dismiss
+   |      `- error: unknown attribute 'Environment'
+ 6 |     
+ 7 |     @State private var name = ""
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/AccountsView.swift:7:6: error: unknown attribute 'State'
+ 5 |     @Environment(\.dismiss) private var dismiss
+ 6 |     
+ 7 |     @State private var name = ""
+   |      `- error: unknown attribute 'State'
+ 8 |     @State private var phone = ""
+ 9 |     @State private var apiId = ""
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/AccountsView.swift:8:6: error: unknown attribute 'State'
+ 6 |     
+ 7 |     @State private var name = ""
+ 8 |     @State private var phone = ""
+   |      `- error: unknown attribute 'State'
+ 9 |     @State private var apiId = ""
+10 |     @State private var apiHash = ""
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/AccountsView.swift:9:6: error: unknown attribute 'State'
+ 7 |     @State private var name = ""
+ 8 |     @State private var phone = ""
+ 9 |     @State private var apiId = ""
+   |      `- error: unknown attribute 'State'
+10 |     @State private var apiHash = ""
+11 |     
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/AccountsView.swift:10:6: error: unknown attribute 'State'
+ 8 |     @State private var phone = ""
+ 9 |     @State private var apiId = ""
+10 |     @State private var apiHash = ""
+   |      `- error: unknown attribute 'State'
+11 |     
+12 |     var body: some View {
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/AccountsView.swift:12:20: error: cannot find type 'View' in scope
+10 |     @State private var apiHash = ""
+11 |     
+12 |     var body: some View {
+   |                    `- error: cannot find type 'View' in scope
+13 |         NavigationView {
+14 |             Form {
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/AccountsView.swift:3:24: error: cannot find type 'View' in scope
+ 1 | // ... (начало файла до AddAccountView)
+ 2 | 
+ 3 | struct AddAccountView: View {
+   |                        `- error: cannot find type 'View' in scope
+ 4 |     @ObservedObject var appState: AppState
+ 5 |     @Environment(\.dismiss) private var dismiss
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/AccountsView.swift:3:8: error: invalid redeclaration of 'AddAccountView'
+ 1 | // ... (начало файла до AddAccountView)
+ 2 | 
+ 3 | struct AddAccountView: View {
+   |        `- error: invalid redeclaration of 'AddAccountView'
+ 4 |     @ObservedObject var appState: AppState
+ 5 |     @Environment(\.dismiss) private var dismiss
+/Users/mk/LiquidScanner/Sources/LiquidScanner/DashboardView.swift:4:35: error: 'AppState' is ambiguous for type lookup in this context
+  2 | 
+  3 | struct DashboardView: View {
+  4 |     @ObservedObject var appState: AppState
+    |                                   `- error: 'AppState' is ambiguous for type lookup in this context
+  5 |     
+  6 |     var body: some View {
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/AppState.swift:4:7: note: found this candidate
+  2 | import Combine
+  3 | 
+  4 | class AppState: ObservableObject {
+    |       `- note: found this candidate
+  5 |     @Published var accounts: [TelegramAccount] = Constants.defaultAccounts
+  6 |     @Published var deposits: [Deposit] = []
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/Models.swift:99:7: note: found this candidate
+ 97 | 
+ 98 | // MARK: - App State
+ 99 | class AppState: ObservableObject {
+    |       `- note: found this candidate
+100 |     @Published var accounts: [TelegramAccount] = [
+101 |         TelegramAccount(name: "Эвелин", phoneNumber: "+79891243575", apiID: "38902122", apiHash: "d2bf17a44846878618e6eb15e9cce56d"),
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/DashboardView.swift:25:35: error: 'AppState' is ambiguous for type lookup in this context
+ 23 | 
+ 24 | struct StatsGridView: View {
+ 25 |     @ObservedObject var appState: AppState
+    |                                   `- error: 'AppState' is ambiguous for type lookup in this context
+ 26 |     
+ 27 |     var body: some View {
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/AppState.swift:4:7: note: found this candidate
+  2 | import Combine
+  3 | 
+  4 | class AppState: ObservableObject {
+    |       `- note: found this candidate
+  5 |     @Published var accounts: [TelegramAccount] = Constants.defaultAccounts
+  6 |     @Published var deposits: [Deposit] = []
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/Models.swift:99:7: note: found this candidate
+ 97 | 
+ 98 | // MARK: - App State
+ 99 | class AppState: ObservableObject {
+    |       `- note: found this candidate
+100 |     @Published var accounts: [TelegramAccount] = [
+101 |         TelegramAccount(name: "Эвелин", phoneNumber: "+79891243575", apiID: "38902122", apiHash: "d2bf17a44846878618e6eb15e9cce56d"),
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/DashboardView.swift:108:35: error: 'AppState' is ambiguous for type lookup in this context
+106 | 
+107 | struct RecentDepositsView: View {
+108 |     @ObservedObject var appState: AppState
+    |                                   `- error: 'AppState' is ambiguous for type lookup in this context
+109 |     
+110 |     var recentDeposits: [Deposit] {
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/AppState.swift:4:7: note: found this candidate
+  2 | import Combine
+  3 | 
+  4 | class AppState: ObservableObject {
+    |       `- note: found this candidate
+  5 |     @Published var accounts: [TelegramAccount] = Constants.defaultAccounts
+  6 |     @Published var deposits: [Deposit] = []
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/Models.swift:99:7: note: found this candidate
+ 97 | 
+ 98 | // MARK: - App State
+ 99 | class AppState: ObservableObject {
+    |       `- note: found this candidate
+100 |     @Published var accounts: [TelegramAccount] = [
+101 |         TelegramAccount(name: "Эвелин", phoneNumber: "+79891243575", apiID: "38902122", apiHash: "d2bf17a44846878618e6eb15e9cce56d"),
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/DashboardView.swift:11:31: error: cannot infer contextual base in reference to member 'horizontal'
+  9 |                 // Статистические карточки
+ 10 |                 StatsGridView(appState: appState)
+ 11 |                     .padding(.horizontal, 30)
+    |                               `- error: cannot infer contextual base in reference to member 'horizontal'
+ 12 |                 
+ 13 |                 // Последние депозиты
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/DashboardView.swift:179:30: error: value of type 'Deposit' has no member 'formattedAmount'
+177 |             // Сумма
+178 |             VStack(alignment: .trailing, spacing: 4) {
+179 |                 Text(deposit.formattedAmount)
+    |                              `- error: value of type 'Deposit' has no member 'formattedAmount'
+180 |                     .font(.headline)
+181 |                     .foregroundColor(.green)
+/Users/mk/LiquidScanner/Sources/LiquidScanner/SettingsView.swift:4:38: error: 'AppState' is ambiguous for type lookup in this context
+  2 | 
+  3 | struct SettingsView: View {
+  4 |     @EnvironmentObject var appState: AppState
+    |                                      `- error: 'AppState' is ambiguous for type lookup in this context
+  5 |     @State private var selectedTab: SettingsTab = .general
+  6 |     @State private var notificationsEnabled: Bool = true
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/AppState.swift:4:7: note: found this candidate
+  2 | import Combine
+  3 | 
+  4 | class AppState: ObservableObject {
+    |       `- note: found this candidate
+  5 |     @Published var accounts: [TelegramAccount] = Constants.defaultAccounts
+  6 |     @Published var deposits: [Deposit] = []
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/Models.swift:99:7: note: found this candidate
+ 97 | 
+ 98 | // MARK: - App State
+ 99 | class AppState: ObservableObject {
+    |       `- note: found this candidate
+100 |     @Published var accounts: [TelegramAccount] = [
+101 |         TelegramAccount(name: "Эвелин", phoneNumber: "+79891243575", apiID: "38902122", apiHash: "d2bf17a44846878618e6eb15e9cce56d"),
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/SettingsView.swift:139:38: error: 'AppState' is ambiguous for type lookup in this context
+137 |     let selectedTab: SettingsView.SettingsTab
+138 |     
+139 |     @EnvironmentObject var appState: AppState
+    |                                      `- error: 'AppState' is ambiguous for type lookup in this context
+140 |     @State private var notificationsEnabled: Bool = true
+141 |     @State private var soundEnabled: Bool = true
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/AppState.swift:4:7: note: found this candidate
+  2 | import Combine
+  3 | 
+  4 | class AppState: ObservableObject {
+    |       `- note: found this candidate
+  5 |     @Published var accounts: [TelegramAccount] = Constants.defaultAccounts
+  6 |     @Published var deposits: [Deposit] = []
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/Models.swift:99:7: note: found this candidate
+ 97 | 
+ 98 | // MARK: - App State
+ 99 | class AppState: ObservableObject {
+    |       `- note: found this candidate
+100 |     @Published var accounts: [TelegramAccount] = [
+101 |         TelegramAccount(name: "Эвелин", phoneNumber: "+79891243575", apiID: "38902122", apiHash: "d2bf17a44846878618e6eb15e9cce56d"),
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/SettingsView.swift:236:35: error: 'AppState' is ambiguous for type lookup in this context
+234 | 
+235 | struct AccountsSettingsView: View {
+236 |     @ObservedObject var appState: AppState
+    |                                   `- error: 'AppState' is ambiguous for type lookup in this context
+237 |     @State private var showingAddAccount = false
+238 |     @State private var newAccountName = ""
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/AppState.swift:4:7: note: found this candidate
+  2 | import Combine
+  3 | 
+  4 | class AppState: ObservableObject {
+    |       `- note: found this candidate
+  5 |     @Published var accounts: [TelegramAccount] = Constants.defaultAccounts
+  6 |     @Published var deposits: [Deposit] = []
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/Models.swift:99:7: note: found this candidate
+ 97 | 
+ 98 | // MARK: - App State
+ 99 | class AppState: ObservableObject {
+    |       `- note: found this candidate
+100 |     @Published var accounts: [TelegramAccount] = [
+101 |         TelegramAccount(name: "Эвелин", phoneNumber: "+79891243575", apiID: "38902122", apiHash: "d2bf17a44846878618e6eb15e9cce56d"),
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/SettingsView.swift:306:35: error: 'AppState' is ambiguous for type lookup in this context
+304 | struct AccountRowView: View {
+305 |     let account: TelegramAccount
+306 |     @ObservedObject var appState: AppState
+    |                                   `- error: 'AppState' is ambiguous for type lookup in this context
+307 |     
+308 |     var body: some View {
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/AppState.swift:4:7: note: found this candidate
+  2 | import Combine
+  3 | 
+  4 | class AppState: ObservableObject {
+    |       `- note: found this candidate
+  5 |     @Published var accounts: [TelegramAccount] = Constants.defaultAccounts
+  6 |     @Published var deposits: [Deposit] = []
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/Models.swift:99:7: note: found this candidate
+ 97 | 
+ 98 | // MARK: - App State
+ 99 | class AppState: ObservableObject {
+    |       `- note: found this candidate
+100 |     @Published var accounts: [TelegramAccount] = [
+101 |         TelegramAccount(name: "Эвелин", phoneNumber: "+79891243575", apiID: "38902122", apiHash: "d2bf17a44846878618e6eb15e9cce56d"),
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/SettingsView.swift:349:8: error: invalid redeclaration of 'AddAccountView'
+347 | }
+348 | 
+349 | struct AddAccountView: View {
+    |        `- error: invalid redeclaration of 'AddAccountView'
+350 |     @Binding var isPresented: Bool
+351 |     @Binding var name: String
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/SettingsView.swift:59:41: error: type 'NSVisualEffectView.Material' has no member 'ultraThinMaterial'
+ 57 |         }
+ 58 |         .background(
+ 59 |             VisualEffectView(material: .ultraThinMaterial, blendingMode: .behindWindow)
+    |                                         `- error: type 'NSVisualEffectView.Material' has no member 'ultraThinMaterial'
+ 60 |         )
+ 61 |         .frame(width: 600, height: 500)
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/SettingsView.swift:75:124: error: cannot infer contextual base in reference to member 'info'
+ 73 |         debugModeEnabled = false
+ 74 |         
+ 75 |         appState.addPythonLog("Настройки сброшены к значениям по умолчанию", level: .info)
+    |                                                                                      `- error: cannot infer contextual base in reference to member 'info'
+ 76 |     }
+ 77 |     
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/SettingsView.swift:89:80: error: cannot infer contextual base in reference to member 'success'
+ 87 |         appState.settings.debugMode = debugModeEnabled
+ 88 |         
+ 89 |         appState.addPythonLog("Настройки сохранены", level: .success)
+    |                                                              `- error: cannot infer contextual base in reference to member 'success'
+ 90 |     }
+ 91 | }
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/AccountsView.swift:4:35: error: 'AppState' is ambiguous for type lookup in this context
+ 2 | 
+ 3 | struct AddAccountView: View {
+ 4 |     @ObservedObject var appState: AppState
+   |                                   `- error: 'AppState' is ambiguous for type lookup in this context
+ 5 |     @Environment(\.dismiss) private var dismiss
+ 6 |     
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/AppState.swift:4:7: note: found this candidate
+  2 | import Combine
+  3 | 
+  4 | class AppState: ObservableObject {
+    |       `- note: found this candidate
+  5 |     @Published var accounts: [TelegramAccount] = Constants.defaultAccounts
+  6 |     @Published var deposits: [Deposit] = []
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/Models.swift:99:7: note: found this candidate
+ 97 | 
+ 98 | // MARK: - App State
+ 99 | class AppState: ObservableObject {
+    |       `- note: found this candidate
+100 |     @Published var accounts: [TelegramAccount] = [
+101 |         TelegramAccount(name: "Эвелин", phoneNumber: "+79891243575", apiID: "38902122", apiHash: "d2bf17a44846878618e6eb15e9cce56d"),
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/AccountsView.swift:5:41: error: type annotation missing in pattern
+ 3 | struct AddAccountView: View {
+ 4 |     @ObservedObject var appState: AppState
+ 5 |     @Environment(\.dismiss) private var dismiss
+   |                                         `- error: type annotation missing in pattern
+ 6 |     
+ 7 |     @State private var name = ""
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/SettingsView.swift:375:59: error: argument passed to call that takes no arguments
+373 |                     isPresented = false
+374 |                 }
+375 |                 .buttonStyle(GlassButtonStyle(iconColor: .gray))
+    |                                                           `- error: argument passed to call that takes no arguments
+376 |                 
+377 |                 Spacer()
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/SettingsView.swift:375:59: error: cannot infer contextual base in reference to member 'gray'
+373 |                     isPresented = false
+374 |                 }
+375 |                 .buttonStyle(GlassButtonStyle(iconColor: .gray))
+    |                                                           `- error: cannot infer contextual base in reference to member 'gray'
+376 |                 
+377 |                 Spacer()
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/SettingsView.swift:391:41: error: type 'NSVisualEffectView.Material' has no member 'ultraThinMaterial'
+389 |         .frame(width: 400)
+390 |         .background(
+391 |             VisualEffectView(material: .ultraThinMaterial, blendingMode: .behindWindow)
+    |                                         `- error: type 'NSVisualEffectView.Material' has no member 'ultraThinMaterial'
+392 |         )
+393 |     }
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/SettingsView.swift:483:67: error: argument passed to call that takes no arguments
+481 |                             selectExportDirectory()
+482 |                         }
+483 |                         .buttonStyle(GlassButtonStyle(iconColor: .blue))
+    |                                                                   `- error: argument passed to call that takes no arguments
+484 |                     }
+485 |                 }
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/SettingsView.swift:483:67: error: cannot infer contextual base in reference to member 'blue'
+481 |                             selectExportDirectory()
+482 |                         }
+483 |                         .buttonStyle(GlassButtonStyle(iconColor: .blue))
+    |                                                                   `- error: cannot infer contextual base in reference to member 'blue'
+484 |                     }
+485 |                 }
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/SettingsView.swift:532:59: error: argument passed to call that takes no arguments
+530 |                     checkPythonInstallation()
+531 |                 }
+532 |                 .buttonStyle(GlassButtonStyle(iconColor: .blue))
+    |                                                           `- error: argument passed to call that takes no arguments
+533 |                 .font(.caption)
+534 |             }
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/SettingsView.swift:532:59: error: cannot infer contextual base in reference to member 'blue'
+530 |                     checkPythonInstallation()
+531 |                 }
+532 |                 .buttonStyle(GlassButtonStyle(iconColor: .blue))
+    |                                                           `- error: cannot infer contextual base in reference to member 'blue'
+533 |                 .font(.caption)
+534 |             }
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/SettingsView.swift:587:18: error: value of type 'Text' has no member 'foregroundLinearGradient'
+585 |             Text(title)
+586 |                 .font(.headline)
+587 |                 .foregroundLinearGradient(colors: [.blue, .purple])
+    |                  `- error: value of type 'Text' has no member 'foregroundLinearGradient'
+588 |                 .padding(.bottom, 4)
+589 |             
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/SettingsView.swift:587:53: error: reference to member 'blue' cannot be resolved without a contextual type
+585 |             Text(title)
+586 |                 .font(.headline)
+587 |                 .foregroundLinearGradient(colors: [.blue, .purple])
+    |                                                     `- error: reference to member 'blue' cannot be resolved without a contextual type
+588 |                 .padding(.bottom, 4)
+589 |             
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/SettingsView.swift:587:60: error: reference to member 'purple' cannot be resolved without a contextual type
+585 |             Text(title)
+586 |                 .font(.headline)
+587 |                 .foregroundLinearGradient(colors: [.blue, .purple])
+    |                                                            `- error: reference to member 'purple' cannot be resolved without a contextual type
+588 |                 .padding(.bottom, 4)
+589 |             
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/SettingsView.swift:588:27: error: cannot infer contextual base in reference to member 'bottom'
+586 |                 .font(.headline)
+587 |                 .foregroundLinearGradient(colors: [.blue, .purple])
+588 |                 .padding(.bottom, 4)
+    |                           `- error: cannot infer contextual base in reference to member 'bottom'
+589 |             
+590 |             content
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/SettingsView.swift:628:32: error: ambiguous use of 'init()'
+626 |     static var previews: some View {
+627 |         SettingsView()
+628 |             .environmentObject(AppState())
+    |                                `- error: ambiguous use of 'init()'
+629 |     }
+630 | }
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/AppState.swift:26:5: note: found this candidate 
+ 24 |     private var statsTimer: Timer?
+ 25 |     
+ 26 |     init() {
+    |     `- note: found this candidate 
+ 27 |         setupObservers()
+ 28 |         startServices()
+
+/Users/mk/LiquidScanner/Sources/LiquidScanner/Models.swift:99:7: note: found this candidate 
+ 97 | 
+ 98 | // MARK: - App State
+ 99 | class AppState: ObservableObject {
+    |       `- note: found this candidate 
+100 |     @Published var accounts: [TelegramAccount] = [
+101 |         TelegramAccount(name: "Эвелин", phoneNumber: "+79891243575", apiID: "38902122", apiHash: "d2bf17a44846878618e6eb15e9cce56d"),
+[12/15] Compiling LiquidScanner SettingsView.swift
+mk@mav LiquidScanner % 
